@@ -1,0 +1,366 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>My blog</title><meta name="author" content="If ycyu"><meta name="copyright" content="If ycyu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="If you can , you up">
+<meta property="og:type" content="website">
+<meta property="og:title" content="My blog">
+<meta property="og:url" content="http://blog.ifycyu.ltd/index.html">
+<meta property="og:site_name" content="My blog">
+<meta property="og:description" content="If you can , you up">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.ifycyu.ltd/null">
+<meta property="article:author" content="If ycyu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.ifycyu.ltd/null"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.ifycyu.ltd/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":30,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-02-14 22:15:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/tags.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/css/buttons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/plugins.min.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/iconfont.min.css"><meta name="generator" content="Hexo 5.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">My blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">My blog</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/02/14/%E9%AB%98%E4%BB%B7%E5%87%BD%E6%95%B0/" title="高阶函数">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="高阶函数"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/14/%E9%AB%98%E4%BB%B7%E5%87%BD%E6%95%B0/" title="高阶函数">高阶函数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-14T12:00:00.000Z" title="发表于 2021-02-14 20:00:00">2021-02-14</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-14T13:12:41.331Z" title="更新于 2021-02-14 21:12:41">2021-02-14</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Python/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">高阶函数</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Python/">Python</a></span></div><div class="content">函数作为对象
+定义一个函数123def factorial(n):         &#39;&#39;&#39;returns n!&#39;&#39;&#39;    return 1 if n &lt; 2 else n * factorial(n-1)  # factorial:阶乘, 这里用的是递归调用
+调用函数,读取他的__doc__属性123print(factorial(42))print(factorial.__doc__)print(type(factorial))
+输出
+1405006117752879898543142606244511569936384000000000returns n!&lt;class &#39;function&#39;&gt;
+
+
+
+函数用作参数定义一个打印的方式定义一个默认的打印方式,把变量 指向print函数 那么这个变量就和print 一样了
+123456def print_score_dict(dict):    for k in dict.keys():        print(&#39;姓名: &#123;:s&#125 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/02/14/Scrapy%20(%E4%BA%8C)/" title="Scrapy (二) middlewares">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Scrapy (二) middlewares"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/14/Scrapy%20(%E4%BA%8C)/" title="Scrapy (二) middlewares">Scrapy (二) middlewares</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-14T04:00:00.000Z" title="发表于 2021-02-14 12:00:00">2021-02-14</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-14T13:12:52.149Z" title="更新于 2021-02-14 21:12:52">2021-02-14</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Python/Scrapy/">Scrapy</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Python/">Python</a></span></div><div class="content">修改 UA在middlewares.py下添加
+1234class UAMiddleware(object):    def process_request(self, request, spider):        ua &#x3D; random.choice(settings[&#39;USER_AGENT_LIST&#39;])        request.headers[&#39;User-Agent&#39;] &#x3D; ua
+定义一个UA类 获取settings里面的UA列表 把ua放入请求头里面
+由于引入random和settings所以要import
+123import randomfrom scrapy.utils.project import get_project_settingssettings &#x3D; get_project_settings()
+改 settings在settings修改
+123DOWNLOADER_MIDDLEWARES &#x3D; &#123;  &#39;UA.middlewares.UAMiddleware&#39; ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/02/13/Scrapy%20(%E4%B8%80)/" title="Scrapy (一) 框架">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Scrapy (一) 框架"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/13/Scrapy%20(%E4%B8%80)/" title="Scrapy (一) 框架">Scrapy (一) 框架</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-12T16:00:00.000Z" title="发表于 2021-02-13 00:00:00">2021-02-13</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-14T03:33:51.403Z" title="更新于 2021-02-14 11:33:51">2021-02-14</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Python/Scrapy/">Scrapy</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Python/">Python</a></span></div><div class="content">新建项目在目标的文件夹下按按住Shift 和鼠标右键点击在此处打开命令窗口输入
+123scrapy startproject 文件cd 文件scrapy genspider 名字 域名
+即出现了
+items.py在items.py下编辑要爬取的内容
+settings.py 编辑设置在settings.py下编辑
+
+BOT_NAME：项目名
+
+USER_AGENT：就是 UA  即 浏览器标识(也可以放在DEFAULT_REQUEST_HEADERS里面)
+
+ROBOTSTXT_OBEY：机器人协议，默认是true，需要改为false，否则很多东西爬不了
+
+CONCURRENT_REQUESTS：最大并发数，就是同时允许开启多少个爬虫线程
+
+DOWNLOAD_DELAY：下载延迟时间，单位是秒，控制爬虫爬取的频率，默认是3秒
+
+COOKIES_ENABLED：是否保存COOKIES，默认关闭，开机可以记录爬取过程中的COOKIE
+
+DEFAULT_REQUEST_HEADERS：默认请求头
+
+ITEM_PIPELINES：项目管道，300为优先级，越低越爬取的优先度越高
+
+
+名字.py  ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/02/11/XPath/" title="XPath">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="XPath"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/11/XPath/" title="XPath">XPath</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-10T16:00:00.000Z" title="发表于 2021-02-11 00:00:00">2021-02-11</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-12T15:06:18.233Z" title="更新于 2021-02-12 23:06:18">2021-02-12</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Python/XPath/">XPath</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Python/">Python</a></span></div><div class="content">XPath的符号表示表达式描述nodename选取此节点的所有子节点/从当前节点选取直接子节点(下一级)//从当前节点选取子孙节点(下级).选取当前节点..选取当前节点的父节点@选取属性
+
+XPath快速定位按F12 -&gt; Ctrl + Shift + C -&gt; 定位元素 -&gt; -&gt; 右键点击元素 -&gt; 复制XPath
+XPath常用函数1.contains()：匹配属性值中包含(部分)某些字符串的节点形式如 : //li[contains(@id,”xxx”)]2.text()：获取标签里的内容，作为字符串输出形式如 : //li[contains(@id,”xxx”)]/text()
+爬取猫眼12345678910111213141516import requestsfrom lxml import etreeurl &#x3D; &#39;https:&#x2F;&#x2F;maoyan.com&#x2F;board&#39;headers &#x3D; &#123;    &#39;Cookie&#39;: &#39;uuid_n_v&#x3D;v ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/02/10/CSV%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/" title="CSV文件读写">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSV文件读写"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/10/CSV%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/" title="CSV文件读写">CSV文件读写</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-09T16:00:00.000Z" title="发表于 2021-02-10 00:00:00">2021-02-10</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-12T02:43:09.861Z" title="更新于 2021-02-12 10:43:09">2021-02-12</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Python/CSV%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/">CSV文件读写</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Python/">Python</a></span></div><div class="content">CSV表格文件的输入输出
+
+逗号分隔值(Comma-Separated Values，CSV) , 其文件以纯文本形式存储表格数据（数字和文本）。纯文本意味着该文件是一个字符序列, 不含必须像二进制数字那样被解读的数据. CSV文件由任意数目的记录组成, 记录间以某种换行符分隔; 每条记录由字段组成, 字段间的分隔符是其它字符或字符串, 最常见的是逗号或制表符。建议使用WORDPAD或是记事本来开启，再则先另存新档后用EXCEL开启, 也是方法之一. 
+CSV文件格式的通用标准并不存在, 但是在RFC 4180中有基础性的描述. 使用的字符编码同样没有被指定. 是一种通用的、相对简单的文件格式, 被用户、商业和科学广泛应用. 最广泛的应用是在程序之间转移表格数据, 而这些程序本身是在不兼容的格式上进行操作的( 往往是私有的和/或无规范的格式). 因为大量程序都支持某种CSV变体, 至少是作为一种可选择的输入/输出格式. 
+简单讲, 是一种比较原始简单的表格/数据存储方式, 灵活性高, 可做客制化或临时存储 (例如, 加密存储某一列数据)
+
+
+文件的打开方式 模式描述 r以只读方式打开文 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/02/09/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="正则表达式"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/09/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-08T16:00:00.000Z" title="发表于 2021-02-09 00:00:00">2021-02-09</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-10T09:07:25.348Z" title="更新于 2021-02-10 17:07:25">2021-02-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Python/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Python/">Python</a></span></div><div class="content">基本符号表示
+^示匹配字符串的开始位置 (例外:用在中括号中[ ]时,可以理解为取反,表示不匹配括号中字符串)
+
+$示匹配字符串的结束位置
+
+.匹配单个字符
+
+\w匹配英文字母和数字\W非字母和数字
+
+\d匹配数字\D非数字
+
+*表示匹配 零次到多次
+
++表示匹配 一次到多次 (至少有一次)
+
+?表示匹配零次或一次 (或是非贪心模式 尽可能少的匹配)
+
+|表示为或者,两项中取一项
+
+( )小括号表示匹配括号中全部字符
+
+[ ]中括号表示匹配括号中一个字符 范围描述 如[0-9 a-z A-Z]
+
+&#123; &#125;大括号用于限定匹配次数 如&#123;n&#125;表示匹配n个字符&#123;n,&#125;表示至少匹配n个字符 {n,m}表示至少 n,最多 m
+
+\转义字符 如上基本符号匹配都需要转义字符 如\*表示匹配*号
+
+
+使用正则匹配匹配Regex对象两种表示方法
+1234import reRex &#x3D; re.compile(r&#39;\d\d\d-\d\d\d-\d\d\d\d&#39;)mo &#x3D; Rex.search(&#39;电话是123-4 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/02/08/Python%20%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%BC%82%E6%AD%A5/" title="Python 多任务异步">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 多任务异步"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/08/Python%20%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%BC%82%E6%AD%A5/" title="Python 多任务异步">Python 多任务异步</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-08T12:00:00.000Z" title="发表于 2021-02-08 20:00:00">2021-02-08</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-08T08:19:26.492Z" title="更新于 2021-02-08 16:19:26">2021-02-08</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python/">Python</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Python/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%BC%82%E6%AD%A5/">多任务异步</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Python/">Python</a></span></div><div class="content">模拟堵塞环境1234567891011121314151617181920212223from flask import Flaskfrom time import sleepapp &#x3D;Flask(__name__)@app.route(&#39;&#x2F;qqq&#39;)def index_qqq():    sleep(2)    return &#39;qqq&#39;@app.route(&#39;&#x2F;www&#39;)def index_www():    sleep(2)    return &#39;www&#39;@app.route(&#39;&#x2F;eee&#39;)def index_eee():    sleep(2)    return &#39;eee&#39;if __name__ &#x3D;&#x3D;&#39;__main__&#39;:    app.run(threaded&#x3D;True)
+堵塞2秒后加载
+线程池普通的爬取1234567urls &#x3D; [&#39;http:&#x2F;&#x2F;127.0 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/02/06/HTML%20%E5%85%A5%E9%97%A8/" title="HTML 入门">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HTML 入门"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/06/HTML%20%E5%85%A5%E9%97%A8/" title="HTML 入门">HTML 入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-05T16:00:00.000Z" title="发表于 2021-02-06 00:00:00">2021-02-06</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-09T16:31:32.620Z" title="更新于 2021-02-10 00:31:32">2021-02-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/HTML/">HTML</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">vscode 中 输入!可以开始套模板
+标题写法123456&lt;h1&gt;一级标题&lt;&#x2F;h1&gt;&lt;h2&gt;二级标题&lt;&#x2F;h2&gt;&lt;h3&gt;三级标题&lt;&#x2F;h3&gt;&lt;h4&gt;四级标题&lt;&#x2F;h4&gt;&lt;h5&gt;五级标题&lt;&#x2F;h5&gt;&lt;h6&gt;六级标题&lt;&#x2F;h6&gt;
+一级标题
+二级标题
+三级标题
+四级标题
+五级标题
+六级标题
+
+
+换行12&lt;p&gt;这是一个段落&lt;&#x2F;p&gt;&lt;p&gt;在文字中,用&lt;br&#x2F;&gt;可以换行&lt;&#x2F;p&gt;
+这是一个段落
+在文字中,用可以换行
+
+
+区别: 
+
+&lt;p&gt;&lt;/p&gt;和&lt;p&gt;&lt;/p&gt;之间会有一个空行
+&lt;br/&gt;只有一个,不是一对
+
+
+
+
+
+字体123456&lt;strong&gt;加粗&lt;&#x2F;strong&gt;或&lt;b&gt;加粗&lt;&#x2F;b&gt;& ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/02/05/heox%20--%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="hexo --博客搭建">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo --博客搭建"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/05/heox%20--%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="hexo --博客搭建">hexo --博客搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-04T16:00:00.000Z" title="发表于 2021-02-05 00:00:00">2021-02-05</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-09T08:05:07.774Z" title="更新于 2021-02-09 16:05:07">2021-02-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8D%9A%E5%AE%A2-hexo/">博客 hexo</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/hexo/">hexo</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a></span></div><div class="content">前言搭建环境 win10 32位(虚拟机)
+博客搭建 hexo + Github
+如果下载慢,可在下载
+CMD下Ctrl + C不是复制
+方框是链接,可以点击
+
+
+注册Github
+注册,登录Github记住自己的 username
+右上角+号 -&gt; 点击 New repository
+Repository name 填写第一步的 username.github.io例如 我的username为123,就填写123.github.io
+
+
+
+
+环境安装
+安装 Node.js
+安装 Git
+打开 Git Bash 输入
+12git config --global user.name &quot;注册的username&quot;git config --global user.emaim &quot;注册的邮箱&quot;
+
+安装 Hexo
+打开 cmd 输入
+1npm install -g hexo-cli
+如果下载过慢可以先输入下面
+1npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org
+
+
+
+
+建立 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/02/03/test/" title="这是一篇测试的文章">     <img class="post_bg" data-lazy-src="/2021/02/03/test/%E6%B5%8B%E8%AF%95.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="这是一篇测试的文章"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/02/03/test/" title="这是一篇测试的文章">这是一篇测试的文章</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-03T12:00:00.000Z" title="发表于 2021-02-03 20:00:00">2021-02-03</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-06T14:52:03.449Z" title="更新于 2021-02-06 22:52:03">2021-02-06</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/test/">test</a></span></div><div class="content">-  
+写作介绍字体介绍1234*这是斜体* 或 _这也是斜体_ **这是粗体*****这是加粗斜体***~~这是删除线~~
+这是斜体 或 这也是斜体这是粗体这是加粗斜体这是删除线
+
+分级标题12345678# 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题This is an H1&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+一级标题二级标题三级标题四级标题五级标题六级标题This is an H1
+超链接12[百度](http:&#x2F;&#x2F;www.baidu.com&#x2F;)[百度](http:&#x2F;&#x2F;www.baidu.com&#x2F; &quot;我是百度&quot;)
+百度百度
+
+列表无序列表：
+123* 无序列表项1+ 无序列表项2- 无序列表项3
+
+无序列表项1
+
+
+无序列表项2
+
+
+无序列表项3有序列表：123451. 有序列表项12. 有序列表项23. 有序列表项390.  ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">If ycyu</div><div class="author-info__description">If you can , you up</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Welcome to my Blog<img src="/img/announcement.gif"></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/02/14/%E9%AB%98%E4%BB%B7%E5%87%BD%E6%95%B0/" title="高阶函数"><img data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="高阶函数"/></a><div class="content"><a class="title" href="/2021/02/14/%E9%AB%98%E4%BB%B7%E5%87%BD%E6%95%B0/" title="高阶函数">高阶函数</a><time datetime="2021-02-14T12:00:00.000Z" title="发表于 2021-02-14 20:00:00">2021-02-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/14/Scrapy%20(%E4%BA%8C)/" title="Scrapy (二) middlewares"><img data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Scrapy (二) middlewares"/></a><div class="content"><a class="title" href="/2021/02/14/Scrapy%20(%E4%BA%8C)/" title="Scrapy (二) middlewares">Scrapy (二) middlewares</a><time datetime="2021-02-14T04:00:00.000Z" title="发表于 2021-02-14 12:00:00">2021-02-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/13/Scrapy%20(%E4%B8%80)/" title="Scrapy (一) 框架"><img data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Scrapy (一) 框架"/></a><div class="content"><a class="title" href="/2021/02/13/Scrapy%20(%E4%B8%80)/" title="Scrapy (一) 框架">Scrapy (一) 框架</a><time datetime="2021-02-12T16:00:00.000Z" title="发表于 2021-02-13 00:00:00">2021-02-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/11/XPath/" title="XPath"><img data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="XPath"/></a><div class="content"><a class="title" href="/2021/02/11/XPath/" title="XPath">XPath</a><time datetime="2021-02-10T16:00:00.000Z" title="发表于 2021-02-11 00:00:00">2021-02-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/02/10/CSV%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/" title="CSV文件读写"><img data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSV文件读写"/></a><div class="content"><a class="title" href="/2021/02/10/CSV%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/" title="CSV文件读写">CSV文件读写</a><time datetime="2021-02-09T16:00:00.000Z" title="发表于 2021-02-10 00:00:00">2021-02-10</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item parent"><a class="card-category-list-link" href="/categories/Python/"><span class="card-category-list-name">Python</span><span class="card-category-list-count">7</span><i class="fas fa-caret-left "></i></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/CSV%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/"><span class="card-category-list-name">CSV文件读写</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/Scrapy/"><span class="card-category-list-name">Scrapy</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/XPath/"><span class="card-category-list-name">XPath</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%BC%82%E6%AD%A5/"><span class="card-category-list-name">多任务异步</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="card-category-list-name">正则表达式</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/"><span class="card-category-list-name">高阶函数</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/"><span class="card-category-list-name">前端</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Python/" style="font-size: 1.5em; color: #99a9bf">Python</a> <a href="/tags/hexo/" style="font-size: 1.1em; color: #999">hexo</a> <a href="/tags/test/" style="font-size: 1.1em; color: #999">test</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.1em; color: #999">博客</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/02/"><span class="card-archive-list-date">二月 2021</span><span class="card-archive-list-count">11</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">11</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-02-01T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">10.8k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-02-14T14:15:09.575Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By If ycyu</div><div class="footer_custom_text">Hi, welcome to my <a href="http://blog.ifycyu.ltd/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function subtitleType () {
+  if (true) { 
+    var typed = new Typed("#subtitle", {
+      strings: "If you can you up.".split(","),
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("subtitle").innerHTML = 'If you can you up.'
+  }
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}</script><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script></div><script src="/js/xkTool.js"></script><script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.js"></script><script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script><script src="/js/buttom.js"></script><script type="text/javascript" src="/js/third-party/snow.js"></script><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
