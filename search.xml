@@ -129,6 +129,69 @@
       </tags>
   </entry>
   <entry>
+    <title>Scrapy (一) 框架</title>
+    <url>/2021/02/13/Scrapy%20(%E4%B8%80)/</url>
+    <content><![CDATA[<h1 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h1><p>在目标的文件夹下按按住<kbd>Shift</kbd> 和鼠标右键<br>点击<code>在此处打开命令窗口</code><br>输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scrapy startproject 文件</span><br><span class="line">cd 文件</span><br><span class="line">scrapy genspider 名字 域名</span><br></pre></td></tr></table></figure>
+<p><img src= "/img/loading.gif" data-lazy-src="/2021/02/13/Scrapy%20(%E4%B8%80)/cmd.png"><br>即出现了<br><img src= "/img/loading.gif" data-lazy-src="/2021/02/13/Scrapy%20(%E4%B8%80)/%E5%88%86%E7%BA%A7.png"></p>
+<h1 id="items-py"><a href="#items-py" class="headerlink" title="items.py"></a>items.py</h1><p>在<code>items.py</code>下编辑要爬取的内容</p>
+<h1 id="settings-py-编辑设置"><a href="#settings-py-编辑设置" class="headerlink" title="settings.py 编辑设置"></a>settings.py 编辑设置</h1><p>在<code>settings.py</code>下编辑</p>
+<ol>
+<li><p>BOT_NAME：项目名</p>
+</li>
+<li><p>USER_AGENT：就是 UA  即 浏览器标识(也可以放在<code>DEFAULT_REQUEST_HEADERS</code>里面)</p>
+</li>
+<li><p>ROBOTSTXT_OBEY：机器人协议，默认是true，需要改为false，否则很多东西爬不了</p>
+</li>
+<li><p>CONCURRENT_REQUESTS：最大并发数，就是同时允许开启多少个爬虫线程</p>
+</li>
+<li><p>DOWNLOAD_DELAY：下载延迟时间，单位是秒，控制爬虫爬取的频率，默认是3秒</p>
+</li>
+<li><p>COOKIES_ENABLED：是否保存COOKIES，默认关闭，开机可以记录爬取过程中的COOKIE</p>
+</li>
+<li><p>DEFAULT_REQUEST_HEADERS：默认请求头</p>
+</li>
+<li><p>ITEM_PIPELINES：项目管道，300为优先级，越低越爬取的优先度越高</p>
+</li>
+</ol>
+<h1 id="名字-py-爬虫主文件"><a href="#名字-py-爬虫主文件" class="headerlink" title="名字.py 爬虫主文件"></a>名字.py 爬虫主文件</h1><p>在spiders下的<code>名字.py</code></p>
+<p>name: 名字<br>allowed_domains: 域名<br>start_urls: 网址</p>
+<h1 id="开始爬虫"><a href="#开始爬虫" class="headerlink" title="开始爬虫"></a>开始爬虫</h1><h2 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h2><h3 id="保存在文件"><a href="#保存在文件" class="headerlink" title="保存在文件"></a>保存在文件</h3><ol>
+<li>scrapy crawl 名字 -o xx.csv</li>
+<li>scrapy crawl 名字 -o xx.json</li>
+</ol>
+<h3 id="爬取"><a href="#爬取" class="headerlink" title="爬取"></a>爬取</h3><ol start="3">
+<li>scrapy crawl 名字</li>
+</ol>
+<h2 id="以-py的形式"><a href="#以-py的形式" class="headerlink" title="以.py的形式"></a>以.py的形式</h2><p>在<code>spiders</code>新建<code>run.py</code><br>写入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from scrapy import cmdline</span><br><span class="line">cmdline.execute(&#39;上面的三种形式&#39;.split())</span><br></pre></td></tr></table></figure>
+<p>比如</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from scrapy import cmdline</span><br><span class="line">cmdline.execute(&#39;scrapy crawl 名字&#39;.split())</span><br></pre></td></tr></table></figure>
+<p>运行这个就可以了</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><h2 id="爬取豆瓣电影"><a href="#爬取豆瓣电影" class="headerlink" title="爬取豆瓣电影"></a>爬取豆瓣电影</h2><p><a class="btn-beautify button--animated outline" href="https://movie.douban.com/explore#!type=movie&tag=%E7%83%AD%E9%97%A8&sort=recommend&page_limit=20&page_start=0" target="_blank" rel="noopener" title="爬取的地址">爬取的地址</a></p><p> </p>
+<h3 id="新建文件"><a href="#新建文件" class="headerlink" title="新建文件"></a>新建文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scrapy startproject movies</span><br><span class="line">cd movies</span><br><span class="line">scrapy genspider mv movie.douban.com</span><br><span class="line">![](cmd.png)</span><br></pre></td></tr></table></figure>
+<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><p>在<code>setting.py</code>修改</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ROBOTSTXT_OBEY &#x3D; False</span><br><span class="line"># 取消机器人协议</span><br><span class="line">DOWNLOAD_DELAY &#x3D; 1</span><br><span class="line"># 请求间隔为1秒</span><br><span class="line">DEFAULT_REQUEST_HEADERS &#x3D; &#123;</span><br><span class="line">   &#39;Accept&#39;: &#39;text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,*&#x2F;*;q&#x3D;0.8&#39;,</span><br><span class="line">   &#39;Accept-Language&#39;: &#39;en&#39;,</span><br><span class="line">   &#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;88.0.4324.150 Safari&#x2F;537.36 Edg&#x2F;88.0.705.63&#39;</span><br><span class="line">&#125;</span><br><span class="line"># 设置请求头</span><br></pre></td></tr></table></figure>
+<h3 id="设置items"><a href="#设置items" class="headerlink" title="设置items"></a>设置items</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import scrapy</span><br><span class="line">class MoviesItem(scrapy.Item):</span><br><span class="line">    name &#x3D; scrapy.Field()</span><br><span class="line">    score &#x3D; scrapy.Field()</span><br><span class="line">    url &#x3D; scrapy.Field()</span><br><span class="line">    cover &#x3D; scrapy.Field()</span><br></pre></td></tr></table></figure>
+<p>配置爬取的内容<br>爬取<code>name</code>  <code>score</code> <code>url</code>  <code>cover</code></p>
+<h3 id="编辑主程序"><a href="#编辑主程序" class="headerlink" title="编辑主程序"></a>编辑主程序</h3><h4 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h4><p>在<code>spiders</code> 下的<code>名字.py</code> 编辑</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import scrapy</span><br><span class="line">from ..items import MoviesItem</span><br><span class="line"># 从父级的 items 引入 MoviesItem 类</span><br><span class="line"></span><br><span class="line">class MvSpider(scrapy.Spider):</span><br><span class="line">    name &#x3D; &#39;mv&#39;</span><br><span class="line">    allowed_domains &#x3D; [&#39;movie.douban.com&#39;]</span><br><span class="line">    start_urls &#x3D; [&#39;https:&#x2F;&#x2F;movie.douban.com&#x2F;j&#x2F;search_subjects?type&#x3D;movie&amp;tag&#x3D;%E7%83%AD%E9%97%A8&amp;sort&#x3D;recommend&amp;page_limit&#x3D;20&amp;page_start&#x3D;0&#39;]</span><br><span class="line">    start &#x3D; 0</span><br><span class="line"></span><br><span class="line">    def parse(self, response):</span><br><span class="line">        true &#x3D; 0</span><br><span class="line">        false &#x3D; 0</span><br><span class="line">        # 由于爬取的时候会返回 true和false 而这两个词未定义会报错 我就给他们赋值了(因情况而异,大部分不需要)</span><br><span class="line">        items &#x3D; MoviesItem() # 引入类</span><br><span class="line">        movies &#x3D; eval(response.text)[&#39;subjects&#39;] # 获取响应</span><br><span class="line">        for movie in movies: # 记录(类似列表)</span><br><span class="line">            items[&#39;name&#39;] &#x3D; movie[&#39;title&#39;]</span><br><span class="line">            items[&#39;score&#39;] &#x3D; movie[&#39;rate&#39;]</span><br><span class="line">            items[&#39;url&#39;] &#x3D; movie[&#39;url&#39;]</span><br><span class="line">            items[&#39;cover&#39;] &#x3D; movie[&#39;cover&#39;]</span><br><span class="line">            yield items        </span><br><span class="line">        if self.start &lt;200: # 多次爬取</span><br><span class="line">            self.start +&#x3D; 20</span><br><span class="line">            url &#x3D; f&#39;https:&#x2F;&#x2F;movie.douban.com&#x2F;j&#x2F;search_subjects?type&#x3D;movie&amp;tag&#x3D;%E7%83%AD%E9%97%A8&amp;sort&#x3D;recommend&amp;page_limit&#x3D;20&amp;page_start&#x3D;&#123;str(self.start)&#125;&#39;</span><br><span class="line">            yield scrapy.Request(url&#x3D;url)</span><br></pre></td></tr></table></figure>
+<p><img src= "/img/loading.gif" data-lazy-src="/2021/02/13/Scrapy%20(%E4%B8%80)/%E7%94%B5%E5%BD%B1%E5%93%8D%E5%BA%94.png"><br>这是以字符串的的形式,先用eval()去掉  ‘ ‘ ,变成字典类型<br>再获取其中的<code>&#39;subject&#39;</code>的值,保存为列表的形式<br>对于每个<code>&#39;subject&#39;</code>,再获取我们要的值<br>用<code>yield</code>挂起</p>
+<h4 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import scrapy</span><br><span class="line">from ..items import MoviesItem</span><br><span class="line"></span><br><span class="line">class MvSpider(scrapy.Spider):</span><br><span class="line">    name &#x3D; &#39;mv&#39;</span><br><span class="line">    allowed_domains &#x3D; [&#39;movie.douban.com&#39;]</span><br><span class="line">    url &#x3D; &#39;https:&#x2F;&#x2F;movie.douban.com&#x2F;j&#x2F;search_subjects?type&#x3D;movie&amp;tag&#x3D;%E7%83%AD%E9%97%A8&amp;sort&#x3D;recommend&amp;page_limit&#x3D;20&amp;page_start&#x3D;&#123;&#125;&#39;</span><br><span class="line">    start &#x3D; 0</span><br><span class="line"></span><br><span class="line">    def start_requests(self):</span><br><span class="line">        for i in range(0,2001,20):</span><br><span class="line">            url &#x3D; self.url.format(i)</span><br><span class="line">            yield scrapy.Request(</span><br><span class="line">            url&#x3D;url,</span><br><span class="line">            callback&#x3D;self.parse</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def parse(self, response):</span><br><span class="line">        true &#x3D; 0</span><br><span class="line">        false &#x3D; 0</span><br><span class="line">        items &#x3D; MoviesItem()</span><br><span class="line">        movies &#x3D; eval(response.text)[&#39;subjects&#39;]</span><br><span class="line">        for movie in movies:</span><br><span class="line">            items[&#39;name&#39;] &#x3D; movie[&#39;title&#39;]</span><br><span class="line">            items[&#39;score&#39;] &#x3D; movie[&#39;rate&#39;]</span><br><span class="line">            items[&#39;url&#39;] &#x3D; movie[&#39;url&#39;]</span><br><span class="line">            items[&#39;cover&#39;] &#x3D; movie[&#39;cover&#39;]</span><br><span class="line">            yield items </span><br></pre></td></tr></table></figure>
+<p>增加个<code>start_requests(self)</code> 函数 实现异步</p>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>在<code>spiders</code>新建<code>run.py</code><br>写入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from scrapy import cmdline</span><br><span class="line">cmdline.execute(&#39;scrapy crawl 名字&#39;.split())</span><br></pre></td></tr></table></figure>
+<p>运行这个就可以了<br>或者在cmd下运行<br><code>scrapy crawl 名字</code><br><img src= "/img/loading.gif" data-lazy-src="/2021/02/13/Scrapy%20(%E4%B8%80)/%E7%94%B5%E5%BD%B1%E6%88%90%E5%8A%9F.png"></p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>Scrapy</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HTML 入门</title>
     <url>/2021/02/06/HTML%20%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<p>vscode 中 输入!可以开始套模板</p>
@@ -453,69 +516,6 @@ name填表格名
       </tags>
   </entry>
   <entry>
-    <title>Scrapy (一) 框架</title>
-    <url>/2021/02/13/Scrapy%20(%E4%B8%80)/</url>
-    <content><![CDATA[<h1 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h1><p>在目标的文件夹下按按住<kbd>Shift</kbd> 和鼠标右键<br>点击<code>在此处打开命令窗口</code><br>输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scrapy startproject 文件</span><br><span class="line">cd 文件</span><br><span class="line">scrapy genspider 名字 域名</span><br></pre></td></tr></table></figure>
-<p><img src= "/img/loading.gif" data-lazy-src="/2021/02/13/Scrapy%20(%E4%B8%80)/cmd.png"><br>即出现了<br><img src= "/img/loading.gif" data-lazy-src="/2021/02/13/Scrapy%20(%E4%B8%80)/%E5%88%86%E7%BA%A7.png"></p>
-<h1 id="items-py"><a href="#items-py" class="headerlink" title="items.py"></a>items.py</h1><p>在<code>items.py</code>下编辑要爬取的内容</p>
-<h1 id="settings-py-编辑设置"><a href="#settings-py-编辑设置" class="headerlink" title="settings.py 编辑设置"></a>settings.py 编辑设置</h1><p>在<code>settings.py</code>下编辑</p>
-<ol>
-<li><p>BOT_NAME：项目名</p>
-</li>
-<li><p>USER_AGENT：就是 UA  即 浏览器标识(也可以放在<code>DEFAULT_REQUEST_HEADERS</code>里面)</p>
-</li>
-<li><p>ROBOTSTXT_OBEY：机器人协议，默认是true，需要改为false，否则很多东西爬不了</p>
-</li>
-<li><p>CONCURRENT_REQUESTS：最大并发数，就是同时允许开启多少个爬虫线程</p>
-</li>
-<li><p>DOWNLOAD_DELAY：下载延迟时间，单位是秒，控制爬虫爬取的频率，默认是3秒</p>
-</li>
-<li><p>COOKIES_ENABLED：是否保存COOKIES，默认关闭，开机可以记录爬取过程中的COOKIE</p>
-</li>
-<li><p>DEFAULT_REQUEST_HEADERS：默认请求头</p>
-</li>
-<li><p>ITEM_PIPELINES：项目管道，300为优先级，越低越爬取的优先度越高</p>
-</li>
-</ol>
-<h1 id="名字-py-爬虫主文件"><a href="#名字-py-爬虫主文件" class="headerlink" title="名字.py 爬虫主文件"></a>名字.py 爬虫主文件</h1><p>在spiders下的<code>名字.py</code></p>
-<p>name: 名字<br>allowed_domains: 域名<br>start_urls: 网址</p>
-<h1 id="开始爬虫"><a href="#开始爬虫" class="headerlink" title="开始爬虫"></a>开始爬虫</h1><h2 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h2><h3 id="保存在文件"><a href="#保存在文件" class="headerlink" title="保存在文件"></a>保存在文件</h3><ol>
-<li>scrapy crawl 名字 -o xx.csv</li>
-<li>scrapy crawl 名字 -o xx.json</li>
-</ol>
-<h3 id="爬取"><a href="#爬取" class="headerlink" title="爬取"></a>爬取</h3><ol start="3">
-<li>scrapy crawl 名字</li>
-</ol>
-<h2 id="以-py的形式"><a href="#以-py的形式" class="headerlink" title="以.py的形式"></a>以.py的形式</h2><p>在<code>spiders</code>新建<code>run.py</code><br>写入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from scrapy import cmdline</span><br><span class="line">cmdline.execute(&#39;上面的三种形式&#39;.split())</span><br></pre></td></tr></table></figure>
-<p>比如</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from scrapy import cmdline</span><br><span class="line">cmdline.execute(&#39;scrapy crawl 名字&#39;.split())</span><br></pre></td></tr></table></figure>
-<p>运行这个就可以了</p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><h2 id="爬取豆瓣电影"><a href="#爬取豆瓣电影" class="headerlink" title="爬取豆瓣电影"></a>爬取豆瓣电影</h2><p><a class="btn-beautify button--animated outline" href="https://movie.douban.com/explore#!type=movie&tag=%E7%83%AD%E9%97%A8&sort=recommend&page_limit=20&page_start=0" target="_blank" rel="noopener" title="爬取的地址">爬取的地址</a></p><p> </p>
-<h3 id="新建文件"><a href="#新建文件" class="headerlink" title="新建文件"></a>新建文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scrapy startproject movies</span><br><span class="line">cd movies</span><br><span class="line">scrapy genspider mv movie.douban.com</span><br><span class="line">![](cmd.png)</span><br></pre></td></tr></table></figure>
-<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><p>在<code>setting.py</code>修改</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ROBOTSTXT_OBEY &#x3D; False</span><br><span class="line"># 取消机器人协议</span><br><span class="line">DOWNLOAD_DELAY &#x3D; 1</span><br><span class="line"># 请求间隔为1秒</span><br><span class="line">DEFAULT_REQUEST_HEADERS &#x3D; &#123;</span><br><span class="line">   &#39;Accept&#39;: &#39;text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,*&#x2F;*;q&#x3D;0.8&#39;,</span><br><span class="line">   &#39;Accept-Language&#39;: &#39;en&#39;,</span><br><span class="line">   &#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;88.0.4324.150 Safari&#x2F;537.36 Edg&#x2F;88.0.705.63&#39;</span><br><span class="line">&#125;</span><br><span class="line"># 设置请求头</span><br></pre></td></tr></table></figure>
-<h3 id="设置items"><a href="#设置items" class="headerlink" title="设置items"></a>设置items</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import scrapy</span><br><span class="line">class MoviesItem(scrapy.Item):</span><br><span class="line">    name &#x3D; scrapy.Field()</span><br><span class="line">    score &#x3D; scrapy.Field()</span><br><span class="line">    url &#x3D; scrapy.Field()</span><br><span class="line">    cover &#x3D; scrapy.Field()</span><br></pre></td></tr></table></figure>
-<p>配置爬取的内容<br>爬取<code>name</code>  <code>score</code> <code>url</code>  <code>cover</code></p>
-<h3 id="编辑主程序"><a href="#编辑主程序" class="headerlink" title="编辑主程序"></a>编辑主程序</h3><h4 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h4><p>在<code>spiders</code> 下的<code>名字.py</code> 编辑</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import scrapy</span><br><span class="line">from ..items import MoviesItem</span><br><span class="line"># 从父级的 items 引入 MoviesItem 类</span><br><span class="line"></span><br><span class="line">class MvSpider(scrapy.Spider):</span><br><span class="line">    name &#x3D; &#39;mv&#39;</span><br><span class="line">    allowed_domains &#x3D; [&#39;movie.douban.com&#39;]</span><br><span class="line">    start_urls &#x3D; [&#39;https:&#x2F;&#x2F;movie.douban.com&#x2F;j&#x2F;search_subjects?type&#x3D;movie&amp;tag&#x3D;%E7%83%AD%E9%97%A8&amp;sort&#x3D;recommend&amp;page_limit&#x3D;20&amp;page_start&#x3D;0&#39;]</span><br><span class="line">    start &#x3D; 0</span><br><span class="line"></span><br><span class="line">    def parse(self, response):</span><br><span class="line">        true &#x3D; 0</span><br><span class="line">        false &#x3D; 0</span><br><span class="line">        # 由于爬取的时候会返回 true和false 而这两个词未定义会报错 我就给他们赋值了(因情况而异,大部分不需要)</span><br><span class="line">        items &#x3D; MoviesItem() # 引入类</span><br><span class="line">        movies &#x3D; eval(response.text)[&#39;subjects&#39;] # 获取响应</span><br><span class="line">        for movie in movies: # 记录(类似列表)</span><br><span class="line">            items[&#39;name&#39;] &#x3D; movie[&#39;title&#39;]</span><br><span class="line">            items[&#39;score&#39;] &#x3D; movie[&#39;rate&#39;]</span><br><span class="line">            items[&#39;url&#39;] &#x3D; movie[&#39;url&#39;]</span><br><span class="line">            items[&#39;cover&#39;] &#x3D; movie[&#39;cover&#39;]</span><br><span class="line">            yield items        </span><br><span class="line">        if self.start &lt;200: # 多次爬取</span><br><span class="line">            self.start +&#x3D; 20</span><br><span class="line">            url &#x3D; f&#39;https:&#x2F;&#x2F;movie.douban.com&#x2F;j&#x2F;search_subjects?type&#x3D;movie&amp;tag&#x3D;%E7%83%AD%E9%97%A8&amp;sort&#x3D;recommend&amp;page_limit&#x3D;20&amp;page_start&#x3D;&#123;str(self.start)&#125;&#39;</span><br><span class="line">            yield scrapy.Request(url&#x3D;url)</span><br></pre></td></tr></table></figure>
-<p><img src= "/img/loading.gif" data-lazy-src="/2021/02/13/Scrapy%20(%E4%B8%80)/%E7%94%B5%E5%BD%B1%E5%93%8D%E5%BA%94.png"><br>这是以字符串的的形式,先用eval()去掉  ‘ ‘ ,变成字典类型<br>再获取其中的<code>&#39;subject&#39;</code>的值,保存为列表的形式<br>对于每个<code>&#39;subject&#39;</code>,再获取我们要的值<br>用<code>yield</code>挂起</p>
-<h4 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import scrapy</span><br><span class="line">from ..items import MoviesItem</span><br><span class="line"></span><br><span class="line">class MvSpider(scrapy.Spider):</span><br><span class="line">    name &#x3D; &#39;mv&#39;</span><br><span class="line">    allowed_domains &#x3D; [&#39;movie.douban.com&#39;]</span><br><span class="line">    url &#x3D; &#39;https:&#x2F;&#x2F;movie.douban.com&#x2F;j&#x2F;search_subjects?type&#x3D;movie&amp;tag&#x3D;%E7%83%AD%E9%97%A8&amp;sort&#x3D;recommend&amp;page_limit&#x3D;20&amp;page_start&#x3D;&#123;&#125;&#39;</span><br><span class="line">    start &#x3D; 0</span><br><span class="line"></span><br><span class="line">    def start_requests(self):</span><br><span class="line">        for i in range(0,2001,20):</span><br><span class="line">            url &#x3D; self.url.format(i)</span><br><span class="line">            yield scrapy.Request(</span><br><span class="line">            url&#x3D;url,</span><br><span class="line">            callback&#x3D;self.parse</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def parse(self, response):</span><br><span class="line">        true &#x3D; 0</span><br><span class="line">        false &#x3D; 0</span><br><span class="line">        items &#x3D; MoviesItem()</span><br><span class="line">        movies &#x3D; eval(response.text)[&#39;subjects&#39;]</span><br><span class="line">        for movie in movies:</span><br><span class="line">            items[&#39;name&#39;] &#x3D; movie[&#39;title&#39;]</span><br><span class="line">            items[&#39;score&#39;] &#x3D; movie[&#39;rate&#39;]</span><br><span class="line">            items[&#39;url&#39;] &#x3D; movie[&#39;url&#39;]</span><br><span class="line">            items[&#39;cover&#39;] &#x3D; movie[&#39;cover&#39;]</span><br><span class="line">            yield items </span><br></pre></td></tr></table></figure>
-<p>增加个<code>start_requests(self)</code> 函数 实现异步</p>
-<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>在<code>spiders</code>新建<code>run.py</code><br>写入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from scrapy import cmdline</span><br><span class="line">cmdline.execute(&#39;scrapy crawl 名字&#39;.split())</span><br></pre></td></tr></table></figure>
-<p>运行这个就可以了<br>或者在cmd下运行<br><code>scrapy crawl 名字</code><br><img src= "/img/loading.gif" data-lazy-src="/2021/02/13/Scrapy%20(%E4%B8%80)/%E7%94%B5%E5%BD%B1%E6%88%90%E5%8A%9F.png"></p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>Scrapy</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Scrapy (二) middlewares</title>
     <url>/2021/02/14/Scrapy%20(%E4%BA%8C)/</url>
     <content><![CDATA[<h1 id="修改-UA"><a href="#修改-UA" class="headerlink" title="修改 UA"></a>修改 UA</h1><p>在middlewares.py下添加</p>
@@ -537,32 +537,6 @@ name填表格名
       <categories>
         <category>Python</category>
         <category>Scrapy</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>XPath</title>
-    <url>/2021/02/11/XPath/</url>
-    <content><![CDATA[<h1 id="XPath的符号表示"><a href="#XPath的符号表示" class="headerlink" title="XPath的符号表示"></a>XPath的符号表示</h1><div><table><thead><tr><th>表达式</th><th>描述</th></tr></thead><tbody><tr><td>nodename</td><td>选取此节点的所有子节点</td></tr><tr><td>/</td><td>从当前节点选取直接子节点(下一级)</td></tr><tr><td>//</td><td>从当前节点选取子孙节点(下级)</td></tr><tr><td>.</td><td>选取当前节点</td></tr><tr><td>..</td><td>选取当前节点的父节点</td></tr><tr><td>@</td><td>选取属性</td></tr></tbody></table></div>
-
-<h1 id="XPath快速定位"><a href="#XPath快速定位" class="headerlink" title="XPath快速定位"></a>XPath快速定位</h1><p>按<code>F12</code> -&gt; <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> -&gt; 定位元素 -&gt; -&gt; 右键点击元素 -&gt; 复制XPath<br><img src= "/img/loading.gif" data-lazy-src="/2021/02/11/XPath/%E6%B5%8F%E8%A7%88%E5%99%A8xpath.png"></p>
-<h1 id="XPath常用函数"><a href="#XPath常用函数" class="headerlink" title="XPath常用函数"></a>XPath常用函数</h1><p>1.contains()：匹配属性值中包含(部分)某些字符串的节点<br>形式如 : //li[contains(@id,”xxx”)]<br>2.text()：获取标签里的内容，作为字符串输出<br>形式如 : //li[contains(@id,”xxx”)]/text()</p>
-<h1 id="爬取猫眼"><a href="#爬取猫眼" class="headerlink" title="爬取猫眼"></a>爬取猫眼</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line">from lxml import etree</span><br><span class="line"></span><br><span class="line">url &#x3D; &#39;https:&#x2F;&#x2F;maoyan.com&#x2F;board&#39;</span><br><span class="line">headers &#x3D; &#123;</span><br><span class="line">    &#39;Cookie&#39;: &#39;uuid_n_v&#x3D;v1; uuid&#x3D;CE8F01006C1A11EBB1AE3B87C7DEAC0D4CE0991FF0534C30B00482914D74394D; _csrf&#x3D;56c5a92f32b7fd0839d8aea3d8fb63efdb760413d3a66e64f20c85a7b69626d5; Hm_lvt_703e94591e87be68cc8da0da7cbd0be2&#x3D;1613014796; _lxsdk_cuid&#x3D;1778f2c88e8c8-018bd17ae4d2da-78667f69-13c680-1778f2c88e857; _lxsdk&#x3D;CE8F01006C1A11EBB1AE3B87C7DEAC0D4CE0991FF0534C30B00482914D74394D; Hm_lpvt_703e94591e87be68cc8da0da7cbd0be2&#x3D;1613015805; __mta&#x3D;55391636.1613014796550.1613015755811.1613015805268.3; _lxsdk_s&#x3D;1778f2c88e9-1db-289-172%7C%7C9&#39;,</span><br><span class="line">    &#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;88.0.4324.150 Safari&#x2F;537.36 Edg&#x2F;88.0.705.63&#39;</span><br><span class="line">&#125;</span><br><span class="line">text &#x3D; requests.get(url &#x3D; url,headers&#x3D; headers).text</span><br><span class="line">tree &#x3D; etree.HTML(text)</span><br><span class="line">contents1 &#x3D; tree.xpath(&#39;&#x2F;&#x2F;p[@class&#x3D;&quot;name&quot;]&#x2F;a&#x2F;@title&#39;)</span><br><span class="line">print(contents1)</span><br><span class="line">contents2 &#x3D; tree.xpath(&#39;&#x2F;&#x2F;*[@id&#x3D;&quot;app&quot;]&#x2F;div&#x2F;div&#x2F;div&#x2F;dl&#x2F;dd&#x2F;div&#x2F;div&#x2F;div[1]&#x2F;p[1]&#x2F;a&#x2F;@title&#39;)</span><br><span class="line">print(contents2)</span><br><span class="line">contents3 &#x3D; tree.xpath(&#39;&#x2F;&#x2F;p&#x2F;&#x2F;a&#x2F;@title&#39;)</span><br><span class="line">print(contents3)</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<blockquote>
-<p>[‘心灵奇旅’, ‘拆弹专家2’, ‘送你一朵小红花’, ‘紧急救援’, ‘崖上的波妞’, ‘许愿神龙’, ‘海底小纵队：火焰之环’, ‘赛尔号大电影7：疯狂机器城’, ‘温暖的抱抱’, ‘武汉日夜’]<br>[‘心灵奇旅’, ‘拆弹专家2’, ‘送你一朵小红花’, ‘紧急救援’, ‘崖上的波妞’, ‘许愿神龙’, ‘海底小纵队：火焰之环’, ‘赛尔号大电影7：疯狂机器城’, ‘温暖的抱抱’, ‘武汉日夜’]<br>[‘心灵奇旅’, ‘拆弹专家2’, ‘送你一朵小红花’, ‘紧急救援’, ‘崖上的波妞’, ‘许愿神龙’, ‘海底小纵队：火焰之环’, ‘赛尔号大电影7：疯狂机器城’, ‘温暖的抱抱’, ‘武汉日夜’]  </p>
-</blockquote>
-<p>三个方式的XPath都是爬取到电影名字(一列表的形式)</p>
-<h2 id="法一-属性值作为条件"><a href="#法一-属性值作为条件" class="headerlink" title="法一 属性值作为条件"></a>法一 属性值作为条件</h2><p><img src= "/img/loading.gif" data-lazy-src="/2021/02/11/XPath/%E6%B3%95%E4%B8%80.png"><br>在 class=’name’ 下属的 a 中 就可以<br>用<code>(&#39;//p[@class=&quot;name&quot;]/a/@title&#39;)</code> 引出 标题<br>或者将<code>@title</code> 换成<code>text()</code></p>
-<h2 id="法二-对比法"><a href="#法二-对比法" class="headerlink" title="法二 对比法"></a>法二 对比法</h2><p>复制两个标题的XPath</p>
-<p><code>//*[@id=&quot;app&quot;]/div/div/div/dl/dd[1]/div/div/div[1]/p[1]/a</code><br><code>//*[@id=&quot;app&quot;]/div/div/div/dl/dd[2]/div/div/div[1]/p[1]/a</code><br>发现只有<code>dd[1]</code> 和<code>dd[2]</code>的区别<br>于是把[]去掉<br><code>//*[@id=&quot;app&quot;]/div/div/div/dl/dd/div/div/div[1]/p[1]/a/@title</code></p>
-<h2 id="法三"><a href="#法三" class="headerlink" title="法三"></a>法三</h2><p>看出在p下的a 有点猜测的意味,不推荐</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>XPath</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -682,241 +656,26 @@ name填表格名
       </tags>
   </entry>
   <entry>
-    <title>这是一篇测试的文章</title>
-    <url>/2021/02/03/test/</url>
-    <content><![CDATA[<p>-<br><svg class="icon" aria-hidden="true"><br/>  <use xlink:href="#icon-yanfafei"/><br/></svg></p>
-<h1 id="写作介绍"><a href="#写作介绍" class="headerlink" title="写作介绍"></a>写作介绍</h1><h1 id="字体介绍"><a href="#字体介绍" class="headerlink" title="字体介绍"></a>字体介绍</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">*这是斜体* 或 _这也是斜体_ </span><br><span class="line">**这是粗体**</span><br><span class="line">***这是加粗斜体***</span><br><span class="line">~~这是删除线~~</span><br></pre></td></tr></table></figure>
-<p><em>这是斜体</em> 或 <em>这也是斜体</em><br><strong>这是粗体</strong><br><strong><em>这是加粗斜体</em></strong><br><del>这是删除线</del></p>
-<hr>
-<h1 id="分级标题"><a href="#分级标题" class="headerlink" title="分级标题"></a>分级标题</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br><span class="line">This is an H1</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><h1 id="This-is-an-H1"><a href="#This-is-an-H1" class="headerlink" title="This is an H1"></a>This is an H1</h1><hr>
-<h1 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[百度](http:&#x2F;&#x2F;www.baidu.com&#x2F;)</span><br><span class="line">[百度](http:&#x2F;&#x2F;www.baidu.com&#x2F; &quot;我是百度&quot;)</span><br></pre></td></tr></table></figure>
-<p><a href="http://www.baidu.com/">百度</a><br><a href="http://www.baidu.com/" title="我是百度">百度</a></p>
-<hr>
-<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p>无序列表：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* 无序列表项1</span><br><span class="line">+ 无序列表项2</span><br><span class="line">- 无序列表项3</span><br></pre></td></tr></table></figure>
-<ul>
-<li>无序列表项1</li>
-</ul>
-<ul>
-<li>无序列表项2</li>
-</ul>
-<ul>
-<li>无序列表项3<br>有序列表：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 有序列表项1</span><br><span class="line">2. 有序列表项2</span><br><span class="line">3. 有序列表项3</span><br><span class="line">90. 有序列表项4</span><br><span class="line">1. 有序列表项5</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol>
-<li>有序列表项1</li>
-<li>有序列表项2</li>
-<li>有序列表项3</li>
-<li>有序列表项4</li>
-<li>有序列表项5</li>
-</ol>
-<hr>
-<h1 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![天空](天空.jpg)</span><br><span class="line">![](天空.jpg)</span><br></pre></td></tr></table></figure>
-<p><img src= "/img/loading.gif" data-lazy-src="/2021/02/03/test/%E5%A4%A9%E7%A9%BA.jpg" alt="天空"><br><img src= "/img/loading.gif" data-lazy-src="/2021/02/03/test/%E5%A4%A9%E7%A9%BA.jpg"></p>
-<hr>
-<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">| 表头1|表头2|表头3|表头4</span><br><span class="line">|-| :- | :-: | -: |</span><br><span class="line">|默认左对齐|左对齐|居中对齐|右对齐|</span><br><span class="line">|默认左对齐|左对齐|居中对齐|右对齐|</span><br><span class="line">|默认左对齐|左对齐|居中对齐|右对齐|</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>表头1</th>
-<th align="left">表头2</th>
-<th align="center">表头3</th>
-<th align="right">表头4</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>默认左对齐</td>
-<td align="left">左对齐</td>
-<td align="center">居中对齐</td>
-<td align="right">右对齐</td>
-</tr>
-<tr>
-<td>默认左对齐</td>
-<td align="left">左对齐</td>
-<td align="center">居中对齐</td>
-<td align="right">右对齐</td>
-</tr>
-<tr>
-<td>默认左对齐</td>
-<td align="left">左对齐</td>
-<td align="center">居中对齐</td>
-<td align="right">右对齐</td>
-</tr>
-</tbody></table>
-<hr>
-<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-  A 123</span><br><span class="line">    &gt; 123</span><br></pre></td></tr></table></figure>
-<ul>
-<li>A 123<blockquote>
-<p>123</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 123</span><br><span class="line">&gt; 123</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>123<br>123</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-  A 123</span><br></pre></td></tr></table></figure></li>
-<li> A 123</li>
-</ul>
-<hr>
-<h1 id="代码方框"><a href="#代码方框" class="headerlink" title="代码方框"></a>代码方框</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96; 一行代码 &#96;</span><br></pre></td></tr></table></figure>
-<p><code>一行代码</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line">多行代码代码</span><br><span class="line">&#96;&#96;&#96;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">多行代码代码</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;note info&quot;&gt;这里是 info 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note primary&quot;&gt;这里是 primary 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note warning&quot;&gt;这里是 warning 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note danger&quot;&gt;这里是 danger 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note success&quot;&gt;这里是 success 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note default&quot;&gt;这里是 default 标签样式&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-<div class="note info">这里是 info 标签样式</div>
-<div class="note primary">这里是 primary 标签样式</div>
-<div class="note warning">这里是 warning 标签样式</div>
-<div class="note danger">这里是 danger 标签样式</div>
-<div class="note success">这里是 success 标签样式</div>
-<div class="note default">这里是 default 标签样式</div>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;note info no-icon&quot;&gt;这里是不带符号的 info 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note primary no-icon&quot;&gt;这里是不带符号的 primary 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note warning no-icon&quot;&gt;这里是不带符号的 warning 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note danger no-icon&quot;&gt;这里是不带符号的 danger 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note success no-icon&quot;&gt;这里是不带符号的 success 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note default no-icon&quot;&gt;这里是不带符号的 default 标签样式&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-<div class="note info no-icon">这里是不带符号的 info 标签样式</div>
-<div class="note primary no-icon">这里是不带符号的 primary 标签样式</div>
-<div class="note warning no-icon">这里是不带符号的 warning 标签样式</div>
-<div class="note danger no-icon">这里是不带符号的 danger 标签样式</div>
-<div class="note success no-icon">这里是不带符号的 success 标签样式</div>
-<div class="note default no-icon">这里是不带符号的 default 标签样式</div>
+    <title>XPath</title>
+    <url>/2021/02/11/XPath/</url>
+    <content><![CDATA[<h1 id="XPath的符号表示"><a href="#XPath的符号表示" class="headerlink" title="XPath的符号表示"></a>XPath的符号表示</h1><div><table><thead><tr><th>表达式</th><th>描述</th></tr></thead><tbody><tr><td>nodename</td><td>选取此节点的所有子节点</td></tr><tr><td>/</td><td>从当前节点选取直接子节点(下一级)</td></tr><tr><td>//</td><td>从当前节点选取子孙节点(下级)</td></tr><tr><td>.</td><td>选取当前节点</td></tr><tr><td>..</td><td>选取当前节点的父节点</td></tr><tr><td>@</td><td>选取属性</td></tr></tbody></table></div>
 
-<p class="div-border green">绿色</p>
-<p class="div-border red">红色</p>
-<p class="div-border yellow">黄色</p>
-<p class="div-border grey">灰色</p>
-<p class="div-border blue">蓝色</p>
----------------
-# 分割线
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---------------</span><br></pre></td></tr></table></figure>
----------------
-
-]]></content>
-      <categories>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>正则表达式</title>
-    <url>/2021/02/09/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="基本符号表示"><a href="#基本符号表示" class="headerlink" title="基本符号表示"></a>基本符号表示</h1><ol>
-<li><p><code>^</code>示匹配字符串的开始位置 (例外:用在中括号中<code>[ ]</code>时,可以理解为取反,表示不匹配括号中字符串)</p>
-</li>
-<li><p><code>$</code>示匹配字符串的结束位置</p>
-</li>
-<li><p><code>.</code>匹配单个字符</p>
-</li>
-<li><p><code>\w</code>匹配英文字母和数字<code>\W</code>非字母和数字</p>
-</li>
-<li><p><code>\d</code>匹配数字<code>\D</code>非数字</p>
-</li>
-<li><p><code>*</code>表示匹配 零次到多次</p>
-</li>
-<li><p><code>+</code>表示匹配 一次到多次 (至少有一次)</p>
-</li>
-<li><p><code>?</code>表示匹配零次或一次 (或是非贪心模式 尽可能少的匹配)</p>
-</li>
-<li><p><code>|</code>表示为或者,两项中取一项</p>
-</li>
-<li><p><code>( )</code>小括号表示匹配括号中全部字符</p>
-</li>
-<li><p><code>[ ]</code>中括号表示匹配括号中一个字符 范围描述 如<code>[0-9 a-z A-Z]</code></p>
-</li>
-<li><p><code>&#123; &#125;</code>大括号用于限定匹配次数 如<code>&#123;n&#125;</code>表示匹配n个字符<code>&#123;n,&#125;</code>表示至少匹配n个字符 {n,m}表示至少 n,最多 m</p>
-</li>
-<li><p><code>\</code>转义字符 如上基本符号匹配都需要转义字符 如<code>\*</code>表示匹配<code>*</code>号</p>
-</li>
-</ol>
-<h1 id="使用正则匹配"><a href="#使用正则匹配" class="headerlink" title="使用正则匹配"></a>使用正则匹配</h1><h2 id="匹配Regex对象"><a href="#匹配Regex对象" class="headerlink" title="匹配Regex对象"></a>匹配Regex对象</h2><p>两种表示方法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;\d\d\d-\d\d\d-\d\d\d\d&#39;)</span><br><span class="line">mo &#x3D; Rex.search(&#39;电话是123-456-7890和098-765-4321哦哦哦&#39;)</span><br><span class="line">print(mo.group())</span><br></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">ex &#x3D; r&#39;\d\d\d-\d\d\d-\d\d\d\d&#39;</span><br><span class="line">mo &#x3D; re.search(ex ,&#39;电话是123-456-7890和098-765-4321哦哦哦&#39;)</span><br><span class="line">print(mo.group(0))</span><br></pre></td></tr></table></figure>
+<h1 id="XPath快速定位"><a href="#XPath快速定位" class="headerlink" title="XPath快速定位"></a>XPath快速定位</h1><p>按<code>F12</code> -&gt; <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> -&gt; 定位元素 -&gt; -&gt; 右键点击元素 -&gt; 复制XPath<br><img src= "/img/loading.gif" data-lazy-src="/2021/02/11/XPath/%E6%B5%8F%E8%A7%88%E5%99%A8xpath.png"></p>
+<h1 id="XPath常用函数"><a href="#XPath常用函数" class="headerlink" title="XPath常用函数"></a>XPath常用函数</h1><p>1.contains()：匹配属性值中包含(部分)某些字符串的节点<br>形式如 : //li[contains(@id,”xxx”)]<br>2.text()：获取标签里的内容，作为字符串输出<br>形式如 : //li[contains(@id,”xxx”)]/text()</p>
+<h1 id="爬取猫眼"><a href="#爬取猫眼" class="headerlink" title="爬取猫眼"></a>爬取猫眼</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line">from lxml import etree</span><br><span class="line"></span><br><span class="line">url &#x3D; &#39;https:&#x2F;&#x2F;maoyan.com&#x2F;board&#39;</span><br><span class="line">headers &#x3D; &#123;</span><br><span class="line">    &#39;Cookie&#39;: &#39;uuid_n_v&#x3D;v1; uuid&#x3D;CE8F01006C1A11EBB1AE3B87C7DEAC0D4CE0991FF0534C30B00482914D74394D; _csrf&#x3D;56c5a92f32b7fd0839d8aea3d8fb63efdb760413d3a66e64f20c85a7b69626d5; Hm_lvt_703e94591e87be68cc8da0da7cbd0be2&#x3D;1613014796; _lxsdk_cuid&#x3D;1778f2c88e8c8-018bd17ae4d2da-78667f69-13c680-1778f2c88e857; _lxsdk&#x3D;CE8F01006C1A11EBB1AE3B87C7DEAC0D4CE0991FF0534C30B00482914D74394D; Hm_lpvt_703e94591e87be68cc8da0da7cbd0be2&#x3D;1613015805; __mta&#x3D;55391636.1613014796550.1613015755811.1613015805268.3; _lxsdk_s&#x3D;1778f2c88e9-1db-289-172%7C%7C9&#39;,</span><br><span class="line">    &#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;88.0.4324.150 Safari&#x2F;537.36 Edg&#x2F;88.0.705.63&#39;</span><br><span class="line">&#125;</span><br><span class="line">text &#x3D; requests.get(url &#x3D; url,headers&#x3D; headers).text</span><br><span class="line">tree &#x3D; etree.HTML(text)</span><br><span class="line">contents1 &#x3D; tree.xpath(&#39;&#x2F;&#x2F;p[@class&#x3D;&quot;name&quot;]&#x2F;a&#x2F;@title&#39;)</span><br><span class="line">print(contents1)</span><br><span class="line">contents2 &#x3D; tree.xpath(&#39;&#x2F;&#x2F;*[@id&#x3D;&quot;app&quot;]&#x2F;div&#x2F;div&#x2F;div&#x2F;dl&#x2F;dd&#x2F;div&#x2F;div&#x2F;div[1]&#x2F;p[1]&#x2F;a&#x2F;@title&#39;)</span><br><span class="line">print(contents2)</span><br><span class="line">contents3 &#x3D; tree.xpath(&#39;&#x2F;&#x2F;p&#x2F;&#x2F;a&#x2F;@title&#39;)</span><br><span class="line">print(contents3)</span><br></pre></td></tr></table></figure>
 <p>输出</p>
 <blockquote>
-<p><code>123-456-7890</code></p>
+<p>[‘心灵奇旅’, ‘拆弹专家2’, ‘送你一朵小红花’, ‘紧急救援’, ‘崖上的波妞’, ‘许愿神龙’, ‘海底小纵队：火焰之环’, ‘赛尔号大电影7：疯狂机器城’, ‘温暖的抱抱’, ‘武汉日夜’]<br>[‘心灵奇旅’, ‘拆弹专家2’, ‘送你一朵小红花’, ‘紧急救援’, ‘崖上的波妞’, ‘许愿神龙’, ‘海底小纵队：火焰之环’, ‘赛尔号大电影7：疯狂机器城’, ‘温暖的抱抱’, ‘武汉日夜’]<br>[‘心灵奇旅’, ‘拆弹专家2’, ‘送你一朵小红花’, ‘紧急救援’, ‘崖上的波妞’, ‘许愿神龙’, ‘海底小纵队：火焰之环’, ‘赛尔号大电影7：疯狂机器城’, ‘温暖的抱抱’, ‘武汉日夜’]  </p>
 </blockquote>
-<h2 id="用-分组"><a href="#用-分组" class="headerlink" title="用( )分组"></a>用( )分组</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">ex &#x3D; r&#39;(\d\d\d)-(\d\d\d)-(\d\d\d\d)&#39;</span><br><span class="line">mo &#x3D; re.search(ex ,&#39;电话是123-456-7890和098-765-4321哦哦哦&#39;)</span><br><span class="line">print(mo.group(0),&#39;\n&#39;,mo.group(1),&#39;\n&#39;,mo.group(3))</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<blockquote>
-<p>123-456-7890<br>123<br>7890<br>group(0)代表的是整个匹配组,而group(1),group(2)…依次匹配第1,2,..个括号内的内容</p>
-</blockquote>
-<h2 id="查找全部"><a href="#查找全部" class="headerlink" title="查找全部"></a>查找全部</h2><ul>
-<li>findall： 从字符串任意位置查找，返回一个列表</li>
-<li>finditer：从字符串任意位置查找，返回一个迭代器<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">ex1 &#x3D; r&#39;(\d\d\d)-\d\d\d-(\d\d\d\d)&#39;</span><br><span class="line">ex2 &#x3D; r&#39;\d\d\d-\d\d\d-\d\d\d\d&#39;</span><br><span class="line">mo1 &#x3D; re.findall(ex1 ,&#39;电话是123-456-7890和098-765-4321哦哦哦&#39;)</span><br><span class="line">mo2 &#x3D; re.findall(ex2 ,&#39;电话是123-456-7890和098-765-4321哦哦哦&#39;)</span><br><span class="line">print(mo1)</span><br><span class="line">print(mo2)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-输出<blockquote>
-<p>[(‘123’, ‘7890’), (‘098’, ‘4321’)]<br>[‘123-456-7890’, ‘098-765-4321’]<br>输出为列表的形式,用括号分组后,会以元组表现出<code>分组内容</code></p>
-</blockquote>
-</li>
-</ul>
-<h2 id="不区分大小写"><a href="#不区分大小写" class="headerlink" title="不区分大小写"></a>不区分大小写</h2><div class="snote idea yellow"><p>re.IGNORECASE 或简写为 re.I</p></div>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">ex &#x3D; re.compile(r&#39;qwer&#39;,re.I)</span><br><span class="line">mo &#x3D; re.findall(ex , &#39;Qwer,QWER,wert&#39;)</span><br><span class="line">print(mo)</span><br></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">ex &#x3D; r&#39;qwer&#39;</span><br><span class="line">mo &#x3D; re.findall(ex , &#39;Qwer,QWER,wert&#39;,re.I)</span><br><span class="line">print(mo)</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<blockquote>
-<p>[‘Qwer’, ‘QWER’]</p>
-</blockquote>
-<ul>
-<li>第一种方法在 compile中加入 re.I</li>
-<li>第二种是在查找的中加入re.I</li>
-</ul>
-<h2 id="表示全部"><a href="#表示全部" class="headerlink" title=".表示全部"></a>.表示全部</h2><div class="snote idea yellow"><p>re.DOTALL 或简写为 re.S</p></div>
-一般的` . `是无法表示换行的
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;.\d\d\d-\d\d\d-\d\d\d\d&#39;)</span><br><span class="line">mo &#x3D; Rex.search(&#39;&#39;&#39;&#39;电话是</span><br><span class="line">123-456-7890&#39;&#39;&#39;)</span><br><span class="line">print(mo.group())</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<blockquote>
-<p>Traceback (most recent call last):<br>  File “e:/1.Python/测试.py”, line 5, in <module><br>    print(mo.group())<br>AttributeError: ‘NoneType’ object has no attribute ‘group’</module></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;.\d\d\d-\d\d\d-\d\d\d\d&#39;,re.S)</span><br><span class="line">mo &#x3D; Rex.search(&#39;&#39;&#39;&#39;电话是</span><br><span class="line">123-456-7890&#39;&#39;&#39;)</span><br><span class="line">print(mo.group())</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<blockquote>
-<p>123-456-7890<br>匹配了一行空行</p>
-</blockquote>
-<h2 id="正则中加注释"><a href="#正则中加注释" class="headerlink" title="正则中加注释"></a>正则中加注释</h2><div class="snote idea yellow"><p>re.VERBOSE 或简写为 re.X</p></div>
-一般地,在正则表达式中加入注释,可能会被以为是匹配对象
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;&#39;&#39;(</span><br><span class="line">    ([a-zA-Z0-9._%+-]+)  #用户名</span><br><span class="line">    @                 #分隔号</span><br><span class="line">    [a-zA-Z0-9.-]* #邮件服务器</span><br><span class="line">    )</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">)</span><br><span class="line">mo &#x3D; Rex.search(&#39;我的邮箱是123456789@qq.com&#39;)</span><br><span class="line">print(mo.group())</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<blockquote>
-<p>Traceback (most recent call last):<br>  File “e:/1.Python/测试.py”, line 10, in <module><br>    print(mo.group())<br>AttributeError: ‘NoneType’ object has no attribute ‘group’</module></p>
-</blockquote>
-<p>添加之后<code>re.X</code>后,可以在正则中加入注释,不被匹配</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;&#39;&#39;(</span><br><span class="line">    ([a-zA-Z0-9._%+-]+)  #用户名</span><br><span class="line">    @                 #分隔号</span><br><span class="line">    [a-zA-Z0-9.-]* #邮件服务器</span><br><span class="line">    )</span><br><span class="line">    &#39;&#39;&#39;,re.VERBOSE</span><br><span class="line">)</span><br><span class="line">mo &#x3D; Rex.search(&#39;我的邮箱是123456789@qq.com&#39;)</span><br><span class="line">print(mo.group())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<blockquote>
-<p><a href="mailto:&#49;&#50;&#51;&#x34;&#x35;&#54;&#55;&#56;&#57;&#x40;&#x71;&#x71;&#x2e;&#99;&#111;&#109;">&#49;&#50;&#51;&#x34;&#x35;&#54;&#55;&#56;&#57;&#x40;&#x71;&#x71;&#x2e;&#99;&#111;&#109;</a></p>
-</blockquote>
-<h2 id="同时使用re-I-re-S-re-X"><a href="#同时使用re-I-re-S-re-X" class="headerlink" title="同时使用re.I ,re.S ,re.X"></a>同时使用re.I ,re.S ,re.X</h2><p>可以用|分割<br>即  re.I|re.S|re.X</p>
-<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><p>sub函数 与 subn函数</p>
-<h3 id="sub"><a href="#sub" class="headerlink" title="sub"></a>sub</h3><ol>
-<li><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;Agent \w+&#39;)</span><br><span class="line">text &#x3D; &#39;Agent Alice and Agent Bob are friends&#39;</span><br><span class="line">mo &#x3D; Rex.sub(&#39;person&#39;,text)</span><br><span class="line">print(mo)</span><br></pre></td></tr></table></figure>
-输出<blockquote>
-<p>person and person are friends<br>即将所有的替换掉了</p>
-</blockquote>
-</li>
-<li><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;Agent (\w)\w*&#39;)</span><br><span class="line">text &#x3D; &#39;Agent Alice and Agent Bob are friends&#39;</span><br><span class="line">mo &#x3D; Rex.sub(r&#39;person \1&#39;,text)</span><br><span class="line">print(mo)</span><br></pre></td></tr></table></figure>
-输出<blockquote>
-<p>person A and person B are friends<br>可以用\1,\2 …匹配()内的内容 </p>
-</blockquote>
-<h3 id="subn"><a href="#subn" class="headerlink" title="subn"></a>subn</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;Agent (\w)\w*&#39;)</span><br><span class="line">text &#x3D; &#39;Agent Alice and Agent Bob are friends&#39;</span><br><span class="line">mo &#x3D; Rex.subn(r&#39;person \1&#39;,text)</span><br><span class="line">print(mo)</span><br></pre></td></tr></table></figure>
-输出<blockquote>
-<p>(‘person A and person B are friends’, 2)<br>用法与<code>sub</code>同理,只是多了个统计替换的次数</p>
-</blockquote>
-<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1></li>
-</ol>
-<ul>
-<li><div class="tip warning"><p>在正则表达式中记得加` r'' `</p><p></p></div>
-在Python中,<code>\</code>为转义符,在正则中\d表示应为\\d
-
-
-</li>
-</ul>
+<p>三个方式的XPath都是爬取到电影名字(一列表的形式)</p>
+<h2 id="法一-属性值作为条件"><a href="#法一-属性值作为条件" class="headerlink" title="法一 属性值作为条件"></a>法一 属性值作为条件</h2><p><img src= "/img/loading.gif" data-lazy-src="/2021/02/11/XPath/%E6%B3%95%E4%B8%80.png"><br>在 class=’name’ 下属的 a 中 就可以<br>用<code>(&#39;//p[@class=&quot;name&quot;]/a/@title&#39;)</code> 引出 标题<br>或者将<code>@title</code> 换成<code>text()</code></p>
+<h2 id="法二-对比法"><a href="#法二-对比法" class="headerlink" title="法二 对比法"></a>法二 对比法</h2><p>复制两个标题的XPath</p>
+<p><code>//*[@id=&quot;app&quot;]/div/div/div/dl/dd[1]/div/div/div[1]/p[1]/a</code><br><code>//*[@id=&quot;app&quot;]/div/div/div/dl/dd[2]/div/div/div[1]/p[1]/a</code><br>发现只有<code>dd[1]</code> 和<code>dd[2]</code>的区别<br>于是把[]去掉<br><code>//*[@id=&quot;app&quot;]/div/div/div/dl/dd/div/div/div[1]/p[1]/a/@title</code></p>
+<h2 id="法三"><a href="#法三" class="headerlink" title="法三"></a>法三</h2><p>看出在p下的a 有点猜测的意味,不推荐</p>
 ]]></content>
       <categories>
         <category>Python</category>
-        <category>正则表达式</category>
+        <category>XPath</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -1052,6 +811,247 @@ name填表格名
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>正则表达式</title>
+    <url>/2021/02/09/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="基本符号表示"><a href="#基本符号表示" class="headerlink" title="基本符号表示"></a>基本符号表示</h1><ol>
+<li><p><code>^</code>示匹配字符串的开始位置 (例外:用在中括号中<code>[ ]</code>时,可以理解为取反,表示不匹配括号中字符串)</p>
+</li>
+<li><p><code>$</code>示匹配字符串的结束位置</p>
+</li>
+<li><p><code>.</code>匹配单个字符</p>
+</li>
+<li><p><code>\w</code>匹配英文字母和数字<code>\W</code>非字母和数字</p>
+</li>
+<li><p><code>\d</code>匹配数字<code>\D</code>非数字</p>
+</li>
+<li><p><code>*</code>表示匹配 零次到多次</p>
+</li>
+<li><p><code>+</code>表示匹配 一次到多次 (至少有一次)</p>
+</li>
+<li><p><code>?</code>表示匹配零次或一次 (或是非贪心模式 尽可能少的匹配)</p>
+</li>
+<li><p><code>|</code>表示为或者,两项中取一项</p>
+</li>
+<li><p><code>( )</code>小括号表示匹配括号中全部字符</p>
+</li>
+<li><p><code>[ ]</code>中括号表示匹配括号中一个字符 范围描述 如<code>[0-9 a-z A-Z]</code></p>
+</li>
+<li><p><code>&#123; &#125;</code>大括号用于限定匹配次数 如<code>&#123;n&#125;</code>表示匹配n个字符<code>&#123;n,&#125;</code>表示至少匹配n个字符 {n,m}表示至少 n,最多 m</p>
+</li>
+<li><p><code>\</code>转义字符 如上基本符号匹配都需要转义字符 如<code>\*</code>表示匹配<code>*</code>号</p>
+</li>
+</ol>
+<h1 id="使用正则匹配"><a href="#使用正则匹配" class="headerlink" title="使用正则匹配"></a>使用正则匹配</h1><h2 id="匹配Regex对象"><a href="#匹配Regex对象" class="headerlink" title="匹配Regex对象"></a>匹配Regex对象</h2><p>两种表示方法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;\d\d\d-\d\d\d-\d\d\d\d&#39;)</span><br><span class="line">mo &#x3D; Rex.search(&#39;电话是123-456-7890和098-765-4321哦哦哦&#39;)</span><br><span class="line">print(mo.group())</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">ex &#x3D; r&#39;\d\d\d-\d\d\d-\d\d\d\d&#39;</span><br><span class="line">mo &#x3D; re.search(ex ,&#39;电话是123-456-7890和098-765-4321哦哦哦&#39;)</span><br><span class="line">print(mo.group(0))</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<blockquote>
+<p><code>123-456-7890</code></p>
+</blockquote>
+<h2 id="用-分组"><a href="#用-分组" class="headerlink" title="用( )分组"></a>用( )分组</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">ex &#x3D; r&#39;(\d\d\d)-(\d\d\d)-(\d\d\d\d)&#39;</span><br><span class="line">mo &#x3D; re.search(ex ,&#39;电话是123-456-7890和098-765-4321哦哦哦&#39;)</span><br><span class="line">print(mo.group(0),&#39;\n&#39;,mo.group(1),&#39;\n&#39;,mo.group(3))</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<blockquote>
+<p>123-456-7890<br>123<br>7890<br>group(0)代表的是整个匹配组,而group(1),group(2)…依次匹配第1,2,..个括号内的内容</p>
+</blockquote>
+<h2 id="查找全部"><a href="#查找全部" class="headerlink" title="查找全部"></a>查找全部</h2><ul>
+<li>findall： 从字符串任意位置查找，返回一个列表</li>
+<li>finditer：从字符串任意位置查找，返回一个迭代器<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">ex1 &#x3D; r&#39;(\d\d\d)-\d\d\d-(\d\d\d\d)&#39;</span><br><span class="line">ex2 &#x3D; r&#39;\d\d\d-\d\d\d-\d\d\d\d&#39;</span><br><span class="line">mo1 &#x3D; re.findall(ex1 ,&#39;电话是123-456-7890和098-765-4321哦哦哦&#39;)</span><br><span class="line">mo2 &#x3D; re.findall(ex2 ,&#39;电话是123-456-7890和098-765-4321哦哦哦&#39;)</span><br><span class="line">print(mo1)</span><br><span class="line">print(mo2)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+输出<blockquote>
+<p>[(‘123’, ‘7890’), (‘098’, ‘4321’)]<br>[‘123-456-7890’, ‘098-765-4321’]<br>输出为列表的形式,用括号分组后,会以元组表现出<code>分组内容</code></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="不区分大小写"><a href="#不区分大小写" class="headerlink" title="不区分大小写"></a>不区分大小写</h2><div class="snote idea yellow"><p>re.IGNORECASE 或简写为 re.I</p></div>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">ex &#x3D; re.compile(r&#39;qwer&#39;,re.I)</span><br><span class="line">mo &#x3D; re.findall(ex , &#39;Qwer,QWER,wert&#39;)</span><br><span class="line">print(mo)</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">ex &#x3D; r&#39;qwer&#39;</span><br><span class="line">mo &#x3D; re.findall(ex , &#39;Qwer,QWER,wert&#39;,re.I)</span><br><span class="line">print(mo)</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<blockquote>
+<p>[‘Qwer’, ‘QWER’]</p>
+</blockquote>
+<ul>
+<li>第一种方法在 compile中加入 re.I</li>
+<li>第二种是在查找的中加入re.I</li>
+</ul>
+<h2 id="表示全部"><a href="#表示全部" class="headerlink" title=".表示全部"></a>.表示全部</h2><div class="snote idea yellow"><p>re.DOTALL 或简写为 re.S</p></div>
+一般的` . `是无法表示换行的
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;.\d\d\d-\d\d\d-\d\d\d\d&#39;)</span><br><span class="line">mo &#x3D; Rex.search(&#39;&#39;&#39;&#39;电话是</span><br><span class="line">123-456-7890&#39;&#39;&#39;)</span><br><span class="line">print(mo.group())</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<blockquote>
+<p>Traceback (most recent call last):<br>  File “e:/1.Python/测试.py”, line 5, in <module><br>    print(mo.group())<br>AttributeError: ‘NoneType’ object has no attribute ‘group’</module></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;.\d\d\d-\d\d\d-\d\d\d\d&#39;,re.S)</span><br><span class="line">mo &#x3D; Rex.search(&#39;&#39;&#39;&#39;电话是</span><br><span class="line">123-456-7890&#39;&#39;&#39;)</span><br><span class="line">print(mo.group())</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<blockquote>
+<p>123-456-7890<br>匹配了一行空行</p>
+</blockquote>
+<h2 id="正则中加注释"><a href="#正则中加注释" class="headerlink" title="正则中加注释"></a>正则中加注释</h2><div class="snote idea yellow"><p>re.VERBOSE 或简写为 re.X</p></div>
+一般地,在正则表达式中加入注释,可能会被以为是匹配对象
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;&#39;&#39;(</span><br><span class="line">    ([a-zA-Z0-9._%+-]+)  #用户名</span><br><span class="line">    @                 #分隔号</span><br><span class="line">    [a-zA-Z0-9.-]* #邮件服务器</span><br><span class="line">    )</span><br><span class="line">    &#39;&#39;&#39;</span><br><span class="line">)</span><br><span class="line">mo &#x3D; Rex.search(&#39;我的邮箱是123456789@qq.com&#39;)</span><br><span class="line">print(mo.group())</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<blockquote>
+<p>Traceback (most recent call last):<br>  File “e:/1.Python/测试.py”, line 10, in <module><br>    print(mo.group())<br>AttributeError: ‘NoneType’ object has no attribute ‘group’</module></p>
+</blockquote>
+<p>添加之后<code>re.X</code>后,可以在正则中加入注释,不被匹配</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;&#39;&#39;(</span><br><span class="line">    ([a-zA-Z0-9._%+-]+)  #用户名</span><br><span class="line">    @                 #分隔号</span><br><span class="line">    [a-zA-Z0-9.-]* #邮件服务器</span><br><span class="line">    )</span><br><span class="line">    &#39;&#39;&#39;,re.VERBOSE</span><br><span class="line">)</span><br><span class="line">mo &#x3D; Rex.search(&#39;我的邮箱是123456789@qq.com&#39;)</span><br><span class="line">print(mo.group())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<blockquote>
+<p><a href="mailto:&#49;&#x32;&#51;&#x34;&#x35;&#x36;&#x37;&#x38;&#x39;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#109;">&#49;&#x32;&#51;&#x34;&#x35;&#x36;&#x37;&#x38;&#x39;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#109;</a></p>
+</blockquote>
+<h2 id="同时使用re-I-re-S-re-X"><a href="#同时使用re-I-re-S-re-X" class="headerlink" title="同时使用re.I ,re.S ,re.X"></a>同时使用re.I ,re.S ,re.X</h2><p>可以用|分割<br>即  re.I|re.S|re.X</p>
+<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><p>sub函数 与 subn函数</p>
+<h3 id="sub"><a href="#sub" class="headerlink" title="sub"></a>sub</h3><ol>
+<li><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;Agent \w+&#39;)</span><br><span class="line">text &#x3D; &#39;Agent Alice and Agent Bob are friends&#39;</span><br><span class="line">mo &#x3D; Rex.sub(&#39;person&#39;,text)</span><br><span class="line">print(mo)</span><br></pre></td></tr></table></figure>
+输出<blockquote>
+<p>person and person are friends<br>即将所有的替换掉了</p>
+</blockquote>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;Agent (\w)\w*&#39;)</span><br><span class="line">text &#x3D; &#39;Agent Alice and Agent Bob are friends&#39;</span><br><span class="line">mo &#x3D; Rex.sub(r&#39;person \1&#39;,text)</span><br><span class="line">print(mo)</span><br></pre></td></tr></table></figure>
+输出<blockquote>
+<p>person A and person B are friends<br>可以用\1,\2 …匹配()内的内容 </p>
+</blockquote>
+<h3 id="subn"><a href="#subn" class="headerlink" title="subn"></a>subn</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;Agent (\w)\w*&#39;)</span><br><span class="line">text &#x3D; &#39;Agent Alice and Agent Bob are friends&#39;</span><br><span class="line">mo &#x3D; Rex.subn(r&#39;person \1&#39;,text)</span><br><span class="line">print(mo)</span><br></pre></td></tr></table></figure>
+输出<blockquote>
+<p>(‘person A and person B are friends’, 2)<br>用法与<code>sub</code>同理,只是多了个统计替换的次数</p>
+</blockquote>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1></li>
+</ol>
+<ul>
+<li><div class="tip warning"><p>在正则表达式中记得加` r'' `</p><p></p></div>
+在Python中,<code>\</code>为转义符,在正则中\d表示应为\\d
+
+
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>正则表达式</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>这是一篇测试的文章</title>
+    <url>/2021/02/03/test/</url>
+    <content><![CDATA[<p>-<br><svg class="icon" aria-hidden="true"><br/>  <use xlink:href="#icon-yanfafei"/><br/></svg></p>
+<h1 id="写作介绍"><a href="#写作介绍" class="headerlink" title="写作介绍"></a>写作介绍</h1><h1 id="字体介绍"><a href="#字体介绍" class="headerlink" title="字体介绍"></a>字体介绍</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">*这是斜体* 或 _这也是斜体_ </span><br><span class="line">**这是粗体**</span><br><span class="line">***这是加粗斜体***</span><br><span class="line">~~这是删除线~~</span><br></pre></td></tr></table></figure>
+<p><em>这是斜体</em> 或 <em>这也是斜体</em><br><strong>这是粗体</strong><br><strong><em>这是加粗斜体</em></strong><br><del>这是删除线</del></p>
+<hr>
+<h1 id="分级标题"><a href="#分级标题" class="headerlink" title="分级标题"></a>分级标题</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br><span class="line">This is an H1</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><h1 id="This-is-an-H1"><a href="#This-is-an-H1" class="headerlink" title="This is an H1"></a>This is an H1</h1><hr>
+<h1 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[百度](http:&#x2F;&#x2F;www.baidu.com&#x2F;)</span><br><span class="line">[百度](http:&#x2F;&#x2F;www.baidu.com&#x2F; &quot;我是百度&quot;)</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.baidu.com/">百度</a><br><a href="http://www.baidu.com/" title="我是百度">百度</a></p>
+<hr>
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p>无序列表：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* 无序列表项1</span><br><span class="line">+ 无序列表项2</span><br><span class="line">- 无序列表项3</span><br></pre></td></tr></table></figure>
+<ul>
+<li>无序列表项1</li>
+</ul>
+<ul>
+<li>无序列表项2</li>
+</ul>
+<ul>
+<li>无序列表项3<br>有序列表：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 有序列表项1</span><br><span class="line">2. 有序列表项2</span><br><span class="line">3. 有序列表项3</span><br><span class="line">90. 有序列表项4</span><br><span class="line">1. 有序列表项5</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li>有序列表项1</li>
+<li>有序列表项2</li>
+<li>有序列表项3</li>
+<li>有序列表项4</li>
+<li>有序列表项5</li>
+</ol>
+<hr>
+<h1 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![天空](天空.jpg)</span><br><span class="line">![](天空.jpg)</span><br></pre></td></tr></table></figure>
+<p><img src= "/img/loading.gif" data-lazy-src="/2021/02/03/test/%E5%A4%A9%E7%A9%BA.jpg" alt="天空"><br><img src= "/img/loading.gif" data-lazy-src="/2021/02/03/test/%E5%A4%A9%E7%A9%BA.jpg"></p>
+<hr>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">| 表头1|表头2|表头3|表头4</span><br><span class="line">|-| :- | :-: | -: |</span><br><span class="line">|默认左对齐|左对齐|居中对齐|右对齐|</span><br><span class="line">|默认左对齐|左对齐|居中对齐|右对齐|</span><br><span class="line">|默认左对齐|左对齐|居中对齐|右对齐|</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>表头1</th>
+<th align="left">表头2</th>
+<th align="center">表头3</th>
+<th align="right">表头4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>默认左对齐</td>
+<td align="left">左对齐</td>
+<td align="center">居中对齐</td>
+<td align="right">右对齐</td>
+</tr>
+<tr>
+<td>默认左对齐</td>
+<td align="left">左对齐</td>
+<td align="center">居中对齐</td>
+<td align="right">右对齐</td>
+</tr>
+<tr>
+<td>默认左对齐</td>
+<td align="left">左对齐</td>
+<td align="center">居中对齐</td>
+<td align="right">右对齐</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-  A 123</span><br><span class="line">    &gt; 123</span><br></pre></td></tr></table></figure>
+<ul>
+<li>A 123<blockquote>
+<p>123</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 123</span><br><span class="line">&gt; 123</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>123<br>123</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-  A 123</span><br></pre></td></tr></table></figure></li>
+<li> A 123</li>
+</ul>
+<hr>
+<h1 id="代码方框"><a href="#代码方框" class="headerlink" title="代码方框"></a>代码方框</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96; 一行代码 &#96;</span><br></pre></td></tr></table></figure>
+<p><code>一行代码</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line">多行代码代码</span><br><span class="line">&#96;&#96;&#96;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">多行代码代码</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;note info&quot;&gt;这里是 info 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note primary&quot;&gt;这里是 primary 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note warning&quot;&gt;这里是 warning 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note danger&quot;&gt;这里是 danger 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note success&quot;&gt;这里是 success 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note default&quot;&gt;这里是 default 标签样式&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<div class="note info">这里是 info 标签样式</div>
+<div class="note primary">这里是 primary 标签样式</div>
+<div class="note warning">这里是 warning 标签样式</div>
+<div class="note danger">这里是 danger 标签样式</div>
+<div class="note success">这里是 success 标签样式</div>
+<div class="note default">这里是 default 标签样式</div>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;note info no-icon&quot;&gt;这里是不带符号的 info 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note primary no-icon&quot;&gt;这里是不带符号的 primary 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note warning no-icon&quot;&gt;这里是不带符号的 warning 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note danger no-icon&quot;&gt;这里是不带符号的 danger 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note success no-icon&quot;&gt;这里是不带符号的 success 标签样式&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;note default no-icon&quot;&gt;这里是不带符号的 default 标签样式&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<div class="note info no-icon">这里是不带符号的 info 标签样式</div>
+<div class="note primary no-icon">这里是不带符号的 primary 标签样式</div>
+<div class="note warning no-icon">这里是不带符号的 warning 标签样式</div>
+<div class="note danger no-icon">这里是不带符号的 danger 标签样式</div>
+<div class="note success no-icon">这里是不带符号的 success 标签样式</div>
+<div class="note default no-icon">这里是不带符号的 default 标签样式</div>
+
+<p class="div-border green">绿色</p>
+<p class="div-border red">红色</p>
+<p class="div-border yellow">黄色</p>
+<p class="div-border grey">灰色</p>
+<p class="div-border blue">蓝色</p>
+---------------
+# 分割线
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---------------</span><br></pre></td></tr></table></figure>
+---------------
+
+]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
       </tags>
   </entry>
 </search>
