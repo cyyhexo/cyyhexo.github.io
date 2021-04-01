@@ -543,20 +543,6 @@ name填表格名
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/02/03/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>XPath</title>
     <url>/2021/02/11/XPath/</url>
     <content><![CDATA[<h1 id="XPath的符号表示"><a href="#XPath的符号表示" class="headerlink" title="XPath的符号表示"></a>XPath的符号表示</h1><div><table><thead><tr><th>表达式</th><th>描述</th></tr></thead><tbody><tr><td>nodename</td><td>选取此节点的所有子节点</td></tr><tr><td>/</td><td>从当前节点选取直接子节点(下一级)</td></tr><tr><td>//</td><td>从当前节点选取子孙节点(下级)</td></tr><tr><td>.</td><td>选取当前节点</td></tr><tr><td>..</td><td>选取当前节点的父节点</td></tr><tr><td>@</td><td>选取属性</td></tr></tbody></table></div>
@@ -581,6 +567,20 @@ name填表格名
       <tags>
         <tag>Python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/02/03/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>hexo --博客搭建</title>
@@ -797,6 +797,31 @@ name填表格名
       </tags>
   </entry>
   <entry>
+    <title>字符编码</title>
+    <url>/2021/03/17/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/</url>
+    <content><![CDATA[<p>-</p>
+<p><img src= "/img/loading.gif" data-lazy-src="/2021/03/17/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/%E4%BD%9C%E4%B8%9A.jpg" alt="作业"></p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    char inPut, al, mu;</span><br><span class="line">    printf(&quot;请输入字母:\n&quot;);</span><br><span class="line">    scanf(&quot;%c&quot;, &amp;inPut);</span><br><span class="line">    if (inPut &lt; 91 &amp;&amp; inPut&gt;64)&#123;</span><br><span class="line">        al &#x3D; inPut - 64;</span><br><span class="line">        al &#x3D; (al * 2 - 1) % 26 + 1;</span><br><span class="line">        mu &#x3D; al + 64;</span><br><span class="line">    &#125;</span><br><span class="line">    else if (inPut &lt; 123 &amp;&amp; inPut &gt;96)&#123;</span><br><span class="line">        al &#x3D; inPut - 96;</span><br><span class="line">        al &#x3D; (al * 2 - 1) % 26 + 1;</span><br><span class="line">        mu &#x3D; al + 96;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%c&quot;, mu);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>在 ASCII 的排列中 , 先将A(a)变为第一位B(b)变为第二位…<br>即A-&gt;1,B-&gt;2 ,….<br>a ,b ,c 同理<br>赋值为 al </p>
+<p>那么转化之后的字母数字 al <em>2就得到了我们想要的结果<br>由于一个循环有26个字母,只要al</em>2/26,他的<em>余数</em>就是我们想要的结果<br>但是,有些情况会例外<br><strong>当其为26的倍数时,余数是0</strong><br>什么意思呢?就是我们想要得到26(Z),而结果却得到了0!!<br>有2个解决方法</p>
+<ol>
+<li>判断al的值,如果是0的话,将al改为26</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if(al&#x3D;&#x3D;0) al&#x3D;26;</span><br><span class="line">或</span><br><span class="line">if(!al) al &#x3D; 26;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>先把al<em>2的值减去1再来除26取余数,结果再加1<br>(由于+1后-1,对余数不为0的影响不大)<br>例如 当al=13时,al</em>2%26=0,但是(al*2-1)%26+1=26,直接将过滤了0的情况</li>
+</ol>
+<h1 id="另类解法"><a href="#另类解法" class="headerlink" title="另类解法"></a>另类解法</h1><p>不用循环,直接以M为分界(因为M排位为13,<em>2之后刚好是Z,对于M后面的数,\</em>2之后就要下个周期了)</p>
+]]></content>
+      <categories>
+        <category>C</category>
+        <category>作业</category>
+      </categories>
+      <tags>
+        <tag>C</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>微信小程序 基础</title>
     <url>/2021/02/17/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%20%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong><strong><strong><strong><strong><strong>这篇博客的目的是为了方便查阅 </strong></strong></strong></strong></strong></strong></p>
@@ -949,7 +974,7 @@ name填表格名
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;&#39;&#39;(</span><br><span class="line">    ([a-zA-Z0-9._%+-]+)  #用户名</span><br><span class="line">    @                 #分隔号</span><br><span class="line">    [a-zA-Z0-9.-]* #邮件服务器</span><br><span class="line">    )</span><br><span class="line">    &#39;&#39;&#39;,re.VERBOSE</span><br><span class="line">)</span><br><span class="line">mo &#x3D; Rex.search(&#39;我的邮箱是123456789@qq.com&#39;)</span><br><span class="line">print(mo.group())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>输出</p>
 <blockquote>
-<p><a href="mailto:&#49;&#x32;&#x33;&#52;&#x35;&#54;&#x37;&#x38;&#57;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;">&#49;&#x32;&#x33;&#52;&#x35;&#54;&#x37;&#x38;&#57;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<p><a href="mailto:&#49;&#x32;&#51;&#52;&#x35;&#54;&#55;&#56;&#x39;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#49;&#x32;&#51;&#52;&#x35;&#54;&#55;&#56;&#x39;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;</a></p>
 </blockquote>
 <h2 id="同时使用re-I-re-S-re-X"><a href="#同时使用re-I-re-S-re-X" class="headerlink" title="同时使用re.I ,re.S ,re.X"></a>同时使用re.I ,re.S ,re.X</h2><p>可以用|分割<br>即  re.I|re.S|re.X</p>
 <h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><p>sub函数 与 subn函数</p>
