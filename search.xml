@@ -803,15 +803,15 @@ name填表格名
 <p><img src= "/img/loading.gif" data-lazy-src="/2021/03/17/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81/%E4%BD%9C%E4%B8%9A.jpg" alt="作业"></p>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    char inPut, al, mu;</span><br><span class="line">    printf(&quot;请输入字母:\n&quot;);</span><br><span class="line">    scanf(&quot;%c&quot;, &amp;inPut);</span><br><span class="line">    if (inPut &lt; 91 &amp;&amp; inPut&gt;64)&#123;</span><br><span class="line">        al &#x3D; inPut - 64;</span><br><span class="line">        al &#x3D; (al * 2 - 1) % 26 + 1;</span><br><span class="line">        mu &#x3D; al + 64;</span><br><span class="line">    &#125;</span><br><span class="line">    else if (inPut &lt; 123 &amp;&amp; inPut &gt;96)&#123;</span><br><span class="line">        al &#x3D; inPut - 96;</span><br><span class="line">        al &#x3D; (al * 2 - 1) % 26 + 1;</span><br><span class="line">        mu &#x3D; al + 96;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%c&quot;, mu);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>在 ASCII 的排列中 , 先将A(a)变为第一位B(b)变为第二位…<br>即A-&gt;1,B-&gt;2 ,….<br>a ,b ,c 同理<br>赋值为 al </p>
-<p>那么转化之后的字母数字 al <em>2就得到了我们想要的结果<br>由于一个循环有26个字母,只要al</em>2/26,他的<em>余数</em>就是我们想要的结果<br>但是,有些情况会例外<br><strong>当其为26的倍数时,余数是0</strong><br>什么意思呢?就是我们想要得到26(Z),而结果却得到了0!!<br>有2个解决方法</p>
+<p>那么转化之后的字母数字 al *2就得到了我们想要的结果<br>由于一个循环有26个字母,只要al*2/26,他的<em>余数</em>就是我们想要的结果<br>但是,有些情况会例外<br><strong>当其为26的倍数时,余数是0</strong><br>什么意思呢?就是我们想要得到26(Z),而结果却得到了0!!<br>有2个解决方法</p>
 <ol>
 <li>判断al的值,如果是0的话,将al改为26</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if(al&#x3D;&#x3D;0) al&#x3D;26;</span><br><span class="line">或</span><br><span class="line">if(!al) al &#x3D; 26;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>先把al<em>2的值减去1再来除26取余数,结果再加1<br>(由于+1后-1,对余数不为0的影响不大)<br>例如 当al=13时,al</em>2%26=0,但是(al*2-1)%26+1=26,直接将过滤了0的情况</li>
+<li>先把al*2的值减去1再来除26取余数,结果再加1<br>(由于+1后-1,对余数不为0的影响不大)<br>例如 当al=13时,al*2%26=0,但是(al*2-1)%26+1=26,直接将过滤了0的情况</li>
 </ol>
-<h1 id="另类解法"><a href="#另类解法" class="headerlink" title="另类解法"></a>另类解法</h1><p>不用循环,直接以M为分界(因为M排位为13,<em>2之后刚好是Z,对于M后面的数,\</em>2之后就要下个周期了)</p>
+<h1 id="另类解法"><a href="#另类解法" class="headerlink" title="另类解法"></a>另类解法</h1><p>不用循环,直接以M为分界(因为M排位为13,*2之后刚好是Z,对于M后面的数,*2之后就要下个周期了)</p>
 ]]></content>
       <categories>
         <category>C</category>
