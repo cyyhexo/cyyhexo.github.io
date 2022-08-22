@@ -1,0 +1,18 @@
+{
+    "友情链接": {
+        "class_name": "友情链接",
+        "class_desc": "",
+        "link_list": [
+            {
+                "avatar": "https://www.felixchen0707.cn/img/theme_img/profile.jpg",
+                "description": "抬头看星空.",
+                "link": "https://www.felixchen0707.cn/",
+                "name": "Felix_Chen的基地",
+                "theme": {
+                    "style": "default",
+                    "siteImage": ""
+                }
+            }
+        ]
+    }
+}
