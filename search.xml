@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>字符编码</title>
-    <url>/posts/ebfb97d0.html</url>
-    <content><![CDATA[<p><img src="/posts/ebfb97d0/%E4%BD%9C%E4%B8%9A.png" alt="作业"></p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    char inPut, al, mu;</span><br><span class="line">    printf(&quot;请输入字母:\n&quot;);</span><br><span class="line">    scanf(&quot;%c&quot;, &amp;inPut);</span><br><span class="line">    if (inPut &lt; 91 &amp;&amp; inPut&gt;64)&#123;</span><br><span class="line">        al &#x3D; inPut - 64;</span><br><span class="line">        al &#x3D; (al * 2 - 1) % 26 + 1;</span><br><span class="line">        mu &#x3D; al + 64;</span><br><span class="line">    &#125;</span><br><span class="line">    else if (inPut &lt; 123 &amp;&amp; inPut &gt;96)&#123;</span><br><span class="line">        al &#x3D; inPut - 96;</span><br><span class="line">        al &#x3D; (al * 2 - 1) % 26 + 1;</span><br><span class="line">        mu &#x3D; al + 96;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%c&quot;, mu);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>在 ASCII 的排列中 , 先将A(a)变为第一位B(b)变为第二位…<br>即A-&gt;1,B-&gt;2 ,….<br>a ,b ,c 同理<br>赋值为 al </p>
-<p>那么转化之后的字母数字 al *2就得到了我们想要的结果<br>由于一个循环有26个字母,只要al*2/26,他的<em>余数</em>就是我们想要的结果<br>但是,有些情况会例外<br><strong>当其为26的倍数时,余数是0</strong><br>什么意思呢?就是我们想要得到26(Z),而结果却得到了0!!<br>有2个解决方法</p>
-<ol>
-<li>判断al的值,如果是0的话,将al改为26</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if(al&#x3D;&#x3D;0) al&#x3D;26;</span><br><span class="line">或</span><br><span class="line">if(!al) al &#x3D; 26;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>先把al*2的值减去1再来除26取余数,结果再加1<br>(由于+1后-1,对余数不为0的影响不大)<br>例如 当al=13时,al*2%26=0,但是(al*2-1)%26+1=26,直接将过滤了0的情况</li>
-</ol>
-<h1 id="另类解法"><a href="#另类解法" class="headerlink" title="另类解法"></a>另类解法</h1><p>不用循环,直接以M为分界(因为M排位为13,*2之后刚好是Z,对于M后面的数,*2之后就要下个周期了)</p>
-]]></content>
-      <categories>
-        <category>C</category>
-        <category>作业</category>
-      </categories>
-      <tags>
-        <tag>C</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JNU_毛概期末</title>
     <url>/posts/5a1a850e.html</url>
     <content><![CDATA[<h1 id="中国特色社会主义进入新时代的依据。"><a href="#中国特色社会主义进入新时代的依据。" class="headerlink" title="中国特色社会主义进入新时代的依据。"></a>中国特色社会主义进入新时代的依据。</h1><ul>
@@ -249,6 +225,30 @@
       </tags>
   </entry>
   <entry>
+    <title>字符编码</title>
+    <url>/posts/ebfb97d0.html</url>
+    <content><![CDATA[<p><img src="/posts/ebfb97d0/%E4%BD%9C%E4%B8%9A.png" alt="作业"></p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    char inPut, al, mu;</span><br><span class="line">    printf(&quot;请输入字母:\n&quot;);</span><br><span class="line">    scanf(&quot;%c&quot;, &amp;inPut);</span><br><span class="line">    if (inPut &lt; 91 &amp;&amp; inPut&gt;64)&#123;</span><br><span class="line">        al &#x3D; inPut - 64;</span><br><span class="line">        al &#x3D; (al * 2 - 1) % 26 + 1;</span><br><span class="line">        mu &#x3D; al + 64;</span><br><span class="line">    &#125;</span><br><span class="line">    else if (inPut &lt; 123 &amp;&amp; inPut &gt;96)&#123;</span><br><span class="line">        al &#x3D; inPut - 96;</span><br><span class="line">        al &#x3D; (al * 2 - 1) % 26 + 1;</span><br><span class="line">        mu &#x3D; al + 96;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%c&quot;, mu);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>在 ASCII 的排列中 , 先将A(a)变为第一位B(b)变为第二位…<br>即A-&gt;1,B-&gt;2 ,….<br>a ,b ,c 同理<br>赋值为 al </p>
+<p>那么转化之后的字母数字 al *2就得到了我们想要的结果<br>由于一个循环有26个字母,只要al*2/26,他的<em>余数</em>就是我们想要的结果<br>但是,有些情况会例外<br><strong>当其为26的倍数时,余数是0</strong><br>什么意思呢?就是我们想要得到26(Z),而结果却得到了0!!<br>有2个解决方法</p>
+<ol>
+<li>判断al的值,如果是0的话,将al改为26</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if(al&#x3D;&#x3D;0) al&#x3D;26;</span><br><span class="line">或</span><br><span class="line">if(!al) al &#x3D; 26;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>先把al*2的值减去1再来除26取余数,结果再加1<br>(由于+1后-1,对余数不为0的影响不大)<br>例如 当al=13时,al*2%26=0,但是(al*2-1)%26+1=26,直接将过滤了0的情况</li>
+</ol>
+<h1 id="另类解法"><a href="#另类解法" class="headerlink" title="另类解法"></a>另类解法</h1><p>不用循环,直接以M为分界(因为M排位为13,*2之后刚好是Z,对于M后面的数,*2之后就要下个周期了)</p>
+]]></content>
+      <categories>
+        <category>C</category>
+        <category>作业</category>
+      </categories>
+      <tags>
+        <tag>C</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用markdown用法</title>
     <url>/posts/b22eb87d.html</url>
     <content><![CDATA[<h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><h2 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h2><ol>
@@ -297,124 +297,6 @@
 </div></div></div><div class="timeline-item"><div class="timeline-item-title"><div class="item-circle"><p>01-02</p>
 </div></div><div class="timeline-item-content"><p>這是測試頁面</p>
 </div></div></div>]]></content>
-  </entry>
-  <entry>
-    <title>hexo --博客搭建</title>
-    <url>/posts/3c5747.html</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><div class="snote info"><p><span class="inline-tag blue">搭建环境</span> win10 32位(虚拟机)</p></div>
-<div class="snote info"><p><span class="inline-tag blue">博客搭建</span> hexo + Github</p></div>
-<div class="tip success"><p>如果下载慢,可在<a class="btn-beautify button--animated outline" href="https://d.serctl.com/" target="_blank" rel="noopener" title="下载">下载</a></p><p></p></div>
-<div class="snote idea yellow"><p>CMD下<kbd>Ctrl</kbd> + <kbd>C</kbd>不是复制</p></div>
-<div class="snote idea yellow"><p><a class="btn-beautify button--animated outline" href="https://blog.ifycyu.ltd" target="_blank" rel="noopener" title="这是链接">方框是链接,可以点击</a></p></div>
-
-<hr>
-<h1 id="注册Github"><a href="#注册Github" class="headerlink" title="注册Github"></a>注册Github</h1><ol>
-<li>注册,登录<a class="btn-beautify button--animated outline" href="https://github.com/" target="_blank" rel="noopener" title="Github">Github</a><emp>记住自己的 username</emp></li>
-<li>右上角+号 -&gt; 点击 <a class="btn-beautify button--animated outline" href="https://github.com/new" target="_blank" rel="noopener" title="New repository">New repository</a></li>
-<li>Repository name 填写<emp>第一步</emp>的 username.github.io<div class="snote idea yellow"><p>例如 我的username为123,就填写123.github.io</p></div>
-
-</li>
-</ol>
-<hr>
-<h1 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h1><ol>
-<li>安装 <a class="btn-beautify button--animated outline" href="http://nodejs.cn/download/" target="_blank" rel="noopener" title="Node.js">Node.js</a></li>
-<li>安装 <a class="btn-beautify button--animated outline" href="https://git-scm.com/downloads" target="_blank" rel="noopener" title="Git">Git</a><blockquote>
-<p>打开 <code>Git Bash</code> 输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;注册的username&quot;</span><br><span class="line">git config --global user.emaim &quot;注册的邮箱&quot;</span><br></pre></td></tr></table></figure></blockquote>
-</li>
-<li>安装 Hexo<blockquote>
-<p>打开 cmd 输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<div class="tip warning"><p>如果下载过慢可以先输入下面</p><p></p></div>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ol>
-<hr>
-<h1 id="建立Hexo"><a href="#建立Hexo" class="headerlink" title="建立Hexo"></a>建立Hexo</h1><ol>
-<li>新建一个文件夹,用于存放博客</li>
-<li>打开文件夹<blockquote>
-<ul>
-<li>按住<kbd>Shift</kbd> 和鼠标右键 </li>
-<li>点击<code>在此处打开命令窗口</code></li>
-</ul>
-</blockquote>
-</li>
-<li>输入<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-等到加载成功,访问<a class="btn-beautify button--animated outline" href="http://localhost:4000/" target="_blank" rel="noopener" title="localhost:4000">localhost:4000</a>即可打开博客</li>
-</ol>
-<hr>
-<h1 id="配置公钥"><a href="#配置公钥" class="headerlink" title="配置公钥"></a>配置公钥</h1><h2 id="获取公钥"><a href="#获取公钥" class="headerlink" title="获取公钥"></a>获取公钥</h2><div class="tip important font5 fas fa-home"><p>需要将ssh-keygen设置为环境变量</p><p></p></div>
-
-<ol>
-<li><p>打开cmd 输入</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;注册Github的邮箱&quot;</span><br></pre></td></tr></table></figure>
-<p> 一连输入三个 <kbd>Enter</kbd><br>得到 <code>Your public key has been saved in /c/Users/Hexo/.ssh/id_rsa.pub.</code><br>找到该文件 打开<br>按 <kbd>Ctrl</kbd> + <kbd>A</kbd> 全选<br>按 <kbd>Ctrl</kbd> + <kbd>C</kbd> 复制</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="填写公钥"><a href="#填写公钥" class="headerlink" title="填写公钥"></a>填写公钥</h2><ol start="2">
-<li>打开 <a href="https://github.com/settings/keys">Github</a><blockquote>
-<p>点击 New SSH Key<br>填写 Title<br>填写Key 粘贴</p>
-</blockquote>
-</li>
-</ol>
-<hr>
-<h1 id="修改站点信息"><a href="#修改站点信息" class="headerlink" title="修改站点信息"></a>修改站点信息</h1><p>在根目录下(默认为blog目录下),打开 _config.yml (可用记事本打开)<br>移到最下面,修改</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;username&#x2F;username.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>点击<div class="hide-block"><button type="button" class="hide-button" style="background-color: bg;color: color">例子
-    </button><div class="hide-content"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">例如我的username为 123</span><br><span class="line">deploy: </span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;123&#x2F;123.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></div></div></p>
-<hr>
-<h1 id="同步到Github"><a href="#同步到Github" class="headerlink" title="同步到Github"></a>同步到Github</h1><p>在根目录下(默认为blog目录下),运行cmd<br>输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-<div class="note danger disabled"><p>可能需要安装框架,可以不用安装最新的版本,看要求即可</p>
-</div>
-
-<p>然后会弹出Github登录 登录即可</p>
-<hr>
-<h1 id="成功部署"><a href="#成功部署" class="headerlink" title="成功部署"></a>成功部署</h1><p>访问 <a href="https://username.github.io/">https://username.github.io/</a> 即可!!!</p>
-<div class="tip wtgo font5 fas fa-bolt"><p>可能需要等待几分钟同步...</p><p></p></div>
-
-<hr>
-<h1 id="域名设定"><a href="#域名设定" class="headerlink" title="域名设定"></a>域名设定</h1><ol>
-<li>打开cmd 输入<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping yourname.github.io</span><br></pre></td></tr></table></figure>
-获取ip,解析到域名</li>
-<li>在根目录下的<code>source</code> 新建一个<code>CNAME</code> 写入域名<div class="note info simple"><p>即先创建一个.txt的文件,再改为CNAME </p>
-</div>
-<div class="checkbox yellow checked">
- <input type="checkbox" checked>
- <p>一定要去掉后缀!!!!!!</p>
-</div></li>
-<li>同步到Github即可</li>
-</ol>
-<h1 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h1><p><a href="https://www.antmoe.com/posts/7198453/index.html">主题更换</a></p>
-<p><a href="https://www.linuxwf.com/2020/04/08/exo-theme-butterfly-%E5%AE%89%E8%A3%9D%E6%96%87%E6%AA%94%EF%BC%88%E4%B8%89%EF%BC%89%E4%B8%BB%E9%A1%8C%E9%85%8D%E7%BD%AE">Butterfly</a></p>
-<p><a href="https://www.jianshu.com/p/50a565adaf15">Butterfly配置</a></p>
-<p><a href="https://blog.csdn.net/cungudafa/article/details/105938885">说说(Artitalk)</a></p>
-<p><a href="https://blog.zhheo.com/p/27be0e44.html">说说(bber)</a></p>
-<p><a href="https://github.com/HelloWuJiaYi/jVectorMap-Footprint">足迹</a>配合<a href="https://www.likecs.com/show-307012849.html">取消渲染食用</a></p>
-<p><a href="https://blog.csdn.net/weixin_58068682/article/details/116614109">豆瓣</a></p>
-<h1 id="自用插件"><a href="#自用插件" class="headerlink" title="自用插件"></a>自用插件</h1><ul>
-<li>主题Butterfly</li>
-<li>hexo-helper-live2d 看板娘</li>
-<li>hexo-butterfly-douban 豆瓣</li>
-<li>hexo-abbrlink 文章地址缩短</li>
-<li>hexo-baidu-url-submit 百度seo</li>
-<li>hexo-external-link 外部转跳链接</li>
-<li>hexo-offline-popupoff Hexo加速</li>
-<li>hexo-generator-searchdb Hexo搜索</li>
-<li>busuanzi 计数访问量和运行时间</li>
-<li>hexo-blog-encrypt 加密文章</li>
-</ul>
-]]></content>
-      <categories>
-        <category>博客 hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>博客</tag>
-      </tags>
   </entry>
   <entry>
     <title>主题使用文档</title>
@@ -533,6 +415,124 @@
       </categories>
       <tags>
         <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo --博客搭建</title>
+    <url>/posts/3c5747.html</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><div class="snote info"><p><span class="inline-tag blue">搭建环境</span> win10 32位(虚拟机)</p></div>
+<div class="snote info"><p><span class="inline-tag blue">博客搭建</span> hexo + Github</p></div>
+<div class="tip success"><p>如果下载慢,可在<a class="btn-beautify button--animated outline" href="https://d.serctl.com/" target="_blank" rel="noopener" title="下载">下载</a></p><p></p></div>
+<div class="snote idea yellow"><p>CMD下<kbd>Ctrl</kbd> + <kbd>C</kbd>不是复制</p></div>
+<div class="snote idea yellow"><p><a class="btn-beautify button--animated outline" href="https://blog.ifycyu.ltd" target="_blank" rel="noopener" title="这是链接">方框是链接,可以点击</a></p></div>
+
+<hr>
+<h1 id="注册Github"><a href="#注册Github" class="headerlink" title="注册Github"></a>注册Github</h1><ol>
+<li>注册,登录<a class="btn-beautify button--animated outline" href="https://github.com/" target="_blank" rel="noopener" title="Github">Github</a><emp>记住自己的 username</emp></li>
+<li>右上角+号 -&gt; 点击 <a class="btn-beautify button--animated outline" href="https://github.com/new" target="_blank" rel="noopener" title="New repository">New repository</a></li>
+<li>Repository name 填写<emp>第一步</emp>的 username.github.io<div class="snote idea yellow"><p>例如 我的username为123,就填写123.github.io</p></div>
+
+</li>
+</ol>
+<hr>
+<h1 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h1><ol>
+<li>安装 <a class="btn-beautify button--animated outline" href="http://nodejs.cn/download/" target="_blank" rel="noopener" title="Node.js">Node.js</a></li>
+<li>安装 <a class="btn-beautify button--animated outline" href="https://git-scm.com/downloads" target="_blank" rel="noopener" title="Git">Git</a><blockquote>
+<p>打开 <code>Git Bash</code> 输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;注册的username&quot;</span><br><span class="line">git config --global user.emaim &quot;注册的邮箱&quot;</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+<li>安装 Hexo<blockquote>
+<p>打开 cmd 输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<div class="tip warning"><p>如果下载过慢可以先输入下面</p><p></p></div>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h1 id="建立Hexo"><a href="#建立Hexo" class="headerlink" title="建立Hexo"></a>建立Hexo</h1><ol>
+<li>新建一个文件夹,用于存放博客</li>
+<li>打开文件夹<blockquote>
+<ul>
+<li>按住<kbd>Shift</kbd> 和鼠标右键 </li>
+<li>点击<code>在此处打开命令窗口</code></li>
+</ul>
+</blockquote>
+</li>
+<li>输入<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+等到加载成功,访问<a class="btn-beautify button--animated outline" href="http://localhost:4000/" target="_blank" rel="noopener" title="localhost:4000">localhost:4000</a>即可打开博客</li>
+</ol>
+<hr>
+<h1 id="配置公钥"><a href="#配置公钥" class="headerlink" title="配置公钥"></a>配置公钥</h1><h2 id="获取公钥"><a href="#获取公钥" class="headerlink" title="获取公钥"></a>获取公钥</h2><div class="tip important font5 fas fa-home"><p>需要将ssh-keygen设置为环境变量</p><p></p></div>
+
+<ol>
+<li><p>打开cmd 输入</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;注册Github的邮箱&quot;</span><br></pre></td></tr></table></figure>
+<p> 一连输入三个 <kbd>Enter</kbd><br>得到 <code>Your public key has been saved in /c/Users/Hexo/.ssh/id_rsa.pub.</code><br>找到该文件 打开<br>按 <kbd>Ctrl</kbd> + <kbd>A</kbd> 全选<br>按 <kbd>Ctrl</kbd> + <kbd>C</kbd> 复制</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="填写公钥"><a href="#填写公钥" class="headerlink" title="填写公钥"></a>填写公钥</h2><ol start="2">
+<li>打开 <a href="https://github.com/settings/keys">Github</a><blockquote>
+<p>点击 New SSH Key<br>填写 Title<br>填写Key 粘贴</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h1 id="修改站点信息"><a href="#修改站点信息" class="headerlink" title="修改站点信息"></a>修改站点信息</h1><p>在根目录下(默认为blog目录下),打开 _config.yml (可用记事本打开)<br>移到最下面,修改</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;username&#x2F;username.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>点击<div class="hide-block"><button type="button" class="hide-button" style="background-color: bg;color: color">例子
+    </button><div class="hide-content"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">例如我的username为 123</span><br><span class="line">deploy: </span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;123&#x2F;123.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></div></div></p>
+<hr>
+<h1 id="同步到Github"><a href="#同步到Github" class="headerlink" title="同步到Github"></a>同步到Github</h1><p>在根目录下(默认为blog目录下),运行cmd<br>输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<div class="note danger disabled"><p>可能需要安装框架,可以不用安装最新的版本,看要求即可</p>
+</div>
+
+<p>然后会弹出Github登录 登录即可</p>
+<hr>
+<h1 id="成功部署"><a href="#成功部署" class="headerlink" title="成功部署"></a>成功部署</h1><p>访问 <a href="https://username.github.io/">https://username.github.io/</a> 即可!!!</p>
+<div class="tip wtgo font5 fas fa-bolt"><p>可能需要等待几分钟同步...</p><p></p></div>
+
+<hr>
+<h1 id="域名设定"><a href="#域名设定" class="headerlink" title="域名设定"></a>域名设定</h1><ol>
+<li>打开cmd 输入<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping yourname.github.io</span><br></pre></td></tr></table></figure>
+获取ip,解析到域名</li>
+<li>在根目录下的<code>source</code> 新建一个<code>CNAME</code> 写入域名<div class="note info simple"><p>即先创建一个.txt的文件,再改为CNAME </p>
+</div>
+<div class="checkbox yellow checked">
+ <input type="checkbox" checked>
+ <p>一定要去掉后缀!!!!!!</p>
+</div></li>
+<li>同步到Github即可</li>
+</ol>
+<h1 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h1><p><a href="https://www.antmoe.com/posts/7198453/index.html">主题更换</a></p>
+<p><a href="https://www.linuxwf.com/2020/04/08/exo-theme-butterfly-%E5%AE%89%E8%A3%9D%E6%96%87%E6%AA%94%EF%BC%88%E4%B8%89%EF%BC%89%E4%B8%BB%E9%A1%8C%E9%85%8D%E7%BD%AE">Butterfly</a></p>
+<p><a href="https://www.jianshu.com/p/50a565adaf15">Butterfly配置</a></p>
+<p><a href="https://blog.csdn.net/cungudafa/article/details/105938885">说说(Artitalk)</a></p>
+<p><a href="https://blog.zhheo.com/p/27be0e44.html">说说(bber)</a></p>
+<p><a href="https://github.com/HelloWuJiaYi/jVectorMap-Footprint">足迹</a>配合<a href="https://www.likecs.com/show-307012849.html">取消渲染食用</a></p>
+<p><a href="https://blog.csdn.net/weixin_58068682/article/details/116614109">豆瓣</a></p>
+<h1 id="自用插件"><a href="#自用插件" class="headerlink" title="自用插件"></a>自用插件</h1><ul>
+<li>主题Butterfly</li>
+<li>hexo-helper-live2d 看板娘</li>
+<li>hexo-butterfly-douban 豆瓣</li>
+<li>hexo-abbrlink 文章地址缩短</li>
+<li>hexo-baidu-url-submit 百度seo</li>
+<li>hexo-external-link 外部转跳链接</li>
+<li>hexo-offline-popupoff Hexo加速</li>
+<li>hexo-generator-searchdb Hexo搜索</li>
+<li>busuanzi 计数访问量和运行时间</li>
+<li>hexo-blog-encrypt 加密文章</li>
+</ul>
+]]></content>
+      <categories>
+        <category>博客 hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -1279,33 +1279,6 @@ name填表格名
       </tags>
   </entry>
   <entry>
-    <title>Scrapy (二) middlewares</title>
-    <url>/posts/7e4bc8b5.html</url>
-    <content><![CDATA[<h1 id="修改-UA"><a href="#修改-UA" class="headerlink" title="修改 UA"></a>修改 UA</h1><p>在middlewares.py下添加</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class UAMiddleware(object):</span><br><span class="line">    def process_request(self, request, spider):</span><br><span class="line">        ua &#x3D; random.choice(settings[&#39;USER_AGENT_LIST&#39;])</span><br><span class="line">        request.headers[&#39;User-Agent&#39;] &#x3D; ua</span><br></pre></td></tr></table></figure>
-<p>定义一个UA类 获取settings里面的UA列表 把ua放入请求头里面</p>
-<p>由于引入<code>random</code>和<code>settings</code>所以要<code>import</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import random</span><br><span class="line">from scrapy.utils.project import get_project_settings</span><br><span class="line">settings &#x3D; get_project_settings()</span><br></pre></td></tr></table></figure>
-<h1 id="改-settings"><a href="#改-settings" class="headerlink" title="改 settings"></a>改 settings</h1><p>在settings修改</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DOWNLOADER_MIDDLEWARES &#x3D; &#123;</span><br><span class="line">  &#39;UA.middlewares.UAMiddleware&#39;: 543,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在 UA 的目录下的 middlewares.py 的 UAMiddleware  优先级别设置为 543</p>
-<p>同时,放入 UA 供选择</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">USER_AGENT_LIST &#x3D; [</span><br><span class="line">&quot;Mozilla&#x2F;5.0 (Windows NT 10.0; WOW64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;45.0.2454.101 Safari&#x2F;537.36&quot;,</span><br><span class="line">&quot;JUC (Linux; U; 2.3.7; zh-cn; MB200; 320*480) UCWEB7.9.3.103&#x2F;139&#x2F;999&quot;,</span><br><span class="line">&#39;MQQBrowser&#x2F;26 Mozilla&#x2F;5.0 (Linux; U;*roid 2.3.7; zh-cn; MB200 Build&#x2F;GRJ22; CyanogenMod-7) AppleWebKit&#x2F;533.1 (KHTML, like Gecko) Version&#x2F;4.0 Mobile Safari&#x2F;533.1&#39;,</span><br><span class="line">&#39;Mozilla&#x2F;5.0 (Windows; U; Windows NT 5.1) Gecko&#x2F;20070803 Firefox&#x2F;1.5.0.12&#39;,</span><br><span class="line">&#39;Mozilla&#x2F;4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; QQDownload 732; .NET4.0C; .NET4.0E)&#39;,</span><br><span class="line">&#39;Mozilla&#x2F;5.0 (iPhone; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit&#x2F;533.17.9 (KHTML, like Gecko) Version&#x2F;5.0.2 Mobile&#x2F;8J2 Safari&#x2F;6533.18.5&#39;,</span><br><span class="line">&quot;Dalvik&#x2F;1.6.0 (Linux; U; Android 4.2.1; 2013022 MIUI&#x2F;JHACNBL30.0)&quot;,</span><br><span class="line">&quot;Mozilla&#x2F;5.0 (Linux; U; Android 4.4.2; zh-cn; HUAWEI MT7-TL00 Build&#x2F;HuaweiMT7-TL00) AppleWebKit&#x2F;533.1 (KHTML, like Gecko) Version&#x2F;4.0 Mobile Safari&#x2F;533.1&quot;,</span><br><span class="line">&quot;AndroidDownloadManager&quot;,</span><br><span class="line">&quot;Apache-HttpClient&#x2F;UNAVAILABLE (java 1.4)&quot;,</span><br><span class="line">&quot;Dalvik&#x2F;1.6.0 (Linux; U; Android 4.3; SM-N7508V Build&#x2F;JLS36C)&quot;,</span><br><span class="line">&quot;Android50-AndroidPhone-8000-76-0-Statistics-wifi&quot;,</span><br><span class="line">&quot;Dalvik&#x2F;1.6.0 (Linux; U; Android 4.4.4; MI 3 MIUI&#x2F;V7.2.1.0.KXCCNDA)&quot;,</span><br><span class="line">&quot;Dalvik&#x2F;1.6.0 (Linux; U; Android 4.4.2; Lenovo A3800-d Build&#x2F;LenovoA3800-d)&quot;,</span><br><span class="line">&quot;Lite 1.0 ( http:&#x2F;&#x2F;litesuits.com )&quot;,</span><br><span class="line">&quot;Mozilla&#x2F;4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident&#x2F;4.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727)&quot;,</span><br><span class="line">&quot;Mozilla&#x2F;5.0 (Windows NT 6.1) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;38.0.2125.122 Safari&#x2F;537.36 SE 2.X MetaSr 1.0&quot;,</span><br><span class="line">&quot;Mozilla&#x2F;5.0 (Linux; U; Android 4.1.1; zh-cn; HTC T528t Build&#x2F;JRO03H) AppleWebKit&#x2F;534.30 (KHTML, like Gecko) Version&#x2F;4.0 Mobile Safari&#x2F;534.30; 360browser(securitypay,securityinstalled); 360(android,uppayplugin); 360 Aphone Browser (2.0.4)&quot;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h1 id="获取UA"><a href="#获取UA" class="headerlink" title="获取UA"></a>获取UA</h1><p><a class="btn-beautify button--animated outline" href="http://exercise.kingname.info/exercise_middleware_ua/1" target="_blank" rel="noopener" title="http://exercise.kingname.info/exercise_middleware_ua/1">http://exercise.kingname.info/exercise_middleware_ua/1</a><br>修改最后面的 /1 就可以修改页面</p>
-<p>主程序下写</p>
-<h2 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import scrapy</span><br><span class="line">class UaSpider(scrapy.Spider):</span><br><span class="line">    name &#x3D; &#39;ua&#39;</span><br><span class="line">    allowed_domains &#x3D; [&#39;exercise.kingname.info&#39;]</span><br><span class="line">    start_urls &#x3D; [&#39;http:&#x2F;&#x2F;exercise.kingname.info&#x2F;exercise_middleware_ua&#x2F;1&#39;]</span><br><span class="line">    st &#x3D; 1</span><br><span class="line">    def parse(self, response):</span><br><span class="line">        re &#x3D; response.text</span><br><span class="line">        print(re)</span><br><span class="line">        yield re</span><br><span class="line">        if self.st &lt; 50:</span><br><span class="line">            self.st +&#x3D; 1</span><br><span class="line">            url &#x3D; f&#39;http:&#x2F;&#x2F;exercise.kingname.info&#x2F;exercise_middleware_ua&#x2F;&#123;str(self.st)&#125;&#39;</span><br><span class="line">            yield scrapy.Request(url &#x3D; url)</span><br></pre></td></tr></table></figure>
-<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import scrapy</span><br><span class="line">class UaSpider(scrapy.Spider):</span><br><span class="line">    name &#x3D; &#39;ua&#39;</span><br><span class="line">    allowed_domains &#x3D; [&#39;exercise.kingname.info&#39;]</span><br><span class="line">    url &#x3D; &#39;http:&#x2F;&#x2F;exercise.kingname.info&#x2F;exercise_middleware_ua&#x2F;&#123;&#125;&#39;</span><br><span class="line">    st &#x3D; 1</span><br><span class="line">    def start_requests(self):</span><br><span class="line">        for i in range(1,50):</span><br><span class="line">            url &#x3D; self.url.format(i)</span><br><span class="line">            yield scrapy.Request(url &#x3D; url)</span><br><span class="line">    def parse(self, response):</span><br><span class="line">        re &#x3D; response.text</span><br><span class="line">        print(re)</span><br><span class="line">        yield re</span><br></pre></td></tr></table></figure>
-<p>最后执行即可</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>Scrapy</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Scrapy (一) 框架</title>
     <url>/posts/82055e09.html</url>
     <content><![CDATA[<h1 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h1><p>在目标的文件夹下按按住<kbd>Shift</kbd> 和鼠标右键<br>点击<code>在此处打开命令窗口</code><br>输入</p>
@@ -1359,6 +1332,33 @@ name填表格名
 <h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>在<code>spiders</code>新建<code>run.py</code><br>写入</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from scrapy import cmdline</span><br><span class="line">cmdline.execute(&#39;scrapy crawl 名字&#39;.split())</span><br></pre></td></tr></table></figure>
 <p>运行这个就可以了<br>或者在cmd下运行<br><code>scrapy crawl 名字</code><br><img src="/posts/82055e09/%E7%94%B5%E5%BD%B1%E6%88%90%E5%8A%9F.png"></p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>Scrapy</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Scrapy (二) middlewares</title>
+    <url>/posts/7e4bc8b5.html</url>
+    <content><![CDATA[<h1 id="修改-UA"><a href="#修改-UA" class="headerlink" title="修改 UA"></a>修改 UA</h1><p>在middlewares.py下添加</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class UAMiddleware(object):</span><br><span class="line">    def process_request(self, request, spider):</span><br><span class="line">        ua &#x3D; random.choice(settings[&#39;USER_AGENT_LIST&#39;])</span><br><span class="line">        request.headers[&#39;User-Agent&#39;] &#x3D; ua</span><br></pre></td></tr></table></figure>
+<p>定义一个UA类 获取settings里面的UA列表 把ua放入请求头里面</p>
+<p>由于引入<code>random</code>和<code>settings</code>所以要<code>import</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import random</span><br><span class="line">from scrapy.utils.project import get_project_settings</span><br><span class="line">settings &#x3D; get_project_settings()</span><br></pre></td></tr></table></figure>
+<h1 id="改-settings"><a href="#改-settings" class="headerlink" title="改 settings"></a>改 settings</h1><p>在settings修改</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DOWNLOADER_MIDDLEWARES &#x3D; &#123;</span><br><span class="line">  &#39;UA.middlewares.UAMiddleware&#39;: 543,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 UA 的目录下的 middlewares.py 的 UAMiddleware  优先级别设置为 543</p>
+<p>同时,放入 UA 供选择</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">USER_AGENT_LIST &#x3D; [</span><br><span class="line">&quot;Mozilla&#x2F;5.0 (Windows NT 10.0; WOW64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;45.0.2454.101 Safari&#x2F;537.36&quot;,</span><br><span class="line">&quot;JUC (Linux; U; 2.3.7; zh-cn; MB200; 320*480) UCWEB7.9.3.103&#x2F;139&#x2F;999&quot;,</span><br><span class="line">&#39;MQQBrowser&#x2F;26 Mozilla&#x2F;5.0 (Linux; U;*roid 2.3.7; zh-cn; MB200 Build&#x2F;GRJ22; CyanogenMod-7) AppleWebKit&#x2F;533.1 (KHTML, like Gecko) Version&#x2F;4.0 Mobile Safari&#x2F;533.1&#39;,</span><br><span class="line">&#39;Mozilla&#x2F;5.0 (Windows; U; Windows NT 5.1) Gecko&#x2F;20070803 Firefox&#x2F;1.5.0.12&#39;,</span><br><span class="line">&#39;Mozilla&#x2F;4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; QQDownload 732; .NET4.0C; .NET4.0E)&#39;,</span><br><span class="line">&#39;Mozilla&#x2F;5.0 (iPhone; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit&#x2F;533.17.9 (KHTML, like Gecko) Version&#x2F;5.0.2 Mobile&#x2F;8J2 Safari&#x2F;6533.18.5&#39;,</span><br><span class="line">&quot;Dalvik&#x2F;1.6.0 (Linux; U; Android 4.2.1; 2013022 MIUI&#x2F;JHACNBL30.0)&quot;,</span><br><span class="line">&quot;Mozilla&#x2F;5.0 (Linux; U; Android 4.4.2; zh-cn; HUAWEI MT7-TL00 Build&#x2F;HuaweiMT7-TL00) AppleWebKit&#x2F;533.1 (KHTML, like Gecko) Version&#x2F;4.0 Mobile Safari&#x2F;533.1&quot;,</span><br><span class="line">&quot;AndroidDownloadManager&quot;,</span><br><span class="line">&quot;Apache-HttpClient&#x2F;UNAVAILABLE (java 1.4)&quot;,</span><br><span class="line">&quot;Dalvik&#x2F;1.6.0 (Linux; U; Android 4.3; SM-N7508V Build&#x2F;JLS36C)&quot;,</span><br><span class="line">&quot;Android50-AndroidPhone-8000-76-0-Statistics-wifi&quot;,</span><br><span class="line">&quot;Dalvik&#x2F;1.6.0 (Linux; U; Android 4.4.4; MI 3 MIUI&#x2F;V7.2.1.0.KXCCNDA)&quot;,</span><br><span class="line">&quot;Dalvik&#x2F;1.6.0 (Linux; U; Android 4.4.2; Lenovo A3800-d Build&#x2F;LenovoA3800-d)&quot;,</span><br><span class="line">&quot;Lite 1.0 ( http:&#x2F;&#x2F;litesuits.com )&quot;,</span><br><span class="line">&quot;Mozilla&#x2F;4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident&#x2F;4.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727)&quot;,</span><br><span class="line">&quot;Mozilla&#x2F;5.0 (Windows NT 6.1) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;38.0.2125.122 Safari&#x2F;537.36 SE 2.X MetaSr 1.0&quot;,</span><br><span class="line">&quot;Mozilla&#x2F;5.0 (Linux; U; Android 4.1.1; zh-cn; HTC T528t Build&#x2F;JRO03H) AppleWebKit&#x2F;534.30 (KHTML, like Gecko) Version&#x2F;4.0 Mobile Safari&#x2F;534.30; 360browser(securitypay,securityinstalled); 360(android,uppayplugin); 360 Aphone Browser (2.0.4)&quot;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h1 id="获取UA"><a href="#获取UA" class="headerlink" title="获取UA"></a>获取UA</h1><p><a class="btn-beautify button--animated outline" href="http://exercise.kingname.info/exercise_middleware_ua/1" target="_blank" rel="noopener" title="http://exercise.kingname.info/exercise_middleware_ua/1">http://exercise.kingname.info/exercise_middleware_ua/1</a><br>修改最后面的 /1 就可以修改页面</p>
+<p>主程序下写</p>
+<h2 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import scrapy</span><br><span class="line">class UaSpider(scrapy.Spider):</span><br><span class="line">    name &#x3D; &#39;ua&#39;</span><br><span class="line">    allowed_domains &#x3D; [&#39;exercise.kingname.info&#39;]</span><br><span class="line">    start_urls &#x3D; [&#39;http:&#x2F;&#x2F;exercise.kingname.info&#x2F;exercise_middleware_ua&#x2F;1&#39;]</span><br><span class="line">    st &#x3D; 1</span><br><span class="line">    def parse(self, response):</span><br><span class="line">        re &#x3D; response.text</span><br><span class="line">        print(re)</span><br><span class="line">        yield re</span><br><span class="line">        if self.st &lt; 50:</span><br><span class="line">            self.st +&#x3D; 1</span><br><span class="line">            url &#x3D; f&#39;http:&#x2F;&#x2F;exercise.kingname.info&#x2F;exercise_middleware_ua&#x2F;&#123;str(self.st)&#125;&#39;</span><br><span class="line">            yield scrapy.Request(url &#x3D; url)</span><br></pre></td></tr></table></figure>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import scrapy</span><br><span class="line">class UaSpider(scrapy.Spider):</span><br><span class="line">    name &#x3D; &#39;ua&#39;</span><br><span class="line">    allowed_domains &#x3D; [&#39;exercise.kingname.info&#39;]</span><br><span class="line">    url &#x3D; &#39;http:&#x2F;&#x2F;exercise.kingname.info&#x2F;exercise_middleware_ua&#x2F;&#123;&#125;&#39;</span><br><span class="line">    st &#x3D; 1</span><br><span class="line">    def start_requests(self):</span><br><span class="line">        for i in range(1,50):</span><br><span class="line">            url &#x3D; self.url.format(i)</span><br><span class="line">            yield scrapy.Request(url &#x3D; url)</span><br><span class="line">    def parse(self, response):</span><br><span class="line">        re &#x3D; response.text</span><br><span class="line">        print(re)</span><br><span class="line">        yield re</span><br></pre></td></tr></table></figure>
+<p>最后执行即可</p>
 ]]></content>
       <categories>
         <category>Python</category>
@@ -1484,7 +1484,7 @@ name填表格名
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">Rex &#x3D; re.compile(r&#39;&#39;&#39;(</span><br><span class="line">    ([a-zA-Z0-9._%+-]+)  #用户名</span><br><span class="line">    @                 #分隔号</span><br><span class="line">    [a-zA-Z0-9.-]* #邮件服务器</span><br><span class="line">    )</span><br><span class="line">    &#39;&#39;&#39;,re.VERBOSE</span><br><span class="line">)</span><br><span class="line">mo &#x3D; Rex.search(&#39;我的邮箱是123456789@qq.com&#39;)</span><br><span class="line">print(mo.group())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>输出</p>
 <blockquote>
-<p><a href="mailto:&#49;&#50;&#51;&#x34;&#53;&#54;&#x37;&#x38;&#57;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;">&#49;&#50;&#51;&#x34;&#53;&#54;&#x37;&#x38;&#57;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;</a></p>
+<p><a href="mailto:&#49;&#x32;&#51;&#52;&#x35;&#54;&#55;&#x38;&#57;&#x40;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#109;">&#49;&#x32;&#51;&#52;&#x35;&#54;&#55;&#x38;&#57;&#x40;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#109;</a></p>
 </blockquote>
 <h2 id="同时使用re-I-re-S-re-X"><a href="#同时使用re-I-re-S-re-X" class="headerlink" title="同时使用re.I ,re.S ,re.X"></a>同时使用re.I ,re.S ,re.X</h2><p>可以用|分割<br>即  re.I|re.S|re.X</p>
 <h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><p>sub函数 与 subn函数</p>
@@ -1518,6 +1518,332 @@ name填表格名
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JNU_算法期末</title>
+    <url>/posts/8c2f6b20.html</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>只要我还没睡觉,这就还是算第二天..</p>
+<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="1-2-1-时间复杂度"><a href="#1-2-1-时间复杂度" class="headerlink" title="1.2.1 时间复杂度"></a>1.2.1 时间复杂度</h2><h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h2 id="3-3-3-求第k小的元素"><a href="#3-3-3-求第k小的元素" class="headerlink" title="3.3.3 求第k小的元素"></a>3.3.3 求第k小的元素</h2><p>思路:按照快排的思想 第k小对应a[k-1]的值</p>
+<p>对a[s…t]</p>
+<ol>
+<li>s&gt;=t,说明a中元素个数&lt;=1,如果s=t,k-1=s.这一个数就是第k小的数</li>
+<li>s&lt;t,划分为a[s…i-1]和a[i+1…t],以i为基准划分<ol>
+<li>k-1==i,a[i]为所求的值</li>
+<li>k-1&lt;i,第k小元素在a[s…i-1]里,继续递归</li>
+<li>k-1&gt;i,第k小元素在a[i+1…t]里,继续递归</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="function"><span class="built_in">int</span> <span class="title">QucikSelect</span>(<span class="params"><span class="built_in">int</span> a[],<span class="built_in">int</span> s,<span class="built_in">int</span> t,<span class="built_in">int</span> k</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">int</span> i=s,j=t;</span><br><span class="line">    <span class="built_in">int</span> tmp;</span><br><span class="line">    <span class="keyword">if</span>(s&lt;t)</span><br><span class="line">    &#123;</span><br><span class="line">        tmp = a[s];<span class="comment">//选择第一个作为基准</span></span><br><span class="line">        <span class="keyword">while</span>(i!=j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(j&gt;i&amp;&amp;a[j]&gt;=tmp)</span><br><span class="line">                j--;</span><br><span class="line">            a[i]=a[j];</span><br><span class="line">            <span class="keyword">while</span>(i&lt;j&amp;&amp;a[i]&lt;=tmp)</span><br><span class="line">                i++;</span><br><span class="line">            a[j]=a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        a[i]=tmp;<span class="comment">//类似快排的思想</span></span><br><span class="line">        <span class="keyword">if</span>(k<span class="number">-1</span>==i) <span class="keyword">return</span> a[i];<span class="comment">//对应2.1</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(k<span class="number">-1</span>&lt;i) <span class="keyword">return</span> QuickSelect(a,s,i<span class="number">-1</span>,k);<span class="comment">//对应2.2</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> QuickSelect(a,i+<span class="number">1</span>,t,k);<span class="comment">//对应2.3</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(s==t&amp;&amp; s==k<span class="number">-1</span>)   <span class="comment">//对应1</span></span><br><span class="line">        <span class="keyword">return</span> a[k<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-3-4-两个等长有序序列中位数"><a href="#3-3-4-两个等长有序序列中位数" class="headerlink" title="3.3.4 两个等长有序序列中位数"></a>3.3.4 两个等长有序序列中位数</h2><p>两个中位数比较,中位数较大的数组选小部分的,中位数较小的选大部分的</p>
+<ol>
+<li>奇数,取剩下的</li>
+<li>偶数:较大的数连同其剩下的,较小的数取剩下的(最后一次比较也是取较大数)</li>
+</ol>
+<p>a = (11,13,<strong>15</strong>,17,19)                         b=(2,4,<strong>6</strong>,8,20)</p>
+<p>15&gt;6</p>
+<p>a=(<strong>11</strong>,13)                                          b=(<strong>8</strong>,20)</p>
+<p>11&gt;8</p>
+<p>a=(11)                                               b=(20)</p>
+<p>11&lt;20</p>
+<p>20</p>
+<h2 id="3-4-1-最大连续子序列和问题"><a href="#3-4-1-最大连续子序列和问题" class="headerlink" title="3.4.1 最大连续子序列和问题"></a>3.4.1 最大连续子序列和问题</h2><p>分治法求解,取中间位置 mid 有三种情况:</p>
+<ol>
+<li>子序列在a[0…mid]</li>
+<li>子序列在a[mid+1…n-1]</li>
+<li>子序列在跨过mid的左右两边</li>
+</ol>
+<p>a = {-2,11,-4,13,-5,-2} mid = (0+5)/2=2</p>
+<p> 分为 a[0…2] a[3…5]</p>
+<p>左:11 右:13 中 20 max = 20</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">max3</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> b,<span class="keyword">long</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a&lt;b) a=b;</span><br><span class="line">    <span class="keyword">if</span>(a&gt;c) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">maxSubSum</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">long</span> maxLeftSum,maxRightSum;</span><br><span class="line">    <span class="keyword">long</span> maxLeftBorderSum,leftBorderSum;</span><br><span class="line">    <span class="keyword">long</span> maxRightBorderSum,rightBorderSum;</span><br><span class="line">    <span class="keyword">if</span>(left==right)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[left]&gt;<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> a[left];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid =(left+right)/<span class="number">2</span>;</span><br><span class="line">    maxLeftSum = maxSubSum(a,left,mid);<span class="comment">//mid左边</span></span><br><span class="line">    maxRightSum = maxSubSum(a,mid+<span class="number">1</span>,right);<span class="comment">//mid右边</span></span><br><span class="line">    <span class="comment">//跨过mid</span></span><br><span class="line">    maxLeftBorderSum=<span class="number">0</span>,leftBorderSum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=mid;i&gt;=left;i--)<span class="comment">//从第mid个数开始,向左求最大子序列和</span></span><br><span class="line">    &#123;</span><br><span class="line">        leftBorderSum+=a[i];</span><br><span class="line">        <span class="keyword">if</span>(leftBorderSum&gt;maxLeftBorderSum)</span><br><span class="line">            maxLeftBorderSum = leftBorderSum;</span><br><span class="line">    &#125;</span><br><span class="line">    maxRightBorderSum=<span class="number">0</span>,rightBorder=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(j=mid+<span class="number">1</span>;j&lt;=right;j++)<span class="comment">//从第mid+1个数开始,向右求最大子序列</span></span><br><span class="line">    &#123;</span><br><span class="line">        rightBorderSum +=a[j];</span><br><span class="line">        <span class="keyword">if</span>(rightBorderSum&gt;maxRightBorderSum)</span><br><span class="line">            maxRightBorderSum=rightBorderSum</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max3(maxLeftSum,maxRightSum,maxLeftBorderSum+maxRightBorderSum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><h2 id="4-2-4-最大连续子序列和"><a href="#4-2-4-最大连续子序列和" class="headerlink" title="4.2.4 最大连续子序列和"></a>4.2.4 最大连续子序列和</h2><p>​    (-2,                    11,                        -4,                13,                    -5,                        -2)</p>
+<p>穷举法:算出每一个连续子序列的和,取最大值</p>
+<p>三次循环</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-2</td>
+<td>9</td>
+<td>5</td>
+<td>18</td>
+<td>13</td>
+<td>11</td>
+</tr>
+<tr>
+<td></td>
+<td>11</td>
+<td>7</td>
+<td><strong><em>20</em></strong></td>
+<td>15</td>
+<td>13</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>-4</td>
+<td>9</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>13</td>
+<td>8</td>
+<td>6</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-5</td>
+<td>-7</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-2</td>
+</tr>
+</tbody></table>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxSubSum1</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,k;</span><br><span class="line">    <span class="keyword">int</span> maxSum,thisSum;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (j=i;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            thisSum=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(k=i;k&lt;=j;k++)</span><br><span class="line">                thisSum+=a[k];</span><br><span class="line">            <span class="keyword">if</span>(thisSum&gt;maxSum)</span><br><span class="line">                maxSum=thisSum</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>两次循环(每一行的数字(第一个除外)可以由上一个数字加上a[j]计算)</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxSubSum2</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">int</span> maxSum=<span class="number">0</span>,thisSum;</span><br><span class="line">    fot(i =<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        thisSum=<span class="number">0</span>;</span><br><span class="line">        fot(j=i;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            thisSum+=a[j]</span><br><span class="line">                <span class="keyword">if</span>(thisSum&gt;maxSum)</span><br><span class="line">                    maxSum=thisSum</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一次循环</p>
+<p>循环如果相加值小于零,直接替换成0(加上负数肯定比较小)</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxSubSum3</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,maxSum=<span class="number">0</span>,thisSum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        thisSum+=a[i];</span><br><span class="line">        <span class="keyword">if</span>(thisSum&lt;<span class="number">0</span>)</span><br><span class="line">            thisSum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(maxSum&lt;thisSum)</span><br><span class="line">            maxSum=thisSum</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxSum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-2-5-求解幂集问题"><a href="#4-2-5-求解幂集问题" class="headerlink" title="4.2.5 求解幂集问题"></a>4.2.5 求解幂集问题</h2><ol>
+<li><p>穷举法:</p>
+<p>a[0..2] = {1,2,3}</p>
+<p>可以转化为二进制(1表示选中,0表示不选中)</p>
+<p>000 001 010 011 … 111</p>
+<p>对应为{},{3},{2},{2,3}…{1,2,3}</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">void inc(int b[],int n)二进制加法</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)<span class="comment">//0改成1,1改成0</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b[i])<span class="comment">//1改成0,表示要进1位,继续循环</span></span><br><span class="line">            b[i]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            b[i]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">break</span>;<span class="comment">//0改成1,没有进位,退出循环</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PSet</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> b[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,k;</span><br><span class="line">    <span class="keyword">int</span> pw = (<span class="keyword">int</span>)<span class="built_in">pow</span>(<span class="number">2</span>,n);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;pw;i++)<span class="comment">//幂集有2^n个,因此要2^n次循环</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(k=<span class="number">0</span>;k&lt;n;k++)</span><br><span class="line">            <span class="keyword">if</span>(b[k])</span><br><span class="line">                <span class="built_in">printf</span>()</span><br><span class="line">        inc(b,n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ol start="2">
+<li><p>增量穷举法</p>
+<ol>
+<li>{}</li>
+<li>添加1-&gt;{1}</li>
+<li>上面添加2-&gt;{2},{1,2}</li>
+<li>上面添加3-&gt;{3},{1,3},{2,3},{1,2,3}</li>
+<li>所有元素合起来就是所求解</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PSet</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ps1;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;::iterator it;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;s;</span><br><span class="line">    ps.push_back(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="comment">//从1到n循环</span></span><br><span class="line">    &#123;</span><br><span class="line">        ps1=ps;<span class="comment">//ps1放上一次循环的内容</span></span><br><span class="line">        <span class="keyword">for</span>(it=ps1.begin();it!=ps1.end();++it)</span><br><span class="line">            (*it).push_back(i);<span class="comment">//往ps1添加</span></span><br><span class="line">        <span class="keyword">for</span>(it=ps1.begin();it!=ps1.end();++it)</span><br><span class="line">            ps.push_back(*it);<span class="comment">//将ps1的元素添加到ps中</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-6-0-1背包"><a href="#4-2-6-0-1背包" class="headerlink" title="4.2.6 0/1背包"></a>4.2.6 0/1背包</h2><p>采用求幂集的方法</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PSet</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Knap</span><span class="params">(<span class="keyword">int</span> w[],<span class="keyword">int</span> v[],<span class="keyword">int</span> W)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> sumw,sumv;</span><br><span class="line">    <span class="keyword">int</span> maxi,maxsumw=<span class="number">0</span>,maxsumv=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;::iterator it;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator sit;</span><br><span class="line">    <span class="keyword">for</span>(it=ps.begin();it!-ps.end();++it)</span><br><span class="line">    &#123;</span><br><span class="line">        sumw=sumv=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(sit=(*it).begin();sit!=(*it).end();++sit)<span class="comment">//由幂集选中选择哪个元素</span></span><br><span class="line">        &#123;</span><br><span class="line">            sumw+=w[*sit<span class="number">-1</span>];</span><br><span class="line">            sumv+=v[*sit<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(sumw&lt;=W)<span class="comment">//能装入背包中</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(sumv&gt;maxsumv)</span><br><span class="line">            &#123;</span><br><span class="line">                maxsumw=sumw;</span><br><span class="line">                maxsumv=sumv;</span><br><span class="line">                maxi=count;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> ..;<span class="comment">//不能装入背包</span></span><br><span class="line">        count ++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="4-2-7-全排列"><a href="#4-2-7-全排列" class="headerlink" title="4.2.7 全排列"></a>4.2.7 全排列</h2><ol>
+<li>{1}</li>
+<li>插入2-&gt; {2,1} {1,2}</li>
+<li>插入3-&gt;{3,2,1},{2,3,1},{2,1,3},    {3,1,2},{1,3,2},{1,2,3}</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insert</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; s,<span class="keyword">int</span> i,<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; &amp;ps1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; s1;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        s1=s;</span><br><span class="line">        it=s1.begin()+j;</span><br><span class="line">        s1.insert(it,i);</span><br><span class="line">        ps1.push_back(s1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Perm</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;ps1;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;::iterator it;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;s,s1;</span><br><span class="line">    s.push_back(<span class="number">1</span>);</span><br><span class="line">    ps.push_back(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ps1.clear();</span><br><span class="line">        <span class="keyword">for</span>(it=ps.begin();it!=ps.end();++it)</span><br><span class="line">        &#123;</span><br><span class="line">            Insert(*it,i,ps1);</span><br><span class="line">        &#125;</span><br><span class="line">        ps=ps1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="求解任务分配问题"><a href="#求解任务分配问题" class="headerlink" title="求解任务分配问题"></a>求解任务分配问题</h2><p>按照全排列的思想,排列出每一种可能性,然后得出结果</p>
+<p>将任务全排列</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insert</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Perm</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Allocate</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> &amp; mini ,<span class="keyword">int</span> &amp; minc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Perm(n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ps.size();i++)<span class="comment">//每一种方案</span></span><br><span class="line">    &#123;        </span><br><span class="line">        <span class="keyword">int</span> cost = <span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;ps[i].size();j++)<span class="comment">//每一种方案的选择(j表示第j个人)</span></span><br><span class="line">        	cost+=c[j][ps[i][j]<span class="number">-1</span>]<span class="comment">//ps[i][j]表示任务,由于从0开始,所以要-1</span></span><br><span class="line">       <span class="keyword">if</span>(cost&lt;minc)</span><br><span class="line">       &#123;</span><br><span class="line">           minc=cost;</span><br><span class="line">           mini=i;</span><br><span class="line">       &#125;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h1><h2 id="5-1-回溯法"><a href="#5-1-回溯法" class="headerlink" title="5.1 回溯法"></a>5.1 回溯法</h2><h3 id="5-1-1-解空间"><a href="#5-1-1-解空间" class="headerlink" title="5.1.1 解空间"></a>5.1.1 解空间</h3><p>满足约束条件-&gt;可行解</p>
+<p>最大或最小值-&gt;最优解</p>
+<p>排列树,解空间树</p>
+<h3 id="5-1-2-回溯法"><a href="#5-1-2-回溯法" class="headerlink" title="5.1.2 回溯法"></a>5.1.2 回溯法</h3><p>活结点-&gt;自身已生成但孩子结点没有全部生成</p>
+<p>扩展结点-&gt;正在产生孩子结点的结点</p>
+<p>死结点-&gt;所有子节点均已产生</p>
+<p>剪枝函数 1. 用用约束函数在扩展结点处剪除不满足约束条件的路径 2. 用限界函数剪去得不到问题解或最优解的路径</p>
+<p>回溯法步骤:</p>
+<ol>
+<li>问题的解空间树至少包含问题的一个解或最优解</li>
+<li>确定结点的扩展搜索规则</li>
+<li>以DFS搜索解空间树,用剪枝函数避免无效搜索.DFS可以用回溯或迭代(非递归)回溯</li>
+</ol>
+<h3 id="5-1-3-回溯法框架"><a href="#5-1-3-回溯法框架" class="headerlink" title="5.1.3 回溯法框架"></a>5.1.3 回溯法框架</h3><h3 id="5-1-4-回溯法和DFS的异同"><a href="#5-1-4-回溯法和DFS的异同" class="headerlink" title="5.1.4 回溯法和DFS的异同"></a>5.1.4 回溯法和DFS的异同</h3><ol>
+<li>访问次序 <ol>
+<li>DFS目的是遍历,无序的,重要的是是否有访问过</li>
+<li>回溯法目的是求解过程,本质是有序的</li>
+</ol>
+</li>
+<li>访问次数不同<ol>
+<li>DFS 对访问过的顶点不再访问,仅访问一次</li>
+<li>回溯法可能再次访问</li>
+</ol>
+</li>
+<li>剪枝不同<ol>
+<li>DFS 不包含剪枝</li>
+<li>很多回溯法用剪枝剪除不必要的分支</li>
+</ol>
+</li>
+</ol>
+<h3 id="5-1-5-回溯法时间分析"><a href="#5-1-5-回溯法时间分析" class="headerlink" title="5.1.5 回溯法时间分析"></a>5.1.5 回溯法时间分析</h3><p>假设解空间树共有m层,第1层有m<sub>0</sub>个满足约束条件的结点,每个结点有m<sub>1</sub>个满足约束条件,则第二层有m<sub>0</sub>m<sub>1</sub>个满足约束条件的结点….<em>T</em>(<em>n</em>) = m<sub>0</sub>+m<sub>0</sub>m<sub>1</sub>+…+m<sub>0</sub>m<sub>1</sub>…m<sub>n-1</sub></p>
+<p><strong><em>通常</em></strong>子集问题：</p>
+<p><strong>时间复杂度</strong>： <img src="https://www.zhihu.com/equation?tex=O(2%5En)" alt="[公式]"> 。因为每一个元素的状态无外乎<strong>取与不取</strong>，一共<img src="https://www.zhihu.com/equation?tex=2%5En" alt="[公式]"> 种状态，，最终时间复杂度为 <img src="https://www.zhihu.com/equation?tex=O(2%5En)" alt="[公式]"> 。</p>
+<p>排列问题分析：</p>
+<p><strong>时间复杂度：</strong>： <img src="https://www.zhihu.com/equation?tex=O(+n!)" alt="[公式]"> 。因为一共<img src="https://www.zhihu.com/equation?tex=n!" alt="[公式]"> 种排列，最终时间复杂度为 <img src="https://www.zhihu.com/equation?tex=O(+n!)" alt="[公式]"> 。</p>
+<h2 id="5-2-0-1背包"><a href="#5-2-0-1背包" class="headerlink" title="5.2 0/1背包"></a>5.2 0/1背包</h2><p>(左子树选,右子树不选)</p>
+<h3 id="重量和恰好为-W"><a href="#重量和恰好为-W" class="headerlink" title="重量和恰好为 W"></a>重量和恰好为 <em>W</em></h3><p>左剪枝:当tw+w[ <em>i</em> ]超过<em>W</em>(背包满了)不再装</p>
+<p>右剪枝: 当当前物品不选择时,即使选了后面所有物品,也无法达到<em>W</em> </p>
+<h3 id="不超过W"><a href="#不超过W" class="headerlink" title="不超过W"></a>不超过<em>W</em></h3><p>左剪枝方式不变</p>
+<p>右剪枝:设置上界函数:bound(<em>i</em>) = tv+<em>r</em>  (沿该方向物品价值上限),r表示剩余物品总价值</p>
+<p>bound(<em>i</em>)&lt;=maxv,说明右边全选了还不能比maxv大,剪枝</p>
+<h2 id="5-5-n后问题"><a href="#5-5-n后问题" class="headerlink" title="5.5 n后问题"></a>5.5 n后问题</h2><p>每个皇后都要试探n列,共有n个皇后,解空间是子集树,每个结点有n棵子树,其时间复杂度就是 <img src="https://www.zhihu.com/equation?tex=O(n%5En)" alt="[公式]"> 。或 因为 N 行N 列，皇后的排列方式共有 <img src="https://www.zhihu.com/equation?tex=n%5En" alt="[公式]"> 种。</p>
+<h2 id="5-8-活动安排问题"><a href="#5-8-活动安排问题" class="headerlink" title="5.8 活动安排问题"></a>5.8 活动安排问题</h2><p>相当于找某个排列,使得调度中兼容活动个数最大,对应解空间为排列树</p>
+<p>解空间是一棵排列数,与全排列的时间复杂度相同,即复杂度为 <img src="https://www.zhihu.com/equation?tex=O(+n!)" alt="[公式]"></p>
+<h2 id="排列树和子集树的区别"><a href="#排列树和子集树的区别" class="headerlink" title="排列树和子集树的区别"></a>排列树和子集树的区别</h2><p>子集树-&gt;选or不选</p>
+<p>排列数-&gt;交换swap()</p>
+<h1 id="第六章-分支限界法"><a href="#第六章-分支限界法" class="headerlink" title="第六章 分支限界法"></a>第六章 分支限界法</h1><h2 id="6-2-0-1-背包"><a href="#6-2-0-1-背包" class="headerlink" title="6.2 0/1 背包"></a>6.2 0/1 背包</h2><h3 id="6-2-1-队列式分支限界法"><a href="#6-2-1-队列式分支限界法" class="headerlink" title="6.2.1 队列式分支限界法"></a>6.2.1 队列式分支限界法</h3><p>求最大值问题,对<strong>单位重量价值</strong>递减排列</p>
+<p>考虑上界:</p>
+<ol>
+<li>剩下所有物品都能装入,上界<img src="https://www.zhihu.com/equation?tex=e.v+%5CSigma_%7Bj=i+1%7D%5Env%5Bj%5D&preview=true" alt="公式"></li>
+<li>不能放入,最多放到第k个,那么上界为<img src="https://www.zhihu.com/equation?tex=e.v+%5CSigma_%7Bj=i+1%7D%5Env%5Bj%5D&preview=true" alt="公式">+(k+1能放入的重量)*(k+1的单位重量)</li>
+</ol>
+<ol>
+<li>先检查左边结点是否符合条件,符合条件才进行左孩子的建立,进行入队(左边考虑的是不超重)</li>
+<li>右孩子先建立结点,计算上界,再考虑是否入队(右边考虑的是重量别太小)</li>
+</ol>
+<h3 id="6-2-2-优先队列分支限界法"><a href="#6-2-2-优先队列分支限界法" class="headerlink" title="6.2.2 优先队列分支限界法"></a>6.2.2 优先队列分支限界法</h3><p>指定条件</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> NodeType &amp;s) <span class="keyword">const</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> ub&lt;s.ub;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重载运算符<code>&lt;</code> 按照ub值越大越优先出队</p>
+<h3 id="Todo-写个比较"><a href="#Todo-写个比较" class="headerlink" title="Todo 写个比较"></a>Todo 写个比较</h3><h1 id="第七章-贪心算法"><a href="#第七章-贪心算法" class="headerlink" title="第七章 贪心算法"></a>第七章 贪心算法</h1><h2 id="7-1-2-贪心算法性质"><a href="#7-1-2-贪心算法性质" class="headerlink" title="7.1.2 贪心算法性质"></a>7.1.2 贪心算法性质</h2><p><strong>贪心选择性质</strong>:整体最优解可以通过一系列的局部最优选择来达到.即贪心法只在当前状态下做出最好的选择,然后再求解出这个选择后产生的相应子问题的解</p>
+<p>即证明每一步的贪心选择最终导致整体的最优解-&gt;数学归纳法</p>
+<p><strong>最优子结构性质</strong>:一个问题的最优解包含其子问题的最优解-&gt;反证法证明</p>
+<h2 id="7-2-求解活动安排问题"><a href="#7-2-求解活动安排问题" class="headerlink" title="7.2 求解活动安排问题"></a>7.2 求解活动安排问题</h2><p>​    对于本问题，所有活动按结束时间递增排序，就是要证明：若*<strong>X**<em>是活动安排问题</em></strong>A*<strong>的最优解，**<em>X</em></strong>=<strong><em>X’</em></strong>∪{1}，则*<strong>X’**<em>是</em></strong>A’<strong><em>={</em></strong>i*<strong>∈**<em>A</em></strong>：*<strong>e<sub>i</sub>**<em>≥</em></strong>b<sub>1</sub>***}的活动安排问题的最优解。</p>
+<p>​    当做出了对活动*<strong>1**<em>的贪心选择后，原问题就变成了在活动</em></strong>2*<strong>、**<em>…</em></strong>、*<strong>n**<em>中找与活动</em></strong>1*<strong>兼容的那些活动的子问题。亦即，如果**<em>X</em></strong>为原问题的一个最优解，则*<strong>X’**<em>=</em></strong>X*<strong>-{1}也是活动选择问题**<em>A’</em></strong>={<strong><em>i</em></strong>∈*<strong>A*** |*</strong>b<sub>i</sub><strong><em>≥</em></strong>e<sub>1</sub>***}的一个最优解。</p>
+<p>首先证明总存在一个以活动**<em>1**</em>开始的最优解。</p>
+<p>  如果第一个选中的活动为*<strong>k**<em>（</em></strong>k*<strong>≠**<em>1</em></strong>），可以构造另一个最优解*<strong>Y**<em>，</em></strong>Y*<strong>中的活动是兼容的，**<em>Y</em></strong>与**<em>X**</em>的活动数相同。</p>
+<p>  那么用活动*<strong>1**<em>取代活动</em></strong>k*<strong>得到**<em>Y’</em></strong>，因为*<strong>e<sub>1</sub>**<em>≤</em></strong>e<sub>k</sub><strong><em>，所以</em></strong>Y’<strong><em>中的活动是兼容的，即</em></strong>Y’<strong><em>也是最优的，这就说明总存在一个以活动</em></strong>1***开始的最优解。</p>
+<p>反证法：如果能找到一个*<strong>A’**<em>的含有比</em></strong>X’<strong><em>更多活动的解</em></strong>Y’<strong><em>，则将活动</em></strong>1*<strong>加入**<em>Y’</em></strong>后就得到*<strong>A**<em>的一个包含比</em></strong>X*<strong>更多活动的解**<em>Y</em></strong>，这就与**<em>X**</em>是最优解的假设相矛盾</p>
+<p>  因此，在每一次贪心选择后，留下的是一个与原问题具有相同形式的最优化问题，即最优子结构性质。</p>
+<p>思路:</p>
+<pre><code> 1. 排序
+ 2. X最优,证明取第一个最优
+      1. 取k≠1,构造一个另外的最优解Y
+      2. 用1替换k,得到Y&#39;也是最优的
+ 3. 在剩下的问题中找与1**兼容**的子问题的最优解
+ 4. ( 第k个成立&#123;1,2,3...k&#125; U B,活动剩下S&#39;)
+ 5. B有S&#39;中的第一个活动,设为k+1 即 &#123;1,2,3...k&#125; U B = &#123;1,2,3...k+1&#125; U (B - (k+1) )
+</code></pre>
+<h2 id="7-3-背包问题"><a href="#7-3-背包问题" class="headerlink" title="7.3 背包问题"></a>7.3 背包问题</h2><p>排序</p>
+<p>设Y最优</p>
+<p>反证法即证明V(x)-V(y)&gt;=0</p>
+<p>V<sub>i</sub>X<sub>i</sub>=W<sub>i</sub>*(V<sub>i</sub>/W<sub>i</sub>)X<sub>i</sub></p>
+<p>找到一个X<sub>i</sub>不为整数的值minj 分类讨论,得出**V<sub>i</sub>/W<sub>i</sub> **关系,X<sub>i</sub> - Y<sub>i</sub>关系</p>
+<ol>
+<li>i&lt;minj,X<sub>i</sub>=1  </li>
+<li>i&gt;minj,X<sub>i</sub>=0</li>
+<li>i=minj,X<sub>i</sub>取部分</li>
+</ol>
+<p>将V(x)-V(y)&gt;=0展开计算</p>
+<h1 id="第八章-动态规划"><a href="#第八章-动态规划" class="headerlink" title="第八章 动态规划"></a>第八章 动态规划</h1><h2 id="8-2-整数拆分"><a href="#8-2-整数拆分" class="headerlink" title="8.2 整数拆分"></a>8.2 整数拆分</h2><p>问题 正整数m无序拆分成<strong>最大数</strong>为k的拆分方案个数</p>
+<p>n=5,k=5</p>
+<ol>
+<li>5=5</li>
+<li>5=4+1</li>
+<li>5=3+2</li>
+<li>5=3+1+1</li>
+<li>5=2+2+1</li>
+<li>5=2+1+1+1</li>
+<li>5=1+1+1+1+1</li>
+</ol>
+<p>分析:</p>
+<ol>
+<li>n=1或k=1,f(n,k)=1    n=1只有1=1; k=1,只有n=1+1+…+1</li>
+<li>n&lt;k,f(n,k)=f(n,n)    最大数为k,然而正整数最大为n=n,k的限制无意义</li>
+<li>n=k,f(n,n)=1+f(n,n-1)    先拆成n=n,一种方案,加上f(n,n-1)</li>
+<li>n&gt;k,f(n,k)=f(n,k-1) + f(n-k,k)<ol>
+<li>f(n,k-1)    拆分之后不含k,即最大拆分为k-1 (最大的情况为 n=(k-1)+…)</li>
+<li>f(n-k,k)    拆分之后右边含k,先拆个k出来 ,对剩下的继续拆分(n=k+….)</li>
+</ol>
+</li>
+</ol>
+<h2 id="8-5-最长公共子序列"><a href="#8-5-最长公共子序列" class="headerlink" title="8.5 最长公共子序列"></a>8.5 最长公共子序列</h2><p><img src="https://www.zhihu.com/equation?tex=A=(a_0,a_1,...,a_%7Bm-1%7D)&preview=true">  <img src="https://www.zhihu.com/equation?tex=B=(b_0,b_1,...,b_%7Bn-1%7D)&preview=true">  <img src="https://www.zhihu.com/equation?tex=Z=(z_0,z_1,...,z_%7Bk-1%7D)&preview=true">为A和B的最长子集</p>
+<ol>
+<li>$a_{m-1}$ = $b_{n-1}$ 则 $z_{n-1}$ =$a_{m-1}$ = $b_{n-1}$ 那么($z_{0}$,$z_{1}$,…,$z_{k-2}$)是($a_{0}$,$a_{1}$,…,$a_{m-2}$)和($b_{0}$,$b_{1}$,…,$b_{n-2}$)的一个最长公共子集</li>
+<li>$a_{m-1} \not= b_{n-1}$<ol>
+<li>$z_{k-1} \not=a_{m-1}$ ($z_{0}$,$z_{1}$,…,$z_{k-1}$)是($a_{0}$,$a_{1}$,…,$a_{m-2}$)和($b_{0}$,$b_{1}$,…,$b_{n-1}$)的一个最长公共子集</li>
+<li>$z_{k-1} \not=b_{n-1}$ ($z_{0}$,$z_{1}$,…,$z_{k-1}$)是($a_{0}$,$a_{1}$,…,$a_{m-1}$)和($b_{0}$,$b_{1}$,…,$b_{n-2}$)的一个最长公共子集</li>
+</ol>
+</li>
+</ol>
+<ol>
+<li><p>$dp[i][j] $= 0，     i=0或j=0,边界情况</p>
+</li>
+<li><p>$dp[i][j] = dp[i-1][j-1] +1$，   $a[i-1]=b[j-1]$</p>
+</li>
+<li><p>$dp[i][j] = MAX(dp[i][j-1],dp[i-1][j])$，   $a[i-1]\not=b[j-1]$</p>
+</li>
+</ol>
+<p>时间复杂度:$O(mn)$</p>
+<h2 id="8-8-0-1-背包"><a href="#8-8-0-1-背包" class="headerlink" title="8.8 0/1 背包"></a>8.8 0/1 背包</h2><p>$dp[i][r]$ i表示第i个物品,r表示剩下容量</p>
+<p>$dp[i][0] = 0$    边界条件 (剩下容量0)</p>
+<p>$dp[0][r] = 0$   边界条件 (没有物品)</p>
+<p>$dp[i][r] = dp[i-1][r]$  r&lt;w[i] 无法放下物品</p>
+<p>$dp[i][r] = max(dp[i-1][r],dp[i-1][r-w[i]]+v[i]) $  不选或者选 第i个物品</p>
+<p>时间复杂度$O(nW)$</p>
+<p>Todo 表</p>
+<h2 id="8-12-滚动数组"><a href="#8-12-滚动数组" class="headerlink" title="8.12 滚动数组"></a>8.12 滚动数组</h2><h3 id="8-12-1-滚动数组"><a href="#8-12-1-滚动数组" class="headerlink" title="8.12.1 滚动数组"></a>8.12.1 滚动数组</h3><p>每次操作仅保留若干个有用信息,新的元素不断循环刷新</p>
+<p>一般用%来实现滚动</p>
+<p>降低空间复杂度</p>
+<h3 id="8-12-2-滚动数组解决-0-1背包问题"><a href="#8-12-2-滚动数组解决-0-1背包问题" class="headerlink" title="8.12.2 滚动数组解决 0/1背包问题"></a>8.12.2 滚动数组解决 0/1背包问题</h3><p>$dp[i][<em>]$只与 $dp[i-1][</em>]$ 有关</p>
+<h1 id="第十一章-计算复杂性理论"><a href="#第十一章-计算复杂性理论" class="headerlink" title="第十一章 计算复杂性理论"></a>第十一章 计算复杂性理论</h1><h2 id="11-1-1-求解问题分类"><a href="#11-1-1-求解问题分类" class="headerlink" title="11.1.1 求解问题分类"></a>11.1.1 求解问题分类</h2><p>多项式时间-&gt;易解</p>
+<p>指数时间-&gt;难解</p>
+<p>时间复杂度分3类</p>
+<ol>
+<li>存在多项式</li>
+<li>肯定不存在多项式</li>
+<li>尚未找到,不能证明不存在</li>
+</ol>
+<h2 id="11-2-P类和NP类问题"><a href="#11-2-P类和NP类问题" class="headerlink" title="11.2 P类和NP类问题"></a>11.2 P类和NP类问题</h2><p>已经找到的多项式时间界的计算机的计算机算法问题-&gt;P类问题</p>
+<p>用确定性图灵机以多项式时间界可解的问题 -&gt;P类问题</p>
+<p>用非确定性图灵机以多项式时间界可解的问题 -&gt;NP类问题</p>
+<p>确定性图灵机是非确定性图灵机的特殊情况  $P\subseteq NP$</p>
+<p>P-&gt;能在多项式时间求解</p>
+<p>NP-&gt;给定正确</p>
+<p>NP问题的代表问题之一是旅行商旅行（TSP）问题。</p>
+<p>　　目前发现的NP问题还有很多，如布尔表达式的可满足性问题、图的顶点覆盖问题和背包问题等等</p>
+<h2 id="11-3-NPC问题"><a href="#11-3-NPC问题" class="headerlink" title="11.3 NPC问题"></a>11.3 NPC问题</h2><p>NPC（NP-completeness）的概念表明找到某个问题的有效算法至少和找NP中所有问题的有效算法一样难。</p>
+<p>这里的有效性的含义是指为求解问题设计的算法的时间为多项式级的。</p>
+<p>布尔表达式的可满足性问题是一个NPC问题</p>
+<p>归纳起来，NP问题包含P问题和NPC问题，目前属于多项式时间界求解的问题都属P问题，NPC问题是属于NP问题中最难的问题，目前尚不能确定能否用多项式时间界算法来求解。<br>　　但已证明，如果NPC问题中有一个问题能用多项式时间界算法求解，则所有NPC问题都可用多项式时间界算法求解。</p>
+]]></content>
+      <categories>
+        <category>JNU</category>
+        <category>期末</category>
+      </categories>
+      <tags>
+        <tag>JNU</tag>
+        <tag>期末</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -4206,332 +4532,6 @@ sizeof(表达式)</p>
       </categories>
       <tags>
         <tag>C</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JNU_算法期末</title>
-    <url>/posts/8c2f6b20.html</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>只要我还没睡觉,这就还是算第二天..</p>
-<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="1-2-1-时间复杂度"><a href="#1-2-1-时间复杂度" class="headerlink" title="1.2.1 时间复杂度"></a>1.2.1 时间复杂度</h2><h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h2 id="3-3-3-求第k小的元素"><a href="#3-3-3-求第k小的元素" class="headerlink" title="3.3.3 求第k小的元素"></a>3.3.3 求第k小的元素</h2><p>思路:按照快排的思想 第k小对应a[k-1]的值</p>
-<p>对a[s…t]</p>
-<ol>
-<li>s&gt;=t,说明a中元素个数&lt;=1,如果s=t,k-1=s.这一个数就是第k小的数</li>
-<li>s&lt;t,划分为a[s…i-1]和a[i+1…t],以i为基准划分<ol>
-<li>k-1==i,a[i]为所求的值</li>
-<li>k-1&lt;i,第k小元素在a[s…i-1]里,继续递归</li>
-<li>k-1&gt;i,第k小元素在a[i+1…t]里,继续递归</li>
-</ol>
-</li>
-</ol>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="meta">#include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="function"><span class="built_in">int</span> <span class="title">QucikSelect</span>(<span class="params"><span class="built_in">int</span> a[],<span class="built_in">int</span> s,<span class="built_in">int</span> t,<span class="built_in">int</span> k</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">int</span> i=s,j=t;</span><br><span class="line">    <span class="built_in">int</span> tmp;</span><br><span class="line">    <span class="keyword">if</span>(s&lt;t)</span><br><span class="line">    &#123;</span><br><span class="line">        tmp = a[s];<span class="comment">//选择第一个作为基准</span></span><br><span class="line">        <span class="keyword">while</span>(i!=j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(j&gt;i&amp;&amp;a[j]&gt;=tmp)</span><br><span class="line">                j--;</span><br><span class="line">            a[i]=a[j];</span><br><span class="line">            <span class="keyword">while</span>(i&lt;j&amp;&amp;a[i]&lt;=tmp)</span><br><span class="line">                i++;</span><br><span class="line">            a[j]=a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        a[i]=tmp;<span class="comment">//类似快排的思想</span></span><br><span class="line">        <span class="keyword">if</span>(k<span class="number">-1</span>==i) <span class="keyword">return</span> a[i];<span class="comment">//对应2.1</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(k<span class="number">-1</span>&lt;i) <span class="keyword">return</span> QuickSelect(a,s,i<span class="number">-1</span>,k);<span class="comment">//对应2.2</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> QuickSelect(a,i+<span class="number">1</span>,t,k);<span class="comment">//对应2.3</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(s==t&amp;&amp; s==k<span class="number">-1</span>)   <span class="comment">//对应1</span></span><br><span class="line">        <span class="keyword">return</span> a[k<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="3-3-4-两个等长有序序列中位数"><a href="#3-3-4-两个等长有序序列中位数" class="headerlink" title="3.3.4 两个等长有序序列中位数"></a>3.3.4 两个等长有序序列中位数</h2><p>两个中位数比较,中位数较大的数组选小部分的,中位数较小的选大部分的</p>
-<ol>
-<li>奇数,取剩下的</li>
-<li>偶数:较大的数连同其剩下的,较小的数取剩下的(最后一次比较也是取较大数)</li>
-</ol>
-<p>a = (11,13,<strong>15</strong>,17,19)                         b=(2,4,<strong>6</strong>,8,20)</p>
-<p>15&gt;6</p>
-<p>a=(<strong>11</strong>,13)                                          b=(<strong>8</strong>,20)</p>
-<p>11&gt;8</p>
-<p>a=(11)                                               b=(20)</p>
-<p>11&lt;20</p>
-<p>20</p>
-<h2 id="3-4-1-最大连续子序列和问题"><a href="#3-4-1-最大连续子序列和问题" class="headerlink" title="3.4.1 最大连续子序列和问题"></a>3.4.1 最大连续子序列和问题</h2><p>分治法求解,取中间位置 mid 有三种情况:</p>
-<ol>
-<li>子序列在a[0…mid]</li>
-<li>子序列在a[mid+1…n-1]</li>
-<li>子序列在跨过mid的左右两边</li>
-</ol>
-<p>a = {-2,11,-4,13,-5,-2} mid = (0+5)/2=2</p>
-<p> 分为 a[0…2] a[3…5]</p>
-<p>左:11 右:13 中 20 max = 20</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">max3</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> b,<span class="keyword">long</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a&lt;b) a=b;</span><br><span class="line">    <span class="keyword">if</span>(a&gt;c) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">maxSubSum</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">long</span> maxLeftSum,maxRightSum;</span><br><span class="line">    <span class="keyword">long</span> maxLeftBorderSum,leftBorderSum;</span><br><span class="line">    <span class="keyword">long</span> maxRightBorderSum,rightBorderSum;</span><br><span class="line">    <span class="keyword">if</span>(left==right)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[left]&gt;<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> a[left];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid =(left+right)/<span class="number">2</span>;</span><br><span class="line">    maxLeftSum = maxSubSum(a,left,mid);<span class="comment">//mid左边</span></span><br><span class="line">    maxRightSum = maxSubSum(a,mid+<span class="number">1</span>,right);<span class="comment">//mid右边</span></span><br><span class="line">    <span class="comment">//跨过mid</span></span><br><span class="line">    maxLeftBorderSum=<span class="number">0</span>,leftBorderSum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=mid;i&gt;=left;i--)<span class="comment">//从第mid个数开始,向左求最大子序列和</span></span><br><span class="line">    &#123;</span><br><span class="line">        leftBorderSum+=a[i];</span><br><span class="line">        <span class="keyword">if</span>(leftBorderSum&gt;maxLeftBorderSum)</span><br><span class="line">            maxLeftBorderSum = leftBorderSum;</span><br><span class="line">    &#125;</span><br><span class="line">    maxRightBorderSum=<span class="number">0</span>,rightBorder=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(j=mid+<span class="number">1</span>;j&lt;=right;j++)<span class="comment">//从第mid+1个数开始,向右求最大子序列</span></span><br><span class="line">    &#123;</span><br><span class="line">        rightBorderSum +=a[j];</span><br><span class="line">        <span class="keyword">if</span>(rightBorderSum&gt;maxRightBorderSum)</span><br><span class="line">            maxRightBorderSum=rightBorderSum</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max3(maxLeftSum,maxRightSum,maxLeftBorderSum+maxRightBorderSum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><h2 id="4-2-4-最大连续子序列和"><a href="#4-2-4-最大连续子序列和" class="headerlink" title="4.2.4 最大连续子序列和"></a>4.2.4 最大连续子序列和</h2><p>​    (-2,                    11,                        -4,                13,                    -5,                        -2)</p>
-<p>穷举法:算出每一个连续子序列的和,取最大值</p>
-<p>三次循环</p>
-<table>
-<thead>
-<tr>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-2</td>
-<td>9</td>
-<td>5</td>
-<td>18</td>
-<td>13</td>
-<td>11</td>
-</tr>
-<tr>
-<td></td>
-<td>11</td>
-<td>7</td>
-<td><strong><em>20</em></strong></td>
-<td>15</td>
-<td>13</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>-4</td>
-<td>9</td>
-<td>4</td>
-<td>2</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>13</td>
-<td>8</td>
-<td>6</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>-5</td>
-<td>-7</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>-2</td>
-</tr>
-</tbody></table>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxSubSum1</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,k;</span><br><span class="line">    <span class="keyword">int</span> maxSum,thisSum;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (j=i;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            thisSum=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(k=i;k&lt;=j;k++)</span><br><span class="line">                thisSum+=a[k];</span><br><span class="line">            <span class="keyword">if</span>(thisSum&gt;maxSum)</span><br><span class="line">                maxSum=thisSum</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>两次循环(每一行的数字(第一个除外)可以由上一个数字加上a[j]计算)</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxSubSum2</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">int</span> maxSum=<span class="number">0</span>,thisSum;</span><br><span class="line">    fot(i =<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        thisSum=<span class="number">0</span>;</span><br><span class="line">        fot(j=i;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            thisSum+=a[j]</span><br><span class="line">                <span class="keyword">if</span>(thisSum&gt;maxSum)</span><br><span class="line">                    maxSum=thisSum</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一次循环</p>
-<p>循环如果相加值小于零,直接替换成0(加上负数肯定比较小)</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxSubSum3</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,maxSum=<span class="number">0</span>,thisSum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        thisSum+=a[i];</span><br><span class="line">        <span class="keyword">if</span>(thisSum&lt;<span class="number">0</span>)</span><br><span class="line">            thisSum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(maxSum&lt;thisSum)</span><br><span class="line">            maxSum=thisSum</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxSum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="4-2-5-求解幂集问题"><a href="#4-2-5-求解幂集问题" class="headerlink" title="4.2.5 求解幂集问题"></a>4.2.5 求解幂集问题</h2><ol>
-<li><p>穷举法:</p>
-<p>a[0..2] = {1,2,3}</p>
-<p>可以转化为二进制(1表示选中,0表示不选中)</p>
-<p>000 001 010 011 … 111</p>
-<p>对应为{},{3},{2},{2,3}…{1,2,3}</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">void inc(int b[],int n)二进制加法</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)<span class="comment">//0改成1,1改成0</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b[i])<span class="comment">//1改成0,表示要进1位,继续循环</span></span><br><span class="line">            b[i]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            b[i]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">break</span>;<span class="comment">//0改成1,没有进位,退出循环</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PSet</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> b[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,k;</span><br><span class="line">    <span class="keyword">int</span> pw = (<span class="keyword">int</span>)<span class="built_in">pow</span>(<span class="number">2</span>,n);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;pw;i++)<span class="comment">//幂集有2^n个,因此要2^n次循环</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(k=<span class="number">0</span>;k&lt;n;k++)</span><br><span class="line">            <span class="keyword">if</span>(b[k])</span><br><span class="line">                <span class="built_in">printf</span>()</span><br><span class="line">        inc(b,n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<ol start="2">
-<li><p>增量穷举法</p>
-<ol>
-<li>{}</li>
-<li>添加1-&gt;{1}</li>
-<li>上面添加2-&gt;{2},{1,2}</li>
-<li>上面添加3-&gt;{3},{1,3},{2,3},{1,2,3}</li>
-<li>所有元素合起来就是所求解</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PSet</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ps1;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;::iterator it;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;s;</span><br><span class="line">    ps.push_back(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="comment">//从1到n循环</span></span><br><span class="line">    &#123;</span><br><span class="line">        ps1=ps;<span class="comment">//ps1放上一次循环的内容</span></span><br><span class="line">        <span class="keyword">for</span>(it=ps1.begin();it!=ps1.end();++it)</span><br><span class="line">            (*it).push_back(i);<span class="comment">//往ps1添加</span></span><br><span class="line">        <span class="keyword">for</span>(it=ps1.begin();it!=ps1.end();++it)</span><br><span class="line">            ps.push_back(*it);<span class="comment">//将ps1的元素添加到ps中</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="4-2-6-0-1背包"><a href="#4-2-6-0-1背包" class="headerlink" title="4.2.6 0/1背包"></a>4.2.6 0/1背包</h2><p>采用求幂集的方法</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PSet</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Knap</span><span class="params">(<span class="keyword">int</span> w[],<span class="keyword">int</span> v[],<span class="keyword">int</span> W)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> sumw,sumv;</span><br><span class="line">    <span class="keyword">int</span> maxi,maxsumw=<span class="number">0</span>,maxsumv=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;::iterator it;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator sit;</span><br><span class="line">    <span class="keyword">for</span>(it=ps.begin();it!-ps.end();++it)</span><br><span class="line">    &#123;</span><br><span class="line">        sumw=sumv=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(sit=(*it).begin();sit!=(*it).end();++sit)<span class="comment">//由幂集选中选择哪个元素</span></span><br><span class="line">        &#123;</span><br><span class="line">            sumw+=w[*sit<span class="number">-1</span>];</span><br><span class="line">            sumv+=v[*sit<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(sumw&lt;=W)<span class="comment">//能装入背包中</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(sumv&gt;maxsumv)</span><br><span class="line">            &#123;</span><br><span class="line">                maxsumw=sumw;</span><br><span class="line">                maxsumv=sumv;</span><br><span class="line">                maxi=count;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> ..;<span class="comment">//不能装入背包</span></span><br><span class="line">        count ++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="4-2-7-全排列"><a href="#4-2-7-全排列" class="headerlink" title="4.2.7 全排列"></a>4.2.7 全排列</h2><ol>
-<li>{1}</li>
-<li>插入2-&gt; {2,1} {1,2}</li>
-<li>插入3-&gt;{3,2,1},{2,3,1},{2,1,3},    {3,1,2},{1,3,2},{1,2,3}</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insert</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; s,<span class="keyword">int</span> i,<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; &amp;ps1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; s1;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        s1=s;</span><br><span class="line">        it=s1.begin()+j;</span><br><span class="line">        s1.insert(it,i);</span><br><span class="line">        ps1.push_back(s1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Perm</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;ps1;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;::iterator it;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;s,s1;</span><br><span class="line">    s.push_back(<span class="number">1</span>);</span><br><span class="line">    ps.push_back(s);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ps1.clear();</span><br><span class="line">        <span class="keyword">for</span>(it=ps.begin();it!=ps.end();++it)</span><br><span class="line">        &#123;</span><br><span class="line">            Insert(*it,i,ps1);</span><br><span class="line">        &#125;</span><br><span class="line">        ps=ps1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="求解任务分配问题"><a href="#求解任务分配问题" class="headerlink" title="求解任务分配问题"></a>求解任务分配问题</h2><p>按照全排列的思想,排列出每一种可能性,然后得出结果</p>
-<p>将任务全排列</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insert</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Perm</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Allocate</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> &amp; mini ,<span class="keyword">int</span> &amp; minc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Perm(n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ps.size();i++)<span class="comment">//每一种方案</span></span><br><span class="line">    &#123;        </span><br><span class="line">        <span class="keyword">int</span> cost = <span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;ps[i].size();j++)<span class="comment">//每一种方案的选择(j表示第j个人)</span></span><br><span class="line">        	cost+=c[j][ps[i][j]<span class="number">-1</span>]<span class="comment">//ps[i][j]表示任务,由于从0开始,所以要-1</span></span><br><span class="line">       <span class="keyword">if</span>(cost&lt;minc)</span><br><span class="line">       &#123;</span><br><span class="line">           minc=cost;</span><br><span class="line">           mini=i;</span><br><span class="line">       &#125;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h1><h2 id="5-1-回溯法"><a href="#5-1-回溯法" class="headerlink" title="5.1 回溯法"></a>5.1 回溯法</h2><h3 id="5-1-1-解空间"><a href="#5-1-1-解空间" class="headerlink" title="5.1.1 解空间"></a>5.1.1 解空间</h3><p>满足约束条件-&gt;可行解</p>
-<p>最大或最小值-&gt;最优解</p>
-<p>排列树,解空间树</p>
-<h3 id="5-1-2-回溯法"><a href="#5-1-2-回溯法" class="headerlink" title="5.1.2 回溯法"></a>5.1.2 回溯法</h3><p>活结点-&gt;自身已生成但孩子结点没有全部生成</p>
-<p>扩展结点-&gt;正在产生孩子结点的结点</p>
-<p>死结点-&gt;所有子节点均已产生</p>
-<p>剪枝函数 1. 用用约束函数在扩展结点处剪除不满足约束条件的路径 2. 用限界函数剪去得不到问题解或最优解的路径</p>
-<p>回溯法步骤:</p>
-<ol>
-<li>问题的解空间树至少包含问题的一个解或最优解</li>
-<li>确定结点的扩展搜索规则</li>
-<li>以DFS搜索解空间树,用剪枝函数避免无效搜索.DFS可以用回溯或迭代(非递归)回溯</li>
-</ol>
-<h3 id="5-1-3-回溯法框架"><a href="#5-1-3-回溯法框架" class="headerlink" title="5.1.3 回溯法框架"></a>5.1.3 回溯法框架</h3><h3 id="5-1-4-回溯法和DFS的异同"><a href="#5-1-4-回溯法和DFS的异同" class="headerlink" title="5.1.4 回溯法和DFS的异同"></a>5.1.4 回溯法和DFS的异同</h3><ol>
-<li>访问次序 <ol>
-<li>DFS目的是遍历,无序的,重要的是是否有访问过</li>
-<li>回溯法目的是求解过程,本质是有序的</li>
-</ol>
-</li>
-<li>访问次数不同<ol>
-<li>DFS 对访问过的顶点不再访问,仅访问一次</li>
-<li>回溯法可能再次访问</li>
-</ol>
-</li>
-<li>剪枝不同<ol>
-<li>DFS 不包含剪枝</li>
-<li>很多回溯法用剪枝剪除不必要的分支</li>
-</ol>
-</li>
-</ol>
-<h3 id="5-1-5-回溯法时间分析"><a href="#5-1-5-回溯法时间分析" class="headerlink" title="5.1.5 回溯法时间分析"></a>5.1.5 回溯法时间分析</h3><p>假设解空间树共有m层,第1层有m<sub>0</sub>个满足约束条件的结点,每个结点有m<sub>1</sub>个满足约束条件,则第二层有m<sub>0</sub>m<sub>1</sub>个满足约束条件的结点….<em>T</em>(<em>n</em>) = m<sub>0</sub>+m<sub>0</sub>m<sub>1</sub>+…+m<sub>0</sub>m<sub>1</sub>…m<sub>n-1</sub></p>
-<p><strong><em>通常</em></strong>子集问题：</p>
-<p><strong>时间复杂度</strong>： <img src="https://www.zhihu.com/equation?tex=O(2%5En)" alt="[公式]"> 。因为每一个元素的状态无外乎<strong>取与不取</strong>，一共<img src="https://www.zhihu.com/equation?tex=2%5En" alt="[公式]"> 种状态，，最终时间复杂度为 <img src="https://www.zhihu.com/equation?tex=O(2%5En)" alt="[公式]"> 。</p>
-<p>排列问题分析：</p>
-<p><strong>时间复杂度：</strong>： <img src="https://www.zhihu.com/equation?tex=O(+n!)" alt="[公式]"> 。因为一共<img src="https://www.zhihu.com/equation?tex=n!" alt="[公式]"> 种排列，最终时间复杂度为 <img src="https://www.zhihu.com/equation?tex=O(+n!)" alt="[公式]"> 。</p>
-<h2 id="5-2-0-1背包"><a href="#5-2-0-1背包" class="headerlink" title="5.2 0/1背包"></a>5.2 0/1背包</h2><p>(左子树选,右子树不选)</p>
-<h3 id="重量和恰好为-W"><a href="#重量和恰好为-W" class="headerlink" title="重量和恰好为 W"></a>重量和恰好为 <em>W</em></h3><p>左剪枝:当tw+w[ <em>i</em> ]超过<em>W</em>(背包满了)不再装</p>
-<p>右剪枝: 当当前物品不选择时,即使选了后面所有物品,也无法达到<em>W</em> </p>
-<h3 id="不超过W"><a href="#不超过W" class="headerlink" title="不超过W"></a>不超过<em>W</em></h3><p>左剪枝方式不变</p>
-<p>右剪枝:设置上界函数:bound(<em>i</em>) = tv+<em>r</em>  (沿该方向物品价值上限),r表示剩余物品总价值</p>
-<p>bound(<em>i</em>)&lt;=maxv,说明右边全选了还不能比maxv大,剪枝</p>
-<h2 id="5-5-n后问题"><a href="#5-5-n后问题" class="headerlink" title="5.5 n后问题"></a>5.5 n后问题</h2><p>每个皇后都要试探n列,共有n个皇后,解空间是子集树,每个结点有n棵子树,其时间复杂度就是 <img src="https://www.zhihu.com/equation?tex=O(n%5En)" alt="[公式]"> 。或 因为 N 行N 列，皇后的排列方式共有 <img src="https://www.zhihu.com/equation?tex=n%5En" alt="[公式]"> 种。</p>
-<h2 id="5-8-活动安排问题"><a href="#5-8-活动安排问题" class="headerlink" title="5.8 活动安排问题"></a>5.8 活动安排问题</h2><p>相当于找某个排列,使得调度中兼容活动个数最大,对应解空间为排列树</p>
-<p>解空间是一棵排列数,与全排列的时间复杂度相同,即复杂度为 <img src="https://www.zhihu.com/equation?tex=O(+n!)" alt="[公式]"></p>
-<h2 id="排列树和子集树的区别"><a href="#排列树和子集树的区别" class="headerlink" title="排列树和子集树的区别"></a>排列树和子集树的区别</h2><p>子集树-&gt;选or不选</p>
-<p>排列数-&gt;交换swap()</p>
-<h1 id="第六章-分支限界法"><a href="#第六章-分支限界法" class="headerlink" title="第六章 分支限界法"></a>第六章 分支限界法</h1><h2 id="6-2-0-1-背包"><a href="#6-2-0-1-背包" class="headerlink" title="6.2 0/1 背包"></a>6.2 0/1 背包</h2><h3 id="6-2-1-队列式分支限界法"><a href="#6-2-1-队列式分支限界法" class="headerlink" title="6.2.1 队列式分支限界法"></a>6.2.1 队列式分支限界法</h3><p>求最大值问题,对<strong>单位重量价值</strong>递减排列</p>
-<p>考虑上界:</p>
-<ol>
-<li>剩下所有物品都能装入,上界<img src="https://www.zhihu.com/equation?tex=e.v+%5CSigma_%7Bj=i+1%7D%5Env%5Bj%5D&preview=true" alt="公式"></li>
-<li>不能放入,最多放到第k个,那么上界为<img src="https://www.zhihu.com/equation?tex=e.v+%5CSigma_%7Bj=i+1%7D%5Env%5Bj%5D&preview=true" alt="公式">+(k+1能放入的重量)*(k+1的单位重量)</li>
-</ol>
-<ol>
-<li>先检查左边结点是否符合条件,符合条件才进行左孩子的建立,进行入队(左边考虑的是不超重)</li>
-<li>右孩子先建立结点,计算上界,再考虑是否入队(右边考虑的是重量别太小)</li>
-</ol>
-<h3 id="6-2-2-优先队列分支限界法"><a href="#6-2-2-优先队列分支限界法" class="headerlink" title="6.2.2 优先队列分支限界法"></a>6.2.2 优先队列分支限界法</h3><p>指定条件</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> NodeType &amp;s) <span class="keyword">const</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> ub&lt;s.ub;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>重载运算符<code>&lt;</code> 按照ub值越大越优先出队</p>
-<h3 id="Todo-写个比较"><a href="#Todo-写个比较" class="headerlink" title="Todo 写个比较"></a>Todo 写个比较</h3><h1 id="第七章-贪心算法"><a href="#第七章-贪心算法" class="headerlink" title="第七章 贪心算法"></a>第七章 贪心算法</h1><h2 id="7-1-2-贪心算法性质"><a href="#7-1-2-贪心算法性质" class="headerlink" title="7.1.2 贪心算法性质"></a>7.1.2 贪心算法性质</h2><p><strong>贪心选择性质</strong>:整体最优解可以通过一系列的局部最优选择来达到.即贪心法只在当前状态下做出最好的选择,然后再求解出这个选择后产生的相应子问题的解</p>
-<p>即证明每一步的贪心选择最终导致整体的最优解-&gt;数学归纳法</p>
-<p><strong>最优子结构性质</strong>:一个问题的最优解包含其子问题的最优解-&gt;反证法证明</p>
-<h2 id="7-2-求解活动安排问题"><a href="#7-2-求解活动安排问题" class="headerlink" title="7.2 求解活动安排问题"></a>7.2 求解活动安排问题</h2><p>​    对于本问题，所有活动按结束时间递增排序，就是要证明：若*<strong>X**<em>是活动安排问题</em></strong>A*<strong>的最优解，**<em>X</em></strong>=<strong><em>X’</em></strong>∪{1}，则*<strong>X’**<em>是</em></strong>A’<strong><em>={</em></strong>i*<strong>∈**<em>A</em></strong>：*<strong>e<sub>i</sub>**<em>≥</em></strong>b<sub>1</sub>***}的活动安排问题的最优解。</p>
-<p>​    当做出了对活动*<strong>1**<em>的贪心选择后，原问题就变成了在活动</em></strong>2*<strong>、**<em>…</em></strong>、*<strong>n**<em>中找与活动</em></strong>1*<strong>兼容的那些活动的子问题。亦即，如果**<em>X</em></strong>为原问题的一个最优解，则*<strong>X’**<em>=</em></strong>X*<strong>-{1}也是活动选择问题**<em>A’</em></strong>={<strong><em>i</em></strong>∈*<strong>A*** |*</strong>b<sub>i</sub><strong><em>≥</em></strong>e<sub>1</sub>***}的一个最优解。</p>
-<p>首先证明总存在一个以活动**<em>1**</em>开始的最优解。</p>
-<p>  如果第一个选中的活动为*<strong>k**<em>（</em></strong>k*<strong>≠**<em>1</em></strong>），可以构造另一个最优解*<strong>Y**<em>，</em></strong>Y*<strong>中的活动是兼容的，**<em>Y</em></strong>与**<em>X**</em>的活动数相同。</p>
-<p>  那么用活动*<strong>1**<em>取代活动</em></strong>k*<strong>得到**<em>Y’</em></strong>，因为*<strong>e<sub>1</sub>**<em>≤</em></strong>e<sub>k</sub><strong><em>，所以</em></strong>Y’<strong><em>中的活动是兼容的，即</em></strong>Y’<strong><em>也是最优的，这就说明总存在一个以活动</em></strong>1***开始的最优解。</p>
-<p>反证法：如果能找到一个*<strong>A’**<em>的含有比</em></strong>X’<strong><em>更多活动的解</em></strong>Y’<strong><em>，则将活动</em></strong>1*<strong>加入**<em>Y’</em></strong>后就得到*<strong>A**<em>的一个包含比</em></strong>X*<strong>更多活动的解**<em>Y</em></strong>，这就与**<em>X**</em>是最优解的假设相矛盾</p>
-<p>  因此，在每一次贪心选择后，留下的是一个与原问题具有相同形式的最优化问题，即最优子结构性质。</p>
-<p>思路:</p>
-<pre><code> 1. 排序
- 2. X最优,证明取第一个最优
-      1. 取k≠1,构造一个另外的最优解Y
-      2. 用1替换k,得到Y&#39;也是最优的
- 3. 在剩下的问题中找与1**兼容**的子问题的最优解
- 4. ( 第k个成立&#123;1,2,3...k&#125; U B,活动剩下S&#39;)
- 5. B有S&#39;中的第一个活动,设为k+1 即 &#123;1,2,3...k&#125; U B = &#123;1,2,3...k+1&#125; U (B - (k+1) )
-</code></pre>
-<h2 id="7-3-背包问题"><a href="#7-3-背包问题" class="headerlink" title="7.3 背包问题"></a>7.3 背包问题</h2><p>排序</p>
-<p>设Y最优</p>
-<p>反证法即证明V(x)-V(y)&gt;=0</p>
-<p>V<sub>i</sub>X<sub>i</sub>=W<sub>i</sub>*(V<sub>i</sub>/W<sub>i</sub>)X<sub>i</sub></p>
-<p>找到一个X<sub>i</sub>不为整数的值minj 分类讨论,得出**V<sub>i</sub>/W<sub>i</sub> **关系,X<sub>i</sub> - Y<sub>i</sub>关系</p>
-<ol>
-<li>i&lt;minj,X<sub>i</sub>=1  </li>
-<li>i&gt;minj,X<sub>i</sub>=0</li>
-<li>i=minj,X<sub>i</sub>取部分</li>
-</ol>
-<p>将V(x)-V(y)&gt;=0展开计算</p>
-<h1 id="第八章-动态规划"><a href="#第八章-动态规划" class="headerlink" title="第八章 动态规划"></a>第八章 动态规划</h1><h2 id="8-2-整数拆分"><a href="#8-2-整数拆分" class="headerlink" title="8.2 整数拆分"></a>8.2 整数拆分</h2><p>问题 正整数m无序拆分成<strong>最大数</strong>为k的拆分方案个数</p>
-<p>n=5,k=5</p>
-<ol>
-<li>5=5</li>
-<li>5=4+1</li>
-<li>5=3+2</li>
-<li>5=3+1+1</li>
-<li>5=2+2+1</li>
-<li>5=2+1+1+1</li>
-<li>5=1+1+1+1+1</li>
-</ol>
-<p>分析:</p>
-<ol>
-<li>n=1或k=1,f(n,k)=1    n=1只有1=1; k=1,只有n=1+1+…+1</li>
-<li>n&lt;k,f(n,k)=f(n,n)    最大数为k,然而正整数最大为n=n,k的限制无意义</li>
-<li>n=k,f(n,n)=1+f(n,n-1)    先拆成n=n,一种方案,加上f(n,n-1)</li>
-<li>n&gt;k,f(n,k)=f(n,k-1) + f(n-k,k)<ol>
-<li>f(n,k-1)    拆分之后不含k,即最大拆分为k-1 (最大的情况为 n=(k-1)+…)</li>
-<li>f(n-k,k)    拆分之后右边含k,先拆个k出来 ,对剩下的继续拆分(n=k+….)</li>
-</ol>
-</li>
-</ol>
-<h2 id="8-5-最长公共子序列"><a href="#8-5-最长公共子序列" class="headerlink" title="8.5 最长公共子序列"></a>8.5 最长公共子序列</h2><p><img src="https://www.zhihu.com/equation?tex=A=(a_0,a_1,...,a_%7Bm-1%7D)&preview=true">  <img src="https://www.zhihu.com/equation?tex=B=(b_0,b_1,...,b_%7Bn-1%7D)&preview=true">  <img src="https://www.zhihu.com/equation?tex=Z=(z_0,z_1,...,z_%7Bk-1%7D)&preview=true">为A和B的最长子集</p>
-<ol>
-<li>$a_{m-1}$ = $b_{n-1}$ 则 $z_{n-1}$ =$a_{m-1}$ = $b_{n-1}$ 那么($z_{0}$,$z_{1}$,…,$z_{k-2}$)是($a_{0}$,$a_{1}$,…,$a_{m-2}$)和($b_{0}$,$b_{1}$,…,$b_{n-2}$)的一个最长公共子集</li>
-<li>$a_{m-1} \not= b_{n-1}$<ol>
-<li>$z_{k-1} \not=a_{m-1}$ ($z_{0}$,$z_{1}$,…,$z_{k-1}$)是($a_{0}$,$a_{1}$,…,$a_{m-2}$)和($b_{0}$,$b_{1}$,…,$b_{n-1}$)的一个最长公共子集</li>
-<li>$z_{k-1} \not=b_{n-1}$ ($z_{0}$,$z_{1}$,…,$z_{k-1}$)是($a_{0}$,$a_{1}$,…,$a_{m-1}$)和($b_{0}$,$b_{1}$,…,$b_{n-2}$)的一个最长公共子集</li>
-</ol>
-</li>
-</ol>
-<ol>
-<li><p>$dp[i][j] $= 0，     i=0或j=0,边界情况</p>
-</li>
-<li><p>$dp[i][j] = dp[i-1][j-1] +1$，   $a[i-1]=b[j-1]$</p>
-</li>
-<li><p>$dp[i][j] = MAX(dp[i][j-1],dp[i-1][j])$，   $a[i-1]\not=b[j-1]$</p>
-</li>
-</ol>
-<p>时间复杂度:$O(mn)$</p>
-<h2 id="8-8-0-1-背包"><a href="#8-8-0-1-背包" class="headerlink" title="8.8 0/1 背包"></a>8.8 0/1 背包</h2><p>$dp[i][r]$ i表示第i个物品,r表示剩下容量</p>
-<p>$dp[i][0] = 0$    边界条件 (剩下容量0)</p>
-<p>$dp[0][r] = 0$   边界条件 (没有物品)</p>
-<p>$dp[i][r] = dp[i-1][r]$  r&lt;w[i] 无法放下物品</p>
-<p>$dp[i][r] = max(dp[i-1][r],dp[i-1][r-w[i]]+v[i]) $  不选或者选 第i个物品</p>
-<p>时间复杂度$O(nW)$</p>
-<p>Todo 表</p>
-<h2 id="8-12-滚动数组"><a href="#8-12-滚动数组" class="headerlink" title="8.12 滚动数组"></a>8.12 滚动数组</h2><h3 id="8-12-1-滚动数组"><a href="#8-12-1-滚动数组" class="headerlink" title="8.12.1 滚动数组"></a>8.12.1 滚动数组</h3><p>每次操作仅保留若干个有用信息,新的元素不断循环刷新</p>
-<p>一般用%来实现滚动</p>
-<p>降低空间复杂度</p>
-<h3 id="8-12-2-滚动数组解决-0-1背包问题"><a href="#8-12-2-滚动数组解决-0-1背包问题" class="headerlink" title="8.12.2 滚动数组解决 0/1背包问题"></a>8.12.2 滚动数组解决 0/1背包问题</h3><p>$dp[i][<em>]$只与 $dp[i-1][</em>]$ 有关</p>
-<h1 id="第十一章-计算复杂性理论"><a href="#第十一章-计算复杂性理论" class="headerlink" title="第十一章 计算复杂性理论"></a>第十一章 计算复杂性理论</h1><h2 id="11-1-1-求解问题分类"><a href="#11-1-1-求解问题分类" class="headerlink" title="11.1.1 求解问题分类"></a>11.1.1 求解问题分类</h2><p>多项式时间-&gt;易解</p>
-<p>指数时间-&gt;难解</p>
-<p>时间复杂度分3类</p>
-<ol>
-<li>存在多项式</li>
-<li>肯定不存在多项式</li>
-<li>尚未找到,不能证明不存在</li>
-</ol>
-<h2 id="11-2-P类和NP类问题"><a href="#11-2-P类和NP类问题" class="headerlink" title="11.2 P类和NP类问题"></a>11.2 P类和NP类问题</h2><p>已经找到的多项式时间界的计算机的计算机算法问题-&gt;P类问题</p>
-<p>用确定性图灵机以多项式时间界可解的问题 -&gt;P类问题</p>
-<p>用非确定性图灵机以多项式时间界可解的问题 -&gt;NP类问题</p>
-<p>确定性图灵机是非确定性图灵机的特殊情况  $P\subseteq NP$</p>
-<p>P-&gt;能在多项式时间求解</p>
-<p>NP-&gt;给定正确</p>
-<p>NP问题的代表问题之一是旅行商旅行（TSP）问题。</p>
-<p>　　目前发现的NP问题还有很多，如布尔表达式的可满足性问题、图的顶点覆盖问题和背包问题等等</p>
-<h2 id="11-3-NPC问题"><a href="#11-3-NPC问题" class="headerlink" title="11.3 NPC问题"></a>11.3 NPC问题</h2><p>NPC（NP-completeness）的概念表明找到某个问题的有效算法至少和找NP中所有问题的有效算法一样难。</p>
-<p>这里的有效性的含义是指为求解问题设计的算法的时间为多项式级的。</p>
-<p>布尔表达式的可满足性问题是一个NPC问题</p>
-<p>归纳起来，NP问题包含P问题和NPC问题，目前属于多项式时间界求解的问题都属P问题，NPC问题是属于NP问题中最难的问题，目前尚不能确定能否用多项式时间界算法来求解。<br>　　但已证明，如果NPC问题中有一个问题能用多项式时间界算法求解，则所有NPC问题都可用多项式时间界算法求解。</p>
-]]></content>
-      <categories>
-        <category>JNU</category>
-        <category>期末</category>
-      </categories>
-      <tags>
-        <tag>JNU</tag>
-        <tag>期末</tag>
-        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
