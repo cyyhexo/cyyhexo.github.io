@@ -1,9 +1,9 @@
+http://blog.ifycyu.ml/posts/407ed11.html
 http://blog.ifycyu.ml/link/index.html
 http://blog.ifycyu.ml/artitalk/index.html
 http://blog.ifycyu.ml/posts/b19ce5f3.html
 http://blog.ifycyu.ml/posts/5a1a850e.html
 http://blog.ifycyu.ml/posts/8c2f6b20.html
-http://blog.ifycyu.ml/link/index%20-%20%E5%89%AF%E6%9C%AC.html
 http://blog.ifycyu.ml/posts/d0a7dd23.html
 http://blog.ifycyu.ml/gallery/conan/index.html
 http://blog.ifycyu.ml/gallery/index.html
@@ -52,6 +52,7 @@ http://blog.ifycyu.ml/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/
 http://blog.ifycyu.ml/tags/%E7%AE%97%E6%B3%95/
 http://blog.ifycyu.ml/tags/Kaggle/
 http://blog.ifycyu.ml/tags/%E8%B6%85%E7%AE%97/
+http://blog.ifycyu.ml/tags/diary/
 http://blog.ifycyu.ml/categories/JNU/
 http://blog.ifycyu.ml/categories/C/
 http://blog.ifycyu.ml/categories/%E6%B5%8B%E8%AF%95/
@@ -75,3 +76,4 @@ http://blog.ifycyu.ml/categories/C/%E5%9F%BA%E7%A1%80/
 http://blog.ifycyu.ml/categories/Kaggle/
 http://blog.ifycyu.ml/categories/sklearn/
 http://blog.ifycyu.ml/categories/JNU/%E8%B6%85%E7%AE%97/
+http://blog.ifycyu.ml/categories/%E6%97%A5%E8%AE%B0/
